@@ -8,6 +8,7 @@ import { nav, services, site, whatsappHref } from "@/data/site";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { JsonLd } from "@/components/JsonLd";
 import { MobileNav } from "@/components/MobileNav";
+import { MobileStickyBar } from "@/components/MobileStickyBar";
 import { StickyEnquiryBar } from "@/components/StickyEnquiryBar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -117,7 +118,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans min-h-screen flex flex-col bg-porcelain text-ink antialiased">
+      <body className="font-sans min-h-screen flex flex-col bg-porcelain text-ink antialiased pb-16 sm:pb-0">
         <JsonLd data={organization} />
         <JsonLd data={localBusiness} />
 
@@ -179,6 +180,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Global Floating WhatsApp Button */}
         <FloatingWhatsApp />
+
+        {/* 1-Tap Smartphone Sticky Action Bar */}
+        <MobileStickyBar />
 
         {/* Global Footer - Midnight Sapphire & High Conversion Gold */}
         <footer className="bg-navy-950 py-14 sm:py-16 text-white border-t border-amber-500/20 relative overflow-hidden">

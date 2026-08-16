@@ -24,7 +24,7 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp with ATS Interior Solutions"
-      className="fixed bottom-6 right-6 z-50 inline-flex items-center gap-2 rounded-full bg-emerald-600 px-4 py-3 text-xs font-extrabold text-white shadow-2xl transition-all duration-300 hover:bg-emerald-500 hover:scale-110 active:scale-95 border-2 border-white/80"
+      className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 inline-flex items-center gap-2 rounded-full bg-emerald-600 px-3.5 sm:px-4 py-3 text-xs font-extrabold text-white shadow-2xl transition-all duration-300 hover:bg-emerald-500 hover:scale-110 active:scale-95 border-2 border-white/80"
     >
       <MessageCircle size={20} className="animate-pulse" />
       <span className="hidden sm:inline">WhatsApp Us</span>

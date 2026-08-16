@@ -1,0 +1,55 @@
+⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+Error: Route "/[slug]" used `params.slug`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at LandingPage (app\[slug]\page.tsx:37:38)
+  35 |
+  36 | export default function LandingPage({ params }: Props) {
+> 37 |   const page = getLandingPage(params.slug);
+     |                                      ^
+  38 |   if (!page) notFound();
+  39 |
+  40 |   const location = page.area ? titleCaseSlug(page.area) : page.city?.name ?? "Delhi NCR";
+Error: Route "/[slug]" used `params.slug`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Module.generateMetadata (app\[slug]\page.tsx:18:38)
+  16 |
+  17 | export function generateMetadata({ params }: Props): Metadata {
+> 18 |   const page = getLandingPage(params.slug);
+     |                                      ^
+  19 |   if (!page) return {};
+  20 |   const location = page.area ? titleCaseSlug(page.area) : page.city?.name ?? "Delhi NCR";
+  21 |   const title = `${page.service.name} in ${location}`;
+Error: Route "/[slug]" used `params.slug`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at LandingPage (app\[slug]\page.tsx:37:38)
+  35 |
+  36 | export default function LandingPage({ params }: Props) {
+> 37 |   const page = getLandingPage(params.slug);
+     |                                      ^
+  38 |   if (!page) notFound();
+  39 |
+  40 |   const location = page.area ? titleCaseSlug(page.area) : page.city?.name ?? "Delhi NCR";
+Error: Route "/[slug]" used `params.slug`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Module.generateMetadata (app\[slug]\page.tsx:18:38)
+  16 |
+  17 | export function generateMetadata({ params }: Props): Metadata {
+> 18 |   const page = getLandingPage(params.slug);
+     |                                      ^
+  19 |   if (!page) return {};
+  20 |   const location = page.area ? titleCaseSlug(page.area) : page.city?.name ?? "Delhi NCR";
+  21 |   const title = `${page.service.name} in ${location}`;
+Error: Route "/[slug]" used `params.slug`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at LandingPage (app\[slug]\page.tsx:37:38)
+  35 |
+  36 | export default function LandingPage({ params }: Props) {
+> 37 |   const page = getLandingPage(params.slug);
+     |                                      ^
+  38 |   if (!page) notFound();
+  39 |
+  40 |   const location = page.area ? titleCaseSlug(page.area) : page.city?.name ?? "Delhi NCR";
+Error: Route "/[slug]" used `params.slug`. `params` is a Promise and must be unwrapped with `await` or `React.use()` before accessing its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+    at Module.generateMetadata (app\[slug]\page.tsx:18:38)
+  16 |
+  17 | export function generateMetadata({ params }: Props): Metadata {
+> 18 |   const page = getLandingPage(params.slug);
+     |                                      ^
+  19 |   if (!page) return {};
+  20 |   const location = page.area ? titleCaseSlug(page.area) : page.city?.name ?? "Delhi NCR";
+  21 |   const title = `${page.service.name} in ${location}`;

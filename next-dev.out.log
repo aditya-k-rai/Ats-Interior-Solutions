@@ -1,0 +1,48 @@
+
+> ats-interior-solutions@0.1.0 dev
+> next dev --hostname 127.0.0.1 --port 3001
+
+▲ Next.js 16.3.1 (Turbopack)
+- Local:         http://127.0.0.1:3001
+- Network:       http://127.0.0.1:3001
+✓ Ready in 580ms
+✓ Running next.config.mjs took 21ms
+Creating turbopack project { dir: 'C:\\Users\\Mighty\\Downloads\\Ats Interior', testMode: true }
+
+✓ Generated AGENTS.md and CLAUDE.md for AI agents. Set `agentRules: false` in next.config to disable.
+ GET / 200 in 2.8s (next.js: 2.4s, application-code: 350ms)
+▲ Next.js 16.3.1 (Turbopack)
+- Local:         http://127.0.0.1:3001
+- Network:       http://127.0.0.1:3001
+✓ Ready in 487ms
+✓ Running next.config.mjs took 23ms
+Creating turbopack project { dir: 'C:\\Users\\Mighty\\Downloads\\Ats Interior', testMode: true }
+
+ GET / 200 in 704ms (next.js: 253ms, application-code: 451ms)
+ GET /sitemap.xml 200 in 523ms (next.js: 464ms, application-code: 59ms)
+ GET /interior-design-noida 404 in 1364ms (next.js: 625ms, generate-params: 588ms, application-code: 151ms)
+ GET /modular-kitchen-noida 404 in 121ms (next.js: 11ms, generate-params: 9ms, application-code: 101ms)
+ GET /interior-design 404 in 83ms (next.js: 6ms, generate-params: 0.0ms, application-code: 77ms)
+ GET /sitemap.xml 200 in 18ms (next.js: 6ms, application-code: 11ms)
+ GET /interior-design-noida 200 in 187ms (next.js: 12ms, generate-params: 8ms, application-code: 167ms)
+ GET /blog/modular-kitchen-cost-noida 200 in 1200ms (next.js: 435ms, generate-params: 697ms, application-code: 68ms)
+ GET /sitemap.xml 200 in 81ms (next.js: 51ms, application-code: 30ms)
+ GET /testimonials 200 in 660ms (next.js: 374ms, application-code: 286ms)
+ GET /projects/3-bhk-contemporary-interior-noida-sector-137 200 in 1084ms (next.js: 414ms, generate-params: 559ms, application-code: 111ms)
+ GET /locations/noida 200 in 1199ms (next.js: 468ms, generate-params: 617ms, application-code: 114ms)
+ POST /api/v1/auth/company-register 404 in 443ms (next.js: 344ms, application-code: 99ms)
+ POST /api/v1/auth/google 404 in 126ms (next.js: 14ms, application-code: 111ms)
+ POST /api/v1/auth/google 404 in 113ms (next.js: 16ms, application-code: 97ms)
+ POST /api/v1/auth/forgot-password 404 in 119ms (next.js: 30ms, application-code: 88ms)
+ POST /api/v1/auth/forgot-password 404 in 82ms (next.js: 11ms, application-code: 71ms)
+ POST /api/v1/auth/forgot-password 404 in 64ms (next.js: 10ms, application-code: 54ms)
+ OPTIONS /api/v1/auth/super-admin/verify-otp 404 in 154ms (next.js: 44ms, application-code: 110ms)
+ OPTIONS /api/v1/auth/super-admin/companies 404 in 132ms (next.js: 35ms, application-code: 98ms)
+ OPTIONS /api/v1/auth/super-admin/companies 404 in 85ms (next.js: 21ms, application-code: 64ms)
+ OPTIONS /api/v1/auth/super-admin/request-otp 404 in 111ms (next.js: 22ms, application-code: 89ms)
+ OPTIONS /api/v1/auth/super-admin/verify-otp 404 in 114ms (next.js: 25ms, application-code: 90ms)
+ OPTIONS /api/v1/auth/super-admin/companies 404 in 101ms (next.js: 21ms, application-code: 80ms)
+ OPTIONS /api/v1/auth/super-admin/companies 404 in 118ms (next.js: 29ms, application-code: 89ms)
+ OPTIONS /api/v1/auth/super-admin/request-otp 404 in 104ms (next.js: 17ms, application-code: 87ms)
+ OPTIONS /api/v1/auth/super-admin/verify-otp 404 in 95ms (next.js: 25ms, application-code: 71ms)
+ OPTIONS /api/v1/auth/super-admin/companies 404 in 104ms (next.js: 17ms, application-code: 87ms)

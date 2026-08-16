@@ -119,7 +119,7 @@ export const cities = [
 
 export const projects = [
   {
-    title: "3 BHK Contemporary Interior & TV Unit",
+    title: "3 BHK Contemporary Interior & TV Unit Panel",
     city: "Noida",
     area: "Sector 137",
     service: "Full Home",
@@ -130,7 +130,7 @@ export const projects = [
     budget: "Rs. 14L to Rs. 18L",
     timeline: "10 weeks",
     className: "living-image",
-    image: "/images/living-1.jpg",
+    image: "/images/work/tv-unit-living-1.jpg",
     slug: "3-bhk-contemporary-interior-noida-sector-137",
     challenge: "The client needed maximum storage, a soothing open-plan living area with a custom TV panel unit, and a functional kitchen for a 4-member family.",
     solution: "Founder Manoj Sharma & team crafted custom concealed storage, warm ambient LED cove lighting, neutral palette laminates, and an optimized modular kitchen layout.",
@@ -139,7 +139,7 @@ export const projects = [
     testimonial: "Mr. Manoj Sharma personally reviewed our site layout. The design felt premium and was delivered right on time."
   },
   {
-    title: "Acrylic Modular Kitchen Transformation",
+    title: "Acrylic Gloss Modular Kitchen",
     city: "Greater Noida",
     area: "Gaur City",
     service: "Kitchen",
@@ -150,7 +150,7 @@ export const projects = [
     budget: "Rs. 3.5L to Rs. 5L",
     timeline: "5 weeks",
     className: "kitchen-image",
-    image: "/images/kitchen-1.jpg",
+    image: "/images/work/modular-kitchen-1.jpg",
     slug: "acrylic-modular-kitchen-gaur-city",
     challenge: "The existing kitchen had poor corner utilization, limited prep space, and visible appliance clutter.",
     solution: "ATS designed an L-shaped acrylic kitchen with a tall pantry unit, tandem pull-outs, HDMR carcass, and a seamless quartz breakfast ledge.",
@@ -170,7 +170,7 @@ export const projects = [
     budget: "Rs. 2L to Rs. 3L",
     timeline: "3 weeks",
     className: "wardrobe-image",
-    image: "/images/wardrobe-1.jpg",
+    image: "/images/work/wardrobe-acrylic-blue.jpg",
     slug: "wardrobe-storage-indirapuram",
     challenge: "The family needed expansive clothes and luggage storage without obstructing movement in compact bedrooms.",
     solution: "Fitted floor-to-ceiling sliding wardrobes in dual-tone acrylic cream and metallic blue with full lofts and integrated dressers.",
@@ -179,24 +179,115 @@ export const projects = [
     testimonial: "The wardrobe installation was clean and completed within the exact 3-week promised timeline."
   },
   {
-    title: "Luxury POP Ceiling & Cove Lighting",
-    city: "Delhi NCR",
-    area: "Dwarka Sector 12",
-    service: "False Ceiling",
-    serviceSlug: "false-ceiling",
-    property: "4 BHK Builder Floor",
-    size: "2,200 sqft overall",
-    style: "Architectural cove & recessed",
-    budget: "Rs. 1.8L to Rs. 2.5L",
-    timeline: "2.5 weeks",
+    title: "Modern Designer TV Console & Living Room",
+    city: "Noida",
+    area: "Sector 62",
+    service: "Interior Design",
+    serviceSlug: "interior-design",
+    property: "3 BHK Premium Flat",
+    size: "1,800 sqft",
+    style: "Modern Architectural",
+    budget: "Rs. 16L to Rs. 22L",
+    timeline: "9 weeks",
     className: "living-image",
-    image: "/images/team-discussion.jpg",
-    slug: "luxury-pop-ceiling-dwarka",
-    challenge: "High ceiling height needed a layered design that concealed air conditioning ducts while creating grand ambient light.",
-    solution: "Multi-tiered POP ceiling with double cove LED troughs, magnetic track lighting, and flush AC vent integrations.",
-    scope: ["Living hall multi-cove design", "Dining floating island ceiling", "Bedroom peripheral coves", "Electrical wiring & fixtures"],
-    materials: ["Gyproc Gypsum board", "Kaufmann POP plaster", "Wipro Dimmable COB lights", "Havells FRLS copper wiring"],
-    testimonial: "The lighting mood transformed our entire drawing room. Very clean ceiling finish."
+    image: "/images/work/tv-unit-living-2.jpg",
+    slug: "modern-designer-tv-console-noida",
+    challenge: "Large drawing room needed an architectural focal point with hidden wiring, display shelves, and ambient cove lighting.",
+    solution: "Fluted charcoal panel backdrop with warm LED strip troughs, floating marble console, and integrated acoustic wall treatments.",
+    scope: ["Drawing room TV panel unit", "Foyer shoe rack & mirror console", "Dining area accent wall", "POP ceiling lighting"],
+    materials: ["Louvers Charcoal Panel", "Veneer finish", "Warm LED strips", "Hettich push-to-open channels"],
+    testimonial: "The TV unit transformed our living room completely. Stunning craftsmanship!"
+  },
+  {
+    title: "U-Shaped HDMR Modular Kitchen",
+    city: "Ghaziabad",
+    area: "Vaishali",
+    service: "Kitchen",
+    serviceSlug: "modular-kitchen",
+    property: "Residential Apartment",
+    size: "140 sqft kitchen",
+    style: "U-Shaped Heavy Duty Modular",
+    budget: "Rs. 4L to Rs. 6L",
+    timeline: "4.5 weeks",
+    className: "kitchen-image",
+    image: "/images/work/modular-kitchen-4.jpg",
+    slug: "u-shaped-hdmr-kitchen-vaishali",
+    challenge: "High daily Indian cooking requirements called for oil-resistant, easy-clean shutter finishes and maximum pantry drawers.",
+    solution: "U-shaped HDMR board kitchen with anti-scratch laminate, corner carousel units, and under-counter tandem boxes.",
+    scope: ["3D layout rendering", "U-shaped modular carcass", "Corner carousel pull-out", "Chimney & hob installation"],
+    materials: ["Action Tesa HDMR Board", "Anti-scratch Matte Laminate", "Granite countertop", "Blum Tandem drawers"],
+    testimonial: "Very sturdy kitchen build quality. Storage planning was handled brilliantly by Mr. Manoj Sharma."
+  },
+  {
+    title: "Custom Kids Bedroom & Study Storage",
+    city: "Noida",
+    area: "Sector 50",
+    service: "Wardrobe",
+    serviceSlug: "wardrobe",
+    property: "3 BHK Apartment",
+    size: "Kids Bedroom (14x12 ft)",
+    style: "Playful Ergonomic Storage",
+    budget: "Rs. 1.8L to Rs. 2.5L",
+    timeline: "3 weeks",
+    className: "wardrobe-image",
+    image: "/images/work/bedroom-kids.jpg",
+    slug: "kids-bedroom-study-noida",
+    challenge: "Growing children needed combined book storage, clothes wardrobe, and a study desk without crowding walkable floor space.",
+    solution: "Custom study desk with overhead bookshelves, integrated wardrobe with soft pastel laminate shutters, and pin-up board.",
+    scope: ["Kids wardrobe with lofts", "Integrated study desk & chair space", "Overhead library shelves", "Safety rounded corners"],
+    materials: ["High-density MR Plywood", "Soft-touch Pastel Laminates", "Soft-close hinges", "Telescopic drawer channels"],
+    testimonial: "Our kids love their new study room setup! Clean execution by the ATS team."
+  }
+];
+
+export const realWorkGallery = [
+  {
+    title: "Executive Cabin Studio & Materials Studio",
+    category: "Studio & Team",
+    image: "/images/work/owner-engineer-cabin.jpg",
+    description: "Founder Manoj Sharma with Site Engineer Utkarsh in the ATS Noida Executive Cabin."
+  },
+  {
+    title: "Architecture & 3D Design Consultation",
+    category: "Design Process",
+    image: "/images/work/owner-architect-discussion.jpg",
+    description: "Manoj Sharma reviewing floor plans and 3D concept renders with Senior Architect."
+  },
+  {
+    title: "Contemporary Living Room TV Panel Unit",
+    category: "Living Room",
+    image: "/images/work/tv-unit-living-1.jpg",
+    description: "Custom fluted paneling and marble floating console delivered in Noida Sector 137."
+  },
+  {
+    title: "High-Gloss Acrylic Modular Kitchen",
+    category: "Modular Kitchen",
+    image: "/images/work/modular-kitchen-1.jpg",
+    description: "L-shaped acrylic kitchen with quartz countertop and tandem pull-outs delivered in Gaur City."
+  },
+  {
+    title: "Acrylic Cream & Metallic Blue Wardrobe",
+    category: "Wardrobes",
+    image: "/images/work/wardrobe-acrylic-blue.jpg",
+    description: "Floor-to-ceiling fitted wardrobe with sliding tracks and top lofts delivered in Indirapuram."
+  },
+  {
+    title: "Heavy-Duty HDMR Kitchen Execution",
+    category: "Modular Kitchen",
+    image: "/images/work/modular-kitchen-4.jpg",
+    description: "U-shaped oil-resistant kitchen using Action Tesa HDMR board and tandem boxes."
+  },
+  {
+    title: "Architectural TV Console & Wall Panel",
+    category: "Living Room",
+    image: "/images/work/tv-unit-living-2.jpg",
+    description: "Modern drawing room entertainment wall with warm LED cove troughs."
+  },
+  {
+    title: "Kids Bedroom Wardrobe & Study Desk",
+    category: "Bedrooms",
+    image: "/images/work/bedroom-kids.jpg",
+    description: "Custom study desk and wardrobe storage delivered for a 3 BHK family home."
   }
 ];
 

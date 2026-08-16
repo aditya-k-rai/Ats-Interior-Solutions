@@ -5,7 +5,7 @@ import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { BudgetEstimator } from "@/components/BudgetEstimator";
 import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
-import { blogPosts, cities, faqs, materialComparisons, process, projects, services, site, trustMetrics, usp, whatsappHref } from "@/data/site";
+import { blogPosts, cities, faqs, materialComparisons, process, projects, realWorkGallery, services, site, trustMetrics, usp, whatsappHref } from "@/data/site";
 
 export default function HomePage() {
   const localBusiness = {
@@ -69,14 +69,14 @@ export default function HomePage() {
               Interior Designer in Noida, Greater Noida & Delhi NCR
             </h1>
             <p className="mt-5 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
-              Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — planned around your budget, timeline and daily routine.
+              Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — led by Founder Manoj Sharma & site team.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl gradient-btn-gold px-7 py-4 text-sm font-bold text-ink shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" href="#consultation">
                 <span>Get Free Consultation</span> <ArrowRight size={18} />
               </a>
               <Link className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/5 backdrop-blur px-6 py-4 text-sm font-bold text-white transition hover:bg-white/15 hover:border-gold-400/50 active:scale-95" href="/portfolio">
-                <Play size={17} /> View Our Work
+                <Play size={17} /> View Real Work
               </Link>
             </div>
 
@@ -164,29 +164,46 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Portfolio Proof */}
-      <section className="bg-mist/80 py-16 sm:py-20 border-y border-emerald-950/10">
+      {/* Real Completed Work Projects (Featuring Real ATS Photographs) */}
+      <section className="bg-mist/80 py-16 sm:py-20 border-y border-emerald-950/10" id="work">
         <div className="section-shell">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-white px-3 py-1 rounded-full border border-gold-200">
-                Portfolio Proof
+                Real ATS Project Portfolio
               </span>
-              <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">Real projects delivered across NCR</h2>
+              <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">Actual Work Delivered by ATS</h2>
+              <p className="text-sm text-graphite mt-2">Real site photographs of kitchens, wardrobes, living rooms and TV consoles in Noida & Greater Noida.</p>
             </div>
             <Link className="inline-flex items-center gap-2 font-bold text-emerald-800 hover:text-gold-600 transition text-sm group" href="/portfolio">
               <span>Full portfolio</span> <ArrowRight size={18} className="transition group-hover:translate-x-1" />
             </Link>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-              <Link className={`relative flex min-h-[380px] items-end overflow-hidden rounded-2xl p-6 text-white shadow-soft group border border-emerald-950/10 ${project.className}`} href={`/projects/${project.slug}`} key={project.slug}>
-                <div className="relative z-10 transition duration-300 group-hover:translate-y-[-4px]">
-                  <span className="mb-2 inline-block rounded bg-gold-400/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-ink backdrop-blur">
+              <Link className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-soft border border-emerald-950/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl" href={`/projects/${project.slug}`} key={project.slug}>
+                <div className="relative h-64 w-full overflow-hidden bg-slate-900">
+                  <Image
+                    src={project.image || "/images/work/tv-unit-living-1.jpg"}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/20 to-transparent" />
+                  <span className="absolute top-3 left-3 rounded-lg bg-gold-400/95 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-ink shadow">
                     {project.city} • {project.area}
                   </span>
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold leading-snug">{project.title}</h3>
-                  <p className="mt-2 text-xs font-semibold text-white/90">{project.service} | {project.budget}</p>
+                </div>
+                <div className="p-5 flex flex-col justify-between flex-1 bg-white">
+                  <div>
+                    <h3 className="font-display text-2xl font-bold text-emerald-950 group-hover:text-gold-600 transition">{project.title}</h3>
+                    <p className="mt-2 text-xs text-graphite line-clamp-2">{project.challenge}</p>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between border-t border-mist pt-3 text-xs font-semibold text-emerald-800">
+                    <span>{project.service}</span>
+                    <span className="text-gold-600">{project.budget}</span>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -194,11 +211,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Interactive SXO Before & After Showcase */}
-      <section className="py-16 sm:py-20">
+      {/* Actual Site Work Photo Gallery */}
+      <section className="py-16 sm:py-20 bg-white">
         <div className="section-shell">
           <div className="mb-10 max-w-2xl">
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-gold-100 px-3 py-1 rounded-full border border-gold-200">
+              Site Handover Gallery
+            </span>
+            <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">ATS Real Site Photographs</h2>
+            <p className="mt-2 text-sm leading-6 text-graphite">
+              Inspected and verified photos from real client handovers, factory assembly, and on-site engineering execution.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {realWorkGallery.map((item) => (
+              <div className="group relative h-72 overflow-hidden rounded-2xl bg-emerald-950 shadow-md border border-emerald-950/10" key={item.title}>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition duration-500 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/30 to-transparent p-5 flex flex-col justify-end text-white">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-gold-400">{item.category}</span>
+                  <h4 className="font-display text-lg font-bold text-white mt-1 leading-snug">{item.title}</h4>
+                  <p className="text-[11px] text-white/80 mt-1 line-clamp-2">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive SXO Before & After Showcase */}
+      <section className="py-16 sm:py-20 bg-mist/60 border-t border-emerald-950/10">
+        <div className="section-shell">
+          <div className="mb-10 max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-white px-3 py-1 rounded-full border border-gold-200">
               Interactive SXO Showcase
             </span>
             <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">Drag or Touch to see the transformation</h2>

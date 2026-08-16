@@ -4,10 +4,9 @@
 
 :root {
   color-scheme: light;
-  --page-bg: #faf9f6;
+  --page-bg: #faf8f3;
   --accent-gold: #c5a059;
-  --accent-emerald: #143026;
-  --accent-terracotta: #d95338;
+  --accent-emerald: #1b3b2f;
 }
 
 * {
@@ -21,14 +20,14 @@ html {
 body {
   margin: 0;
   background: var(--page-bg);
-  color: #0f1715;
+  color: #0c1814;
   font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #143026;
-  color: #c5a059;
+  background: #1b3b2f;
+  color: #d4af37;
 }
 
 .section-shell {
@@ -45,17 +44,17 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0f1715;
+  background: #0c1814;
 }
 ::-webkit-scrollbar-thumb {
-  background: #31483f;
+  background: #1b3b2f;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c5a059;
+  background: #d4af37;
 }
 
-/* Animations */
+/* Keyframe Animations */
 @keyframes floatSlow {
   0%, 100% {
     transform: translateY(0px);
@@ -67,19 +66,10 @@ body {
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
   }
   50% {
-    box-shadow: 0 0 30px rgba(197, 160, 89, 0.7);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
   }
 }
 
@@ -106,54 +96,40 @@ body {
   animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.shimmer-bg {
-  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
-  background-size: 200% 100%;
-  animation: shimmer 3s infinite;
+/* Theme Button Gradients */
+.gradient-btn-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #c5a059 50%, #aa7c11 100%);
+  color: #0c1814;
 }
 
-/* Glassmorphism & Gradient Effects */
-.glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+.gradient-btn-emerald {
+  background: linear-gradient(135deg, #1b3b2f 0%, #13261f 100%);
+  color: #ffffff;
 }
 
-.glass-dark {
-  background: rgba(15, 23, 21, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+.gradient-btn-clay {
+  background: linear-gradient(135deg, #2d5e4d 0%, #1b3b2f 100%);
+  color: #ffffff;
 }
 
 .gradient-text-gold {
-  background: linear-gradient(135deg, #f3e7c4 0%, #c5a059 50%, #e0c885 100%);
+  background: linear-gradient(135deg, #f3e3a3 0%, #d4af37 50%, #c5a059 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-brand {
-  background: linear-gradient(135deg, #143026 0%, #31483f 50%, #c5a059 100%);
+  background: linear-gradient(135deg, #0c1814 0%, #1b3b2f 50%, #c5a059 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.gradient-btn-gold {
-  background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
-  color: #0f1715;
-}
-
-.gradient-btn-clay {
-  background: linear-gradient(135deg, #e06d53 0%, #b83d23 100%);
-  color: #ffffff;
-}
-
+/* Hero Section Overlay */
 .hero-image {
   background-image:
-    radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.25) 0%, transparent 40%),
-    radial-gradient(circle at 20% 80%, rgba(20, 48, 38, 0.9) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(10, 17, 15, 0.85) 0%, rgba(10, 17, 15, 0.65) 100%),
+    radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.2) 0%, transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(27, 59, 47, 0.92) 0%, transparent 65%),
+    linear-gradient(180deg, rgba(12, 24, 20, 0.88) 0%, rgba(12, 24, 20, 0.72) 100%),
     url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=85");
   background-size: cover;
   background-position: center;
@@ -161,7 +137,7 @@ body {
 
 .kitchen-image {
   background-image:
-    linear-gradient(180deg, rgba(10, 17, 15, 0.15), rgba(10, 17, 15, 0.75)),
+    linear-gradient(180deg, rgba(12, 24, 20, 0.15), rgba(12, 24, 20, 0.8)),
     url("https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=82");
   background-size: cover;
   background-position: center;
@@ -169,7 +145,7 @@ body {
 
 .living-image {
   background-image:
-    linear-gradient(180deg, rgba(10, 17, 15, 0.15), rgba(10, 17, 15, 0.75)),
+    linear-gradient(180deg, rgba(12, 24, 20, 0.15), rgba(12, 24, 20, 0.8)),
     url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=82");
   background-size: cover;
   background-position: center;
@@ -177,7 +153,7 @@ body {
 
 .wardrobe-image {
   background-image:
-    linear-gradient(180deg, rgba(10, 17, 15, 0.15), rgba(10, 17, 15, 0.75)),
+    linear-gradient(180deg, rgba(12, 24, 20, 0.15), rgba(12, 24, 20, 0.8)),
     url("https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=82");
   background-size: cover;
   background-position: center;

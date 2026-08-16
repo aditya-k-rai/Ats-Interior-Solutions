@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeftRight, MessageCircle } from "lucide-react";
 import { whatsappHref } from "@/data/site";
 
@@ -19,43 +19,68 @@ export function BeforeAfterSlider({
 }: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMove = (clientX: number, rect: DOMRect) => {
+  const updatePosition = useCallback((clientX: number) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
     const x = clientX - rect.left;
     let percentage = (x / rect.width) * 100;
     if (percentage < 0) percentage = 0;
     if (percentage > 100) percentage = 100;
     setSliderPosition(percentage);
-  };
+  }, []);
 
-  const handleTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    handleMove(event.touches[0].clientX, rect);
-  };
+  const handleTouchMove = useCallback((event: TouchEvent) => {
+    if (event.touches.length > 0) {
+      updatePosition(event.touches[0].clientX);
+    }
+  }, [updatePosition]);
 
-  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!isDragging) return;
-    const rect = event.currentTarget.getBoundingClientRect();
-    handleMove(event.clientX, rect);
-  };
+  const handleMouseMove = useCallback((event: MouseEvent) => {
+    updatePosition(event.clientX);
+  }, [updatePosition]);
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  useEffect(() => {
+    if (isDragging) {
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseup", handleMouseUp);
+      window.addEventListener("touchmove", handleTouchMove);
+      window.addEventListener("touchend", handleMouseUp);
+    }
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleMouseUp);
+    };
+  }, [isDragging, handleMouseMove, handleMouseUp, handleTouchMove]);
 
   return (
-    <div className="overflow-hidden rounded-xl bg-white shadow-soft">
+    <div className="overflow-hidden rounded-2xl bg-white shadow-xl border border-moss/10">
       <div
-        className="group relative h-[380px] w-full select-none sm:h-[460px]"
-        onMouseDown={() => setIsDragging(true)}
-        onMouseUp={() => setIsDragging(false)}
-        onMouseLeave={() => setIsDragging(false)}
-        onMouseMove={handleMouseMove}
-        onTouchMove={handleTouchMove}
+        ref={containerRef}
+        className="group relative h-[300px] sm:h-[420px] md:h-[480px] w-full select-none touch-none cursor-ew-resize overflow-hidden"
+        onMouseDown={(e) => {
+          setIsDragging(true);
+          updatePosition(e.clientX);
+        }}
+        onTouchStart={(e) => {
+          setIsDragging(true);
+          updatePosition(e.touches[0].clientX);
+        }}
       >
         {/* After Image (Background) */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${afterImage})` }}
         >
-          <span className="absolute bottom-4 right-4 rounded-md bg-moss/80 px-3 py-1.5 text-xs font-bold text-white backdrop-blur">
-            AFTER (ATS Interior)
+          <span className="absolute bottom-3 right-3 rounded-lg bg-moss/90 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur shadow">
+            AFTER (ATS Design)
           </span>
         </div>
 
@@ -67,31 +92,35 @@ export function BeforeAfterSlider({
             clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`
           }}
         >
-          <span className="absolute bottom-4 left-4 rounded-md bg-ink/80 px-3 py-1.5 text-xs font-bold text-white backdrop-blur">
+          <span className="absolute bottom-3 left-3 rounded-lg bg-ink/90 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur shadow">
             BEFORE (Original Site)
           </span>
         </div>
 
-        {/* Slider Divider Bar */}
+        {/* Slider Handle Divider */}
         <div
-          className="absolute bottom-0 top-0 w-1 cursor-ew-resize bg-white shadow-lg"
+          className="absolute bottom-0 top-0 w-1 bg-white shadow-2xl"
           style={{ left: `${sliderPosition}%` }}
         >
-          <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-clay p-2 text-white shadow-md transition group-hover:scale-110">
+          <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white gradient-btn-gold p-2.5 text-ink shadow-lg transition-transform group-hover:scale-110 active:scale-95">
             <ArrowLeftRight size={18} />
           </div>
         </div>
       </div>
 
-      <div className="flex flex-wrap items-center justify-between gap-4 p-5 bg-mist/60 sm:p-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-5 bg-mist/60 sm:p-6 border-t border-moss/10">
         <div>
-          <span className="text-xs font-bold uppercase tracking-[0.18em] text-clay">Interactive SXO Showcase</span>
-          <h3 className="font-display text-2xl text-ink mt-0.5">{title}</h3>
-          <p className="mt-1 text-sm text-graphite max-w-xl">{subtitle}</p>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-clay bg-clay/10 px-2.5 py-1 rounded">
+            Touch / Drag SXO Comparison
+          </span>
+          <h3 className="font-display text-xl sm:text-2xl text-ink mt-1">{title}</h3>
+          <p className="mt-1 text-xs sm:text-sm text-graphite max-w-xl leading-relaxed">{subtitle}</p>
         </div>
         <a
-          className="inline-flex items-center gap-2 rounded-md bg-moss px-4 py-3 text-sm font-semibold text-white transition hover:bg-moss/90"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-clay px-5 py-3 text-xs font-bold text-white shadow-md transition hover:scale-105 active:scale-95"
           href={whatsappHref(`I want a similar transformation for my ${title}.`)}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <MessageCircle size={16} /> Get a Similar Transformation
         </a>

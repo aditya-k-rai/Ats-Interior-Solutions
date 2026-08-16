@@ -16,12 +16,13 @@ export function FloatingWhatsApp() {
   return (
     <a
       aria-label="Open WhatsApp consultation"
-      className="fixed bottom-5 right-5 z-50 grid size-14 place-items-center rounded-full bg-clay text-white shadow-soft transition hover:scale-105 active:scale-95"
+      className="fixed bottom-5 right-5 z-50 flex items-center gap-2.5 rounded-full bg-emerald-800 text-white px-4 py-3.5 shadow-2xl border border-gold-400/30 transition-all duration-300 hover:scale-105 hover:bg-emerald-700 active:scale-95 animate-pulse-glow"
       href={whatsappHref(contextMessage)}
       target="_blank"
       rel="noopener noreferrer"
     >
-      <MessageCircle size={24} />
+      <MessageCircle size={22} className="text-gold-400" />
+      <span className="text-xs font-bold tracking-wide hidden sm:inline text-white">Chat on WhatsApp</span>
     </a>
   );
 }

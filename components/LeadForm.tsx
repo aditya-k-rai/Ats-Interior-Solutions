@@ -123,10 +123,10 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
 
   if (compact) {
     return (
-      <form className="grid gap-3 rounded-xl bg-white p-5 shadow-xl border border-moss/10">
+      <form className="grid gap-3 rounded-xl bg-white p-5 shadow-xl border border-emerald-900/10">
         <div className="flex items-center gap-2 mb-1">
-          <Sparkles className="text-brass" size={18} />
-          <h3 className="font-display text-xl text-ink">Quick Consultation</h3>
+          <Sparkles className="text-gold-600" size={18} />
+          <h3 className="font-display text-xl text-emerald-950">Quick Consultation</h3>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Field label="Name">
@@ -154,7 +154,7 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
           <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg gradient-btn-gold px-4 py-3 text-xs font-bold text-ink shadow-md transition hover:scale-105" type="button">
             <Send size={15} /> Free Consultation
           </button>
-          <a className="inline-flex items-center justify-center gap-2 rounded-lg gradient-btn-clay px-4 py-3 text-xs font-bold text-white shadow-md transition hover:scale-105" href={whatsappHref(message)} target="_blank" rel="noopener noreferrer">
+          <a className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-800 text-gold-400 border border-gold-500/30 px-4 py-3 text-xs font-bold shadow-md transition hover:bg-emerald-700" href={whatsappHref(message)} target="_blank" rel="noopener noreferrer">
             <MessageCircle size={15} /> WhatsApp
           </a>
         </div>
@@ -164,16 +164,16 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
 
   return (
     <div className="rounded-2xl bg-white/95 p-6 shadow-2xl backdrop-blur-md border border-white/40 sm:p-7 transition-all duration-300">
-      <div className="mb-5 flex items-center justify-between gap-3 border-b border-moss/10 pb-4">
+      <div className="mb-5 flex items-center justify-between gap-3 border-b border-emerald-900/10 pb-4">
         <div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-mist px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-moss">
-            <Sparkles size={12} className="text-brass" /> Step {step + 1} of 6
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-emerald-800 border border-emerald-200">
+            <Sparkles size={12} className="text-gold-600" /> Step {step + 1} of 6
           </span>
-          <h3 className="font-display text-2xl text-ink mt-1">Book Free Consultation</h3>
+          <h3 className="font-display text-2xl text-emerald-950 mt-1.5">Book Free Consultation</h3>
         </div>
-        <div className="rounded-xl bg-ink p-3 text-right text-white shadow-inner">
-          <p className="text-[10px] uppercase font-bold text-brass tracking-wider">Lead Score</p>
-          <p className="font-display text-xl font-bold text-white">{score}<span className="text-xs text-brass">/100</span></p>
+        <div className="rounded-xl bg-emerald-950 p-3 text-right text-white shadow-inner border border-gold-500/20">
+          <p className="text-[10px] uppercase font-bold text-gold-400 tracking-wider">Lead Score</p>
+          <p className="font-display text-xl font-bold text-white">{score}<span className="text-xs text-gold-400">/100</span></p>
         </div>
       </div>
 
@@ -184,9 +184,9 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
             aria-label={option.label}
             className={`h-2 rounded-full transition-all duration-300 ${
               index === step
-                ? "bg-brass shadow-glow"
+                ? "bg-gold-400 shadow-glow"
                 : index < step
-                ? "bg-moss"
+                ? "bg-emerald-800"
                 : "bg-linen"
             }`}
             key={option.label}
@@ -200,9 +200,9 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
       <div className="min-h-[105px] animate-slide-up">{options[step].content}</div>
 
       {/* Navigation Buttons */}
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-moss/10 pt-4">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-emerald-900/10 pt-4">
         <button
-          className="inline-flex items-center gap-2 rounded-lg border border-moss/20 px-4 py-2.5 text-xs font-bold text-moss transition hover:bg-mist disabled:opacity-40 disabled:hover:bg-transparent cursor-pointer"
+          className="inline-flex items-center gap-2 rounded-lg border border-emerald-900/20 px-4 py-2.5 text-xs font-bold text-emerald-950 transition hover:bg-mist disabled:opacity-40 disabled:hover:bg-transparent cursor-pointer"
           disabled={step === 0}
           onClick={() => setStep((value) => Math.max(0, value - 1))}
           type="button"
@@ -212,7 +212,7 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
 
         {step < options.length - 1 ? (
           <button
-            className="inline-flex items-center gap-2 rounded-lg bg-moss px-5 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-moss/90 cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-lg gradient-btn-gold px-5 py-2.5 text-xs font-bold text-ink shadow-md transition hover:scale-105 cursor-pointer"
             onClick={() => setStep((value) => Math.min(options.length - 1, value + 1))}
             type="button"
           >
@@ -220,7 +220,7 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
           </button>
         ) : (
           <a
-            className="inline-flex items-center gap-2 rounded-lg gradient-btn-clay px-5 py-2.5 text-xs font-bold text-white shadow-lg transition hover:scale-105 cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-lg bg-emerald-800 text-gold-400 border border-gold-500/30 px-5 py-2.5 text-xs font-bold shadow-lg transition hover:bg-emerald-700 cursor-pointer"
             href={whatsappHref(message)}
             target="_blank"
             rel="noopener noreferrer"
@@ -231,7 +231,7 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
       </div>
 
       <p className="mt-4 text-[11px] leading-4 text-graphite/80 flex items-center gap-1">
-        <CheckCircle2 size={13} className="text-moss shrink-0" />
+        <CheckCircle2 size={13} className="text-emerald-800 shrink-0" />
         <span>By submitting, you agree to be contacted by ATS Interior Solutions for your free evaluation.</span>
       </p>
     </div>
@@ -242,7 +242,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   return (
     <label className="grid gap-2 text-xs font-bold uppercase tracking-wider text-graphite">
       {label}
-      <span className="contents [&>input]:w-full [&>input]:rounded-lg [&>input]:border [&>input]:border-moss/20 [&>input]:bg-white [&>input]:px-3.5 [&>input]:py-3 [&>input]:text-sm [&>input]:font-normal [&>input]:text-ink [&>input]:focus:border-brass [&>input]:focus:outline-none [&>select]:w-full [&>select]:rounded-lg [&>select]:border [&>select]:border-moss/20 [&>select]:bg-white [&>select]:px-3.5 [&>select]:py-3 [&>select]:text-sm [&>select]:font-normal [&>select]:text-ink [&>select]:focus:border-brass [&>select]:focus:outline-none">
+      <span className="contents [&>input]:w-full [&>input]:rounded-lg [&>input]:border [&>input]:border-emerald-900/20 [&>input]:bg-white [&>input]:px-3.5 [&>input]:py-3 [&>input]:text-sm [&>input]:font-normal [&>input]:text-emerald-950 [&>input]:focus:border-gold-400 [&>input]:focus:outline-none [&>select]:w-full [&>select]:rounded-lg [&>select]:border [&>select]:border-emerald-900/20 [&>select]:bg-white [&>select]:px-3.5 [&>select]:py-3 [&>select]:text-sm [&>select]:font-normal [&>select]:text-emerald-950 [&>select]:focus:border-gold-400 [&>select]:focus:outline-none">
         {children}
       </span>
     </label>

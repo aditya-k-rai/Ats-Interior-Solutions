@@ -121,8 +121,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={organization} />
         <JsonLd data={localBusiness} />
 
-        {/* Global Main Header */}
-        <header className="sticky top-0 z-50 border-b border-gold-500/20 bg-emerald-950/95 text-white shadow-xl backdrop-blur-md">
+        {/* Global Main Header - High Trust Midnight Sapphire Navy */}
+        <header className="sticky top-0 z-50 border-b border-amber-500/20 bg-navy-950/95 text-white shadow-xl backdrop-blur-md">
           <nav className="section-shell flex min-h-[60px] sm:min-h-[64px] items-center justify-between gap-3 py-2">
             <Link className="group flex items-center gap-3" href="/">
               <div className="relative h-11 w-36 sm:w-44 flex items-center justify-start transition group-hover:scale-105">
@@ -140,7 +140,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* Desktop Navigation Links */}
             <div className="hidden items-center gap-6 text-xs font-bold uppercase tracking-wider text-white/90 lg:flex">
               {nav.map((item) => (
-                <Link className="relative transition hover:text-gold-400 py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-gold-400 after:transition-all hover:after:w-full" href={item.href} key={item.href}>
+                <Link className="relative transition hover:text-amber-400 py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-amber-400 after:transition-all hover:after:w-full" href={item.href} key={item.href}>
                   {item.label}
                 </Link>
               ))}
@@ -150,14 +150,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex items-center gap-2">
               <a
                 aria-label="Call ATS Interior Solutions"
-                className="grid size-9 place-items-center rounded-lg border border-white/20 text-white transition hover:border-gold-400 hover:text-gold-400 hover:bg-white/10 active:scale-95"
+                className="grid size-9 place-items-center rounded-lg border border-white/20 text-white transition hover:border-amber-400 hover:text-amber-400 hover:bg-white/10 active:scale-95"
                 href={`tel:${site.phone.replaceAll(" ", "").replaceAll("-", "")}`}
               >
                 <Phone size={16} />
               </a>
               <a
                 aria-label="WhatsApp ATS Interior Solutions"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-800 text-gold-400 border border-gold-500/30 px-3 sm:px-3.5 py-2 text-xs font-bold shadow-md transition hover:bg-emerald-700 active:scale-95"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-amber-500 text-navy-950 border border-amber-400 px-3 sm:px-3.5 py-2 text-xs font-extrabold shadow-gold transition hover:bg-amber-400 hover:scale-105 active:scale-95"
                 href={whatsappHref("I want a free interior consultation.")}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -180,11 +180,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Global Floating WhatsApp Button */}
         <FloatingWhatsApp />
 
-        {/* Global Footer */}
-        <footer className="bg-emerald-950 py-14 sm:py-16 text-white border-t border-gold-500/20 relative overflow-hidden">
+        {/* Global Footer - Midnight Sapphire & High Conversion Gold */}
+        <footer className="bg-navy-950 py-14 sm:py-16 text-white border-t border-amber-500/20 relative overflow-hidden">
           {/* Ambient Background Glow */}
-          <div className="absolute top-0 right-0 size-80 rounded-full bg-gold-500/10 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 size-80 rounded-full bg-emerald-800/20 blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 size-80 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 size-80 rounded-full bg-navy-800/40 blur-3xl pointer-events-none" />
 
           <div className="section-shell relative z-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
             <div>
@@ -202,16 +202,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <p className="text-xs leading-6 text-white/75">{site.tagline}</p>
               
               <div className="mt-5 grid gap-1.5 text-xs text-white/70 bg-white/5 p-3.5 rounded-lg border border-white/10">
-                <p><strong className="text-gold-400">Phone:</strong> {site.phone}</p>
-                <p><strong className="text-gold-400">Email:</strong> {site.email}</p>
-                <p><strong className="text-gold-400">GSTIN:</strong> {site.gstin}</p>
-                <p><strong className="text-gold-400">Established:</strong> {site.established}</p>
-                <p><strong className="text-gold-400">Head Office:</strong> {site.address}</p>
+                <p><strong className="text-amber-400">Phone:</strong> {site.phone}</p>
+                <p><strong className="text-amber-400">Email:</strong> {site.email}</p>
+                <p><strong className="text-amber-400">GSTIN:</strong> {site.gstin}</p>
+                <p><strong className="text-amber-400">Established:</strong> {site.established}</p>
+                <p><strong className="text-amber-400">Head Office:</strong> {site.address}</p>
               </div>
 
               <div className="mt-5 flex flex-wrap gap-2">
                 <a
-                  className="rounded-lg gradient-btn-gold px-4 py-2.5 text-xs font-bold text-ink shadow-md transition hover:scale-105 active:scale-95"
+                  className="rounded-lg gradient-btn-gold px-4 py-2.5 text-xs font-bold text-navy-950 shadow-gold transition hover:scale-105 active:scale-95"
                   href={whatsappHref("I want to discuss my interior project.")}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -229,7 +229,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {/* Memberships & Badges */}
               <div className="mt-6 flex flex-wrap items-center gap-2">
                 {site.memberships.map((badge) => (
-                  <span key={badge} className="inline-flex items-center gap-1 rounded bg-white/10 px-2.5 py-1 text-[10px] font-semibold text-gold-400 border border-gold-500/20">
+                  <span key={badge} className="inline-flex items-center gap-1 rounded bg-white/10 px-2.5 py-1 text-[10px] font-semibold text-amber-400 border border-amber-500/20">
                     <BadgeCheck size={13} /> {badge}
                   </span>
                 ))}
@@ -237,45 +237,45 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             <div>
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-gold-400">Core Services</p>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-amber-400">Core Services</p>
               <div className="grid gap-2 text-xs text-white/75">
                 {services.map((service) => (
-                  <Link className="hover:text-gold-400 transition flex items-center gap-1.5" href={`/${service.slug}-noida`} key={service.slug}>
-                    <Sparkles size={11} className="text-gold-400/60" /> {service.name} in Noida
+                  <Link className="hover:text-amber-400 transition flex items-center gap-1.5" href={`/${service.slug}-noida`} key={service.slug}>
+                    <Sparkles size={11} className="text-amber-400/70" /> {service.name} in Noida
                   </Link>
                 ))}
               </div>
             </div>
 
             <div>
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-gold-400">Local Hubs</p>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-amber-400">Local Hubs</p>
               <div className="grid gap-2 text-xs text-white/75">
-                <Link className="hover:text-gold-400 transition" href="/interior-design-greater-noida">Interior Greater Noida</Link>
-                <Link className="hover:text-gold-400 transition" href="/modular-kitchen-noida">Modular Kitchen Noida</Link>
-                <Link className="hover:text-gold-400 transition" href="/wardrobe-indirapuram">Wardrobe Indirapuram</Link>
-                <Link className="hover:text-gold-400 transition" href="/false-ceiling-dwarka">False Ceiling Dwarka</Link>
-                <Link className="hover:text-gold-400 transition" href="/locations">All 4 Cities</Link>
-                <Link className="hover:text-gold-400 transition" href="/cost-calculator">Cost Estimator</Link>
+                <Link className="hover:text-amber-400 transition" href="/interior-design-greater-noida">Interior Greater Noida</Link>
+                <Link className="hover:text-amber-400 transition" href="/modular-kitchen-noida">Modular Kitchen Noida</Link>
+                <Link className="hover:text-amber-400 transition" href="/wardrobe-indirapuram">Wardrobe Indirapuram</Link>
+                <Link className="hover:text-amber-400 transition" href="/false-ceiling-dwarka">False Ceiling Dwarka</Link>
+                <Link className="hover:text-amber-400 transition" href="/locations">All 4 Cities</Link>
+                <Link className="hover:text-amber-400 transition" href="/cost-calculator">Cost Estimator</Link>
               </div>
             </div>
 
             <div>
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-gold-400">Company & Trust</p>
+              <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-amber-400">Company & Trust</p>
               <div className="grid gap-2 text-xs text-white/75">
-                <Link className="hover:text-gold-400 transition" href="/portfolio">Project Portfolio</Link>
-                <Link className="hover:text-gold-400 transition" href="/testimonials">Client Testimonials</Link>
-                <Link className="hover:text-gold-400 transition" href="/about">About Us & Team</Link>
-                <Link className="hover:text-gold-400 transition" href="/process">5-Step Process</Link>
-                <Link className="hover:text-gold-400 transition" href="/faq">FAQ & Voice Search</Link>
-                <Link className="hover:text-gold-400 transition" href="/privacy">Privacy Policy</Link>
-                <Link className="hover:text-gold-400 transition" href="/contact">Contact Us</Link>
+                <Link className="hover:text-amber-400 transition" href="/portfolio">Project Portfolio</Link>
+                <Link className="hover:text-amber-400 transition" href="/testimonials">Client Testimonials</Link>
+                <Link className="hover:text-amber-400 transition" href="/about">About Us & Team</Link>
+                <Link className="hover:text-amber-400 transition" href="/process">5-Step Process</Link>
+                <Link className="hover:text-amber-400 transition" href="/faq">FAQ & Voice Search</Link>
+                <Link className="hover:text-amber-400 transition" href="/privacy">Privacy Policy</Link>
+                <Link className="hover:text-amber-400 transition" href="/contact">Contact Us</Link>
               </div>
             </div>
           </div>
 
           <div className="section-shell mt-12 border-t border-white/10 pt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-white/50 pb-6 sm:pb-0">
             <p>© {new Date().getFullYear()} ATS Interior Solutions. All rights reserved.</p>
-            <p className="flex items-center gap-1.5 font-semibold text-gold-400">
+            <p className="flex items-center gap-1.5 font-semibold text-amber-400">
               <ShieldCheck size={15} /> 1-Year Comprehensive After-Service Execution Warranty Included
             </p>
           </div>

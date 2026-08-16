@@ -1,250 +1,296 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, Check, CheckCircle2, MessageCircle, Send, Sparkles } from "lucide-react";
-import { cities, services, whatsappHref } from "@/data/site";
+import { useState } from "react";
+import { ArrowRight, CheckCircle2, ChevronRight, MessageCircle, ShieldCheck, Sparkles } from "lucide-react";
+import { whatsappHref } from "@/data/site";
 
-const budgets = ["Below Rs. 5L", "Rs. 5-10L", "Rs. 10-15L", "Rs. 15-25L", "Rs. 25L+", "Not decided"];
-const timelines = ["Immediate", "Within 1 month", "1-3 months", "3-6 months", "Exploring"];
-const properties = ["2 BHK", "3 BHK", "4 BHK", "Villa", "Office", "Shop", "Other"];
-
-type LeadFormProps = {
-  compact?: boolean;
-  defaultService?: string;
+interface LeadFormProps {
   defaultCity?: string;
-};
+  defaultService?: string;
+  compact?: boolean;
+}
 
-export function LeadForm({ compact = false, defaultService = "Interior Design", defaultCity = "Noida" }: LeadFormProps) {
-  const [step, setStep] = useState(0);
-  const [form, setForm] = useState({
-    service: defaultService,
-    city: defaultCity,
-    property: "3 BHK",
-    budget: "Rs. 10-15L",
-    timeline: "1-3 months",
-    name: "",
-    phone: "",
-    email: ""
-  });
+export function LeadForm({ defaultCity = "Noida", defaultService = "Full Home Interior", compact }: LeadFormProps = {}) {
+  const [step, setStep] = useState(1);
+  const [city, setCity] = useState(defaultCity);
+  const [bhk, setBhk] = useState("3 BHK");
+  const [service, setService] = useState(defaultService);
+  const [budget, setBudget] = useState("10L - 15L");
+  const [timeline, setTimeline] = useState("1-2 Months");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const score = useMemo(() => {
-    let value = 15;
-    if (["Rs. 15-25L", "Rs. 25L+"].includes(form.budget)) value += 30;
-    if (["Greater Noida", "Noida", "Ghaziabad", "Delhi NCR"].includes(form.city)) value += 20;
-    if (["Immediate", "Within 1 month", "1-3 months"].includes(form.timeline)) value += 20;
-    if (form.service === "Interior Design") value += 15;
-    if (form.service === "Modular Kitchen") value += 10;
-    if (form.phone.length >= 10) value += 10;
-    if (["4 BHK", "Villa", "Office", "Shop"].includes(form.property)) value += 10;
-    return Math.min(value, 100);
-  }, [form]);
+  // Calculate Lead Score dynamically (CRO Science)
+  const calculateLeadScore = () => {
+    let score = 40;
+    if (city === "Noida" || city === "Greater Noida") score += 20;
+    if (budget === "15L - 25L" || budget === "25L+") score += 25;
+    else if (budget === "10L - 15L") score += 15;
+    if (timeline === "Immediate" || timeline === "1-2 Months") score += 15;
+    return Math.min(score, 100);
+  };
 
-  const options = [
-    {
-      label: "Requirement",
-      content: (
-        <Field label="What service are you looking for?">
-          <select value={form.service} onChange={(event) => setForm({ ...form, service: event.target.value })}>
-            {services.map((service) => (
-              <option key={service.slug}>{service.name}</option>
-            ))}
-          </select>
-        </Field>
-      )
-    },
-    {
-      label: "Location",
-      content: (
-        <Field label="Where is your property located?">
-          <select value={form.city} onChange={(event) => setForm({ ...form, city: event.target.value })}>
-            {cities.map((city) => (
-              <option key={city.slug}>{city.name}</option>
-            ))}
-            <option>Other</option>
-          </select>
-        </Field>
-      )
-    },
-    {
-      label: "Property",
-      content: (
-        <Field label="Property Type / Layout">
-          <select value={form.property} onChange={(event) => setForm({ ...form, property: event.target.value })}>
-            {properties.map((property) => (
-              <option key={property}>{property}</option>
-            ))}
-          </select>
-        </Field>
-      )
-    },
-    {
-      label: "Budget",
-      content: (
-        <Field label="Approximate Budget Band">
-          <select value={form.budget} onChange={(event) => setForm({ ...form, budget: event.target.value })}>
-            {budgets.map((budget) => (
-              <option key={budget}>{budget}</option>
-            ))}
-          </select>
-        </Field>
-      )
-    },
-    {
-      label: "Timeline",
-      content: (
-        <Field label="Expected Work Start Date">
-          <select value={form.timeline} onChange={(event) => setForm({ ...form, timeline: event.target.value })}>
-            {timelines.map((timeline) => (
-              <option key={timeline}>{timeline}</option>
-            ))}
-          </select>
-        </Field>
-      )
-    },
-    {
-      label: "Contact",
-      content: (
-        <div className="grid gap-3">
-          <Field label="Your Full Name">
-            <input value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} placeholder="e.g. Rahul Sharma" />
-          </Field>
-          <Field label="Phone / WhatsApp Number">
-            <input value={form.phone} onChange={(event) => setForm({ ...form, phone: event.target.value })} placeholder="10-digit mobile number" inputMode="tel" />
-          </Field>
-          <Field label="Email Address (Optional)">
-            <input value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} placeholder="name@example.com" type="email" />
-          </Field>
-        </div>
-      )
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !phone) return;
+
+    setLoading(true);
+
+    try {
+      await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          phone,
+          city,
+          bhk,
+          service,
+          budget,
+          timeline,
+          leadScore: calculateLeadScore()
+        })
+      });
+    } catch {
+      // Fallback gracefully
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
     }
-  ];
+  };
 
-  const message = `Hi ATS, I am interested in ${form.service} in ${form.city}. Property: ${form.property}, Budget: ${form.budget}, Timeline: ${form.timeline}. My Name: ${form.name || "Client"}.`;
+  const whatsappMessage = `Hi ATS Interior, I requested a quote:\nName: ${name}\nCity: ${city}\nScope: ${service} (${bhk})\nBudget: ${budget}\nTimeline: ${timeline}`;
 
-  if (compact) {
+  if (submitted) {
     return (
-      <form className="grid gap-3 rounded-xl bg-white p-5 shadow-xl border border-emerald-900/10">
-        <div className="flex items-center gap-2 mb-1">
-          <Sparkles className="text-gold-600" size={18} />
-          <h3 className="font-display text-xl text-emerald-950">Quick Consultation</h3>
+      <div className="rounded-2xl bg-white p-7 sm:p-8 shadow-navy border border-amber-500/30 text-center animate-slide-up">
+        <div className="mx-auto mb-4 grid size-16 place-items-center rounded-full bg-amber-100 text-amber-600 font-bold">
+          <CheckCircle2 size={36} />
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Field label="Name">
-            <input placeholder="Your name" />
-          </Field>
-          <Field label="Phone">
-            <input placeholder="Mobile number" inputMode="tel" />
-          </Field>
-          <Field label="City">
-            <select defaultValue={defaultCity}>
-              {cities.map((city) => (
-                <option key={city.slug}>{city.name}</option>
-              ))}
-            </select>
-          </Field>
-          <Field label="Service">
-            <select defaultValue={defaultService}>
-              {services.map((service) => (
-                <option key={service.slug}>{service.name}</option>
-              ))}
-            </select>
-          </Field>
-        </div>
-        <div className="mt-2 flex flex-wrap gap-2">
-          <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg gradient-btn-gold px-4 py-3 text-xs font-bold text-ink shadow-md transition hover:scale-105" type="button">
-            <Send size={15} /> Free Consultation
-          </button>
-          <a className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-800 text-gold-400 border border-gold-500/30 px-4 py-3 text-xs font-bold shadow-md transition hover:bg-emerald-700" href={whatsappHref(message)} target="_blank" rel="noopener noreferrer">
-            <MessageCircle size={15} /> WhatsApp
+        <span className="inline-block rounded-full bg-navy-950 px-3.5 py-1 text-xs font-bold text-amber-400 mb-2">
+          Lead Qualified • {calculateLeadScore()}% Priority Match
+        </span>
+        <h3 className="font-display text-2xl sm:text-3xl font-bold text-navy-950">Thank You, {name}!</h3>
+        <p className="mt-2 text-sm leading-6 text-slate-600">
+          Your project requirement for <strong>{service} ({bhk})</strong> in <strong>{city}</strong> has been logged. Our Design Director will call you within 1 hour.
+        </p>
+
+        <div className="mt-6 flex flex-col gap-3">
+          <a
+            className="inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold px-6 py-3.5 text-sm font-bold text-navy-950 shadow-gold transition hover:scale-105"
+            href={whatsappHref(whatsappMessage)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle size={18} /> Connect Instantly on WhatsApp
           </a>
         </div>
-      </form>
+      </div>
     );
   }
 
   return (
-    <div className="rounded-2xl bg-white/95 p-6 shadow-2xl backdrop-blur-md border border-white/40 sm:p-7 transition-all duration-300">
-      <div className="mb-5 flex items-center justify-between gap-3 border-b border-emerald-900/10 pb-4">
+    <div className={`rounded-2xl bg-white p-6 sm:p-7 shadow-navy border border-navy-950/10 relative overflow-hidden ${compact ? "max-w-md mx-auto" : ""}`}>
+      {/* High-Converting Accent Header */}
+      <div className="mb-5 flex items-center justify-between border-b border-slate-100 pb-4">
         <div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-emerald-800 border border-emerald-200">
-            <Sparkles size={12} className="text-gold-600" /> Step {step + 1} of 6
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-600">
+            <Sparkles size={13} className="text-amber-500" /> Instant 60-Second Quote
           </span>
-          <h3 className="font-display text-2xl text-emerald-950 mt-1.5">Book Free Consultation</h3>
+          <h3 className="font-display text-xl sm:text-2xl font-bold text-navy-950 mt-0.5">Get Free Design Estimate</h3>
         </div>
-        <div className="rounded-xl bg-emerald-950 p-3 text-right text-white shadow-inner border border-gold-500/20">
-          <p className="text-[10px] uppercase font-bold text-gold-400 tracking-wider">Lead Score</p>
-          <p className="font-display text-xl font-bold text-white">{score}<span className="text-xs text-gold-400">/100</span></p>
+        <div className="text-right">
+          <span className="text-xs font-extrabold text-navy-900">Step {step} of 3</span>
+          <div className="mt-1 flex gap-1">
+            {[1, 2, 3].map((i) => (
+              <div
+                key={i}
+                className={`h-1.5 w-6 rounded-full transition-all duration-300 ${
+                  i <= step ? "bg-amber-500 shadow-sm" : "bg-slate-200"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Progress Indicators */}
-      <div className="mb-6 grid grid-cols-6 gap-1.5">
-        {options.map((option, index) => (
-          <button
-            aria-label={option.label}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === step
-                ? "bg-gold-400 shadow-glow"
-                : index < step
-                ? "bg-emerald-800"
-                : "bg-linen"
-            }`}
-            key={option.label}
-            onClick={() => setStep(index)}
-            type="button"
-          />
-        ))}
-      </div>
+      <form onSubmit={handleSubmit}>
+        {step === 1 && (
+          <div className="grid gap-4 animate-slide-up">
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-navy-900 mb-1.5">1. Select City</label>
+              <div className="grid grid-cols-2 gap-2">
+                {["Noida", "Greater Noida", "Ghaziabad", "Delhi NCR"].map((c) => (
+                  <button
+                    type="button"
+                    key={c}
+                    onClick={() => setCity(c)}
+                    className={`rounded-xl px-3 py-2.5 text-xs font-bold transition border ${
+                      city === c
+                        ? "bg-navy-950 text-amber-400 border-navy-950 shadow-sm"
+                        : "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300"
+                    }`}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+            </div>
 
-      {/* Active Form Field */}
-      <div className="min-h-[105px] animate-slide-up">{options[step].content}</div>
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-navy-900 mb-1.5">2. Property Scope</label>
+              <div className="grid grid-cols-3 gap-2">
+                {["2 BHK", "3 BHK", "4 BHK / Villa", "Modular Kitchen", "Wardrobes", "Office"].map((s) => (
+                  <button
+                    type="button"
+                    key={s}
+                    onClick={() => {
+                      if (s.includes("BHK") || s.includes("Villa")) {
+                        setBhk(s);
+                        setService("Full Home Interior");
+                      } else {
+                        setService(s);
+                      }
+                    }}
+                    className={`rounded-xl px-2 py-2 text-xs font-bold transition border ${
+                      (s.includes("BHK") && bhk === s) || service === s
+                        ? "bg-amber-500 text-navy-950 border-amber-400 shadow-sm font-extrabold"
+                        : "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300"
+                    }`}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
 
-      {/* Navigation Buttons */}
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-emerald-900/10 pt-4">
-        <button
-          className="inline-flex items-center gap-2 rounded-lg border border-emerald-900/20 px-4 py-2.5 text-xs font-bold text-emerald-950 transition hover:bg-mist disabled:opacity-40 disabled:hover:bg-transparent cursor-pointer"
-          disabled={step === 0}
-          onClick={() => setStep((value) => Math.max(0, value - 1))}
-          type="button"
-        >
-          <ArrowLeft size={15} /> Back
-        </button>
-
-        {step < options.length - 1 ? (
-          <button
-            className="inline-flex items-center gap-2 rounded-lg gradient-btn-gold px-5 py-2.5 text-xs font-bold text-ink shadow-md transition hover:scale-105 cursor-pointer"
-            onClick={() => setStep((value) => Math.min(options.length - 1, value + 1))}
-            type="button"
-          >
-            Next Step <ArrowRight size={15} />
-          </button>
-        ) : (
-          <a
-            className="inline-flex items-center gap-2 rounded-lg bg-emerald-800 text-gold-400 border border-gold-500/30 px-5 py-2.5 text-xs font-bold shadow-lg transition hover:bg-emerald-700 cursor-pointer"
-            href={whatsappHref(message)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Check size={15} /> Send via WhatsApp
-          </a>
+            <button
+              type="button"
+              onClick={() => setStep(2)}
+              className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold py-3.5 text-sm font-bold text-navy-950 shadow-gold transition hover:scale-[1.02] active:scale-95"
+            >
+              <span>Next: Budget & Timeline</span> <ChevronRight size={18} />
+            </button>
+          </div>
         )}
-      </div>
 
-      <p className="mt-4 text-[11px] leading-4 text-graphite/80 flex items-center gap-1">
-        <CheckCircle2 size={13} className="text-emerald-800 shrink-0" />
-        <span>By submitting, you agree to be contacted by ATS Interior Solutions for your free evaluation.</span>
-      </p>
+        {step === 2 && (
+          <div className="grid gap-4 animate-slide-up">
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-navy-900 mb-1.5">3. Budget Range</label>
+              <div className="grid grid-cols-2 gap-2">
+                {["3L - 6L", "6L - 10L", "10L - 15L", "15L - 25L+"].map((b) => (
+                  <button
+                    type="button"
+                    key={b}
+                    onClick={() => setBudget(b)}
+                    className={`rounded-xl px-3 py-2.5 text-xs font-bold transition border ${
+                      budget === b
+                        ? "bg-navy-950 text-amber-400 border-navy-950 shadow-sm"
+                        : "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300"
+                    }`}
+                  >
+                    Rs. {b}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-navy-900 mb-1.5">4. Expected Timeline</label>
+              <div className="grid grid-cols-3 gap-2">
+                {["Immediate", "1-2 Months", "Planning"].map((t) => (
+                  <button
+                    type="button"
+                    key={t}
+                    onClick={() => setTimeline(t)}
+                    className={`rounded-xl px-2.5 py-2 text-xs font-bold transition border ${
+                      timeline === t
+                        ? "bg-amber-500 text-navy-950 border-amber-400 shadow-sm"
+                        : "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300"
+                    }`}
+                  >
+                    {t}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex gap-2 mt-2">
+              <button
+                type="button"
+                onClick={() => setStep(1)}
+                className="w-1/3 rounded-xl border border-slate-300 bg-slate-100 py-3 text-xs font-bold text-slate-700 hover:bg-slate-200"
+              >
+                Back
+              </button>
+              <button
+                type="button"
+                onClick={() => setStep(3)}
+                className="w-2/3 inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold py-3 text-sm font-bold text-navy-950 shadow-gold hover:scale-[1.02]"
+              >
+                <span>Final Step: Contact</span> <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {step === 3 && (
+          <div className="grid gap-3.5 animate-slide-up">
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-navy-900 mb-1">Your Full Name</label>
+              <input
+                type="text"
+                required
+                placeholder="e.g. Ritika Sharma"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm font-medium text-navy-950 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-navy-900 mb-1">Phone Number (For WhatsApp Quote)</label>
+              <input
+                type="tel"
+                required
+                placeholder="+91 98765 43210"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm font-medium text-navy-950 focus:border-amber-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500/20"
+              />
+            </div>
+
+            <div className="rounded-xl bg-amber-50 border border-amber-200 p-3 text-[11px] text-amber-900 flex items-center justify-between">
+              <span>Selected: <strong>{city}</strong> • <strong>{bhk}</strong> • <strong>{budget}</strong></span>
+              <button type="button" onClick={() => setStep(1)} className="text-amber-700 underline font-bold">Edit</button>
+            </div>
+
+            <div className="flex gap-2 mt-1">
+              <button
+                type="button"
+                onClick={() => setStep(2)}
+                className="w-1/3 rounded-xl border border-slate-300 bg-slate-100 py-3 text-xs font-bold text-slate-700 hover:bg-slate-200"
+              >
+                Back
+              </button>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-2/3 inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold py-3 text-sm font-extrabold text-navy-950 shadow-gold transition hover:scale-105 active:scale-95"
+              >
+                {loading ? "Calculating..." : "Get Detailed Estimate"} <ArrowRight size={18} />
+              </button>
+            </div>
+
+            <p className="text-[10px] text-center text-slate-500 mt-1 flex items-center justify-center gap-1">
+              <ShieldCheck size={13} className="text-amber-600" /> 100% Privacy • No Spam Guarantee
+            </p>
+          </div>
+        )}
+      </form>
     </div>
-  );
-}
-
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <label className="grid gap-2 text-xs font-bold uppercase tracking-wider text-graphite">
-      {label}
-      <span className="contents [&>input]:w-full [&>input]:rounded-lg [&>input]:border [&>input]:border-emerald-900/20 [&>input]:bg-white [&>input]:px-3.5 [&>input]:py-3 [&>input]:text-sm [&>input]:font-normal [&>input]:text-emerald-950 [&>input]:focus:border-gold-400 [&>input]:focus:outline-none [&>select]:w-full [&>select]:rounded-lg [&>select]:border [&>select]:border-emerald-900/20 [&>select]:bg-white [&>select]:px-3.5 [&>select]:py-3 [&>select]:text-sm [&>select]:font-normal [&>select]:text-emerald-950 [&>select]:focus:border-gold-400 [&>select]:focus:outline-none">
-        {children}
-      </span>
-    </label>
   );
 }

@@ -4,9 +4,9 @@
 
 :root {
   color-scheme: light;
-  --page-bg: #faf8f3;
-  --accent-gold: #c5a059;
-  --accent-emerald: #143026;
+  --page-bg: #f8fafc;
+  --accent-amber: #e5a93c;
+  --accent-navy: #0f1b38;
 }
 
 * {
@@ -21,14 +21,14 @@ html {
 body {
   margin: 0;
   background: var(--page-bg);
-  color: #0c1814;
+  color: #0b1329;
   font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #143026;
-  color: #d4af37;
+  background: #0f1b38;
+  color: #e5a93c;
 }
 
 .section-shell {
@@ -45,17 +45,17 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0c1814;
+  background: #0b1329;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e4537;
+  background: #16284f;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #d4af37;
+  background: #e5a93c;
 }
 
-/* Micro Animations */
+/* Keyframe Animations */
 @keyframes floatSlow {
   0%, 100% {
     transform: translateY(0px);
@@ -67,10 +67,10 @@ body {
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+    box-shadow: 0 0 15px rgba(229, 169, 60, 0.3);
   }
   50% {
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 35px rgba(229, 169, 60, 0.7);
   }
 }
 
@@ -97,54 +97,59 @@ body {
   animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Glassmorphism & Luxury Cards */
-.glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(27, 59, 47, 0.1);
-}
-
-.glass-dark {
-  background: rgba(12, 24, 20, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-/* Theme Gradients */
+/* CRO High-Converting Buttons & Gradients */
 .gradient-btn-gold {
-  background: linear-gradient(135deg, #e5c158 0%, #d4af37 50%, #b48948 100%);
-  color: #0c1814;
+  background: linear-gradient(135deg, #f3c368 0%, #e5a93c 50%, #d99218 100%);
+  color: #0b1329;
 }
 
 .gradient-btn-gold:hover {
-  background: linear-gradient(135deg, #f3e3a3 0%, #e5c158 50%, #d4af37 100%);
+  background: linear-gradient(135deg, #f9dd9d 0%, #f3c368 50%, #e5a93c 100%);
 }
 
-.gradient-btn-emerald {
-  background: linear-gradient(135deg, #1e4537 0%, #0c1814 100%);
+.gradient-btn-navy {
+  background: linear-gradient(135deg, #16284f 0%, #0b1329 100%);
+  color: #ffffff;
+}
+
+.gradient-btn-cta {
+  background: linear-gradient(135deg, #ff6b35 0%, #d9381e 100%);
   color: #ffffff;
 }
 
 .gradient-text-gold {
-  background: linear-gradient(135deg, #f3e3a3 0%, #d4af37 50%, #c5a059 100%);
+  background: linear-gradient(135deg, #f9dd9d 0%, #e5a93c 50%, #d99218 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-brand {
-  background: linear-gradient(135deg, #0c1814 0%, #1e4537 50%, #c5a059 100%);
+  background: linear-gradient(135deg, #0b1329 0%, #16284f 50%, #e5a93c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Hero Background & Card Images */
+/* Glassmorphism & Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(22, 40, 79, 0.1);
+}
+
+.glass-dark {
+  background: rgba(11, 19, 41, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(229, 169, 60, 0.25);
+}
+
+/* Hero Background & Card Overlays */
 .hero-image {
   background-image:
-    radial-gradient(circle at 80% 15%, rgba(212, 175, 55, 0.22) 0%, transparent 40%),
-    radial-gradient(circle at 15% 85%, rgba(30, 69, 55, 0.95) 0%, transparent 60%),
-    linear-gradient(180deg, rgba(12, 24, 20, 0.88) 0%, rgba(12, 24, 20, 0.75) 100%),
+    radial-gradient(circle at 82% 18%, rgba(229, 169, 60, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 18% 82%, rgba(22, 40, 79, 0.95) 0%, transparent 65%),
+    linear-gradient(180deg, rgba(11, 19, 41, 0.9) 0%, rgba(11, 19, 41, 0.78) 100%),
     url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=85");
   background-size: cover;
   background-position: center;
@@ -152,7 +157,7 @@ body {
 
 .kitchen-image {
   background-image:
-    linear-gradient(180deg, rgba(12, 24, 20, 0.15), rgba(12, 24, 20, 0.85)),
+    linear-gradient(180deg, rgba(11, 19, 41, 0.15), rgba(11, 19, 41, 0.85)),
     url("https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=82");
   background-size: cover;
   background-position: center;
@@ -160,7 +165,7 @@ body {
 
 .living-image {
   background-image:
-    linear-gradient(180deg, rgba(12, 24, 20, 0.15), rgba(12, 24, 20, 0.85)),
+    linear-gradient(180deg, rgba(11, 19, 41, 0.15), rgba(11, 19, 41, 0.85)),
     url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=82");
   background-size: cover;
   background-position: center;
@@ -168,7 +173,7 @@ body {
 
 .wardrobe-image {
   background-image:
-    linear-gradient(180deg, rgba(12, 24, 20, 0.15), rgba(12, 24, 20, 0.85)),
+    linear-gradient(180deg, rgba(11, 19, 41, 0.15), rgba(11, 19, 41, 0.85)),
     url("https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=82");
   background-size: cover;
   background-position: center;

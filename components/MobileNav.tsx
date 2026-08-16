@@ -21,7 +21,7 @@ export function MobileNav() {
 
       {/* Mobile Drawer Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-ink/95 backdrop-blur-xl transition-all duration-300 lg:hidden flex flex-col justify-between p-6">
+        <div className="fixed inset-0 z-50 bg-navy-950/98 backdrop-blur-xl transition-all duration-300 lg:hidden flex flex-col justify-between p-6">
           <div>
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <Link
@@ -29,7 +29,7 @@ export function MobileNav() {
                 href="/"
                 onClick={() => setIsOpen(false)}
               >
-                <span className="grid size-9 place-items-center rounded-lg gradient-btn-gold font-display text-lg font-bold text-ink shadow-md">
+                <span className="grid size-9 place-items-center rounded-lg gradient-btn-gold font-display text-lg font-bold text-navy-950 shadow-md">
                   ATS
                 </span>
                 <span className="font-display text-xl font-bold text-white">
@@ -49,7 +49,7 @@ export function MobileNav() {
             <div className="mt-6 grid gap-2">
               {nav.map((item) => (
                 <Link
-                  className="rounded-lg px-4 py-3 text-base font-semibold text-white transition hover:bg-white/10 hover:text-brass"
+                  className="rounded-lg px-4 py-3 text-base font-semibold text-white transition hover:bg-white/10 hover:text-amber-400"
                   href={item.href}
                   key={item.href}
                   onClick={() => setIsOpen(false)}
@@ -61,7 +61,7 @@ export function MobileNav() {
 
             {/* Services Direct Links */}
             <div className="mt-6 border-t border-white/10 pt-4">
-              <p className="text-xs font-bold uppercase tracking-widest text-brass mb-3">Popular Services</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-3">Popular Services</p>
               <div className="grid grid-cols-2 gap-2 text-xs text-white/80">
                 {services.slice(0, 4).map((service) => (
                   <Link
@@ -81,12 +81,12 @@ export function MobileNav() {
           <div className="grid grid-cols-2 gap-3 border-t border-white/10 pt-4">
             <a
               className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 py-3.5 text-sm font-bold text-white"
-              href={`tel:${site.phone.replaceAll(" ", "")}`}
+              href={`tel:${site.phone.replaceAll(" ", "").replaceAll("-", "")}`}
             >
               <Phone size={16} /> Call Us
             </a>
             <a
-              className="inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-clay py-3.5 text-sm font-bold text-white shadow-lg"
+              className="inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold py-3.5 text-sm font-extrabold text-navy-950 shadow-gold"
               href={whatsappHref("I want a free interior consultation from mobile menu.")}
               target="_blank"
               rel="noopener noreferrer"

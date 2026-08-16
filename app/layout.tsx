@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 import { BadgeCheck, MessageCircle, Phone, ShieldCheck, Sparkles } from "lucide-react";
 import "./globals.css";
@@ -38,10 +39,10 @@ export const metadata: Metadata = {
     siteName: site.name,
     images: [
       {
-        url: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=82",
+        url: `${site.url}/images/logo.webp`,
         width: 1200,
         height: 630,
-        alt: "Modern home interior by ATS Interior Solutions"
+        alt: "ATS Interior Solutions Logo & Projects"
       }
     ],
     locale: "en_IN",
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ATS Interior Solutions",
     description: site.tagline,
-    images: ["https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=82"]
+    images: [`${site.url}/images/logo.webp`]
   }
 };
 
@@ -123,17 +124,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Global Main Header */}
         <header className="sticky top-0 z-50 border-b border-gold-500/20 bg-emerald-950/95 text-white shadow-xl backdrop-blur-md">
           <nav className="section-shell flex min-h-[60px] sm:min-h-[64px] items-center justify-between gap-3 py-2">
-            <Link className="group flex items-center gap-2" href="/">
-              <span className="grid size-8 sm:size-9 place-items-center rounded-lg gradient-btn-gold font-display text-base sm:text-lg font-bold text-ink shadow-md transition group-hover:scale-105">
-                ATS
-              </span>
-              <div className="flex flex-col">
-                <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-white transition group-hover:text-gold-400">
-                  ATS Interior Solutions
-                </span>
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-gold-400 font-semibold -mt-1 hidden xs:inline">
-                  Greater Noida • Noida • Delhi NCR
-                </span>
+            <Link className="group flex items-center gap-3" href="/">
+              <div className="relative h-10 w-28 sm:w-36 bg-white/90 rounded-lg p-1 shadow-md flex items-center justify-center transition group-hover:scale-105">
+                <Image
+                  src="/images/logo.webp"
+                  alt="ATS Interior Solutions Logo"
+                  width={140}
+                  height={40}
+                  priority
+                  className="h-full w-auto object-contain"
+                />
               </div>
             </Link>
 
@@ -151,7 +151,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <a
                 aria-label="Call ATS Interior Solutions"
                 className="grid size-9 place-items-center rounded-lg border border-white/20 text-white transition hover:border-gold-400 hover:text-gold-400 hover:bg-white/10 active:scale-95"
-                href={`tel:${site.phone.replaceAll(" ", "")}`}
+                href={`tel:${site.phone.replaceAll(" ", "").replaceAll("-", "")}`}
               >
                 <Phone size={16} />
               </a>
@@ -189,14 +189,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="section-shell relative z-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <span className="grid size-9 place-items-center rounded-lg gradient-btn-gold font-display text-lg font-bold text-ink shadow-md">
-                  ATS
-                </span>
-                <h2 className="font-display text-2xl text-white">ATS Interior Solutions</h2>
+                <div className="relative h-10 w-32 bg-white/90 rounded-lg p-1 shadow-md flex items-center justify-center">
+                  <Image
+                    src="/images/logo.webp"
+                    alt="ATS Interior Solutions Logo"
+                    width={130}
+                    height={36}
+                    className="h-full w-auto object-contain"
+                  />
+                </div>
               </div>
               <p className="text-xs leading-6 text-white/75">{site.tagline}</p>
               
               <div className="mt-5 grid gap-1.5 text-xs text-white/70 bg-white/5 p-3.5 rounded-lg border border-white/10">
+                <p><strong className="text-gold-400">Phone:</strong> {site.phone}</p>
+                <p><strong className="text-gold-400">Email:</strong> {site.email}</p>
                 <p><strong className="text-gold-400">GSTIN:</strong> {site.gstin}</p>
                 <p><strong className="text-gold-400">Established:</strong> {site.established}</p>
                 <p><strong className="text-gold-400">Head Office:</strong> {site.address}</p>
@@ -213,7 +220,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 </a>
                 <a
                   className="rounded-lg border border-white/20 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 active:scale-95"
-                  href={`tel:${site.phone.replaceAll(" ", "")}`}
+                  href={`tel:${site.phone.replaceAll(" ", "").replaceAll("-", "")}`}
                 >
                   {site.phone}
                 </a>
@@ -257,7 +264,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="grid gap-2 text-xs text-white/75">
                 <Link className="hover:text-gold-400 transition" href="/portfolio">Project Portfolio</Link>
                 <Link className="hover:text-gold-400 transition" href="/testimonials">Client Testimonials</Link>
-                <Link className="hover:text-gold-400 transition" href="/about">About ATS Team</Link>
+                <Link className="hover:text-gold-400 transition" href="/about">About Us & Team</Link>
                 <Link className="hover:text-gold-400 transition" href="/process">5-Step Process</Link>
                 <Link className="hover:text-gold-400 transition" href="/faq">FAQ & Voice Search</Link>
                 <Link className="hover:text-gold-400 transition" href="/privacy">Privacy Policy</Link>

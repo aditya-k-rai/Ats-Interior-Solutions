@@ -1,85 +1,127 @@
 import type { Metadata } from "next";
-import { BadgeCheck, ShieldCheck, Sparkles, Star } from "lucide-react";
+import Image from "next/image";
+import { BadgeCheck, CheckCircle2, ShieldCheck, Sparkles, UserCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { site, trustMetrics } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "About ATS Interior Solutions | Team & Credentials",
-  description: "Learn about ATS Interior Solutions, established in 2018 in Noida & Greater Noida. GST registered, CREDAI partner with 50+ completed projects."
+  title: "About ATS Interior Solutions | Founder Manoj Sharma & Team",
+  description: "Learn about ATS Interior Solutions founded by Mr. Manoj Sharma in 2018 in Noida & Greater Noida. Contact: +91 98737 57487."
 };
 
 export default function AboutPage() {
   return (
     <main className="bg-porcelain pb-16">
-      <section className="bg-ink text-white py-16">
-        <div className="section-shell">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brass">E-E-A-T Authority & Credentials</p>
+      <section className="bg-emerald-950 text-white py-16 relative overflow-hidden">
+        <div className="absolute top-0 right-0 size-80 rounded-full bg-gold-500/10 blur-3xl pointer-events-none" />
+        <div className="section-shell relative z-10">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-400">E-E-A-T Leadership & Verification</p>
           <h1 className="mt-2 font-display text-4xl sm:text-6xl">About ATS Interior Solutions</h1>
           <p className="mt-4 max-w-2xl text-sm leading-6 text-white/80">
-            Founded in 2018, ATS Interior Solutions is a leading local interior design and modular execution company operating across Greater Noida, Noida, Ghaziabad and Delhi NCR.
+            Founded in 2018 by Mr. Manoj Sharma, ATS Interior Solutions is a leading local interior design, custom modular kitchen, and house execution company operating across Greater Noida, Noida, Ghaziabad and Delhi NCR.
           </p>
         </div>
       </section>
 
-      <Breadcrumbs items={[{ label: "About", href: "/about" }]} />
+      <Breadcrumbs items={[{ label: "About Us", href: "/about" }]} />
 
+      {/* Leadership Profile Section */}
       <section className="py-12">
-        <div className="section-shell grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <article className="rounded-xl bg-white p-6 sm:p-8 shadow-soft border border-moss/10">
-            <h2 className="font-display text-3xl text-ink">Our Founding Story & Execution Capability</h2>
+        <div className="section-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] items-center">
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-emerald-900/10 group">
+            <Image
+              src="/images/founder.jpg"
+              alt="Manoj Sharma - Founder & Managing Director ATS Interior Solutions"
+              width={600}
+              height={700}
+              className="w-full h-[440px] object-cover object-top transition duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-emerald-950/30 to-transparent flex flex-col justify-end p-6 text-white">
+              <span className="text-xs font-bold uppercase tracking-widest text-gold-400">Founder & Managing Director</span>
+              <h3 className="font-display text-3xl font-bold">Manoj Sharma</h3>
+              <p className="text-xs text-white/80 mt-1">Lead Design Director & Project Head</p>
+            </div>
+          </div>
+
+          <article className="rounded-2xl bg-white p-6 sm:p-8 shadow-soft border border-emerald-900/10">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-widest text-emerald-800 border border-emerald-200 mb-4">
+              <UserCheck size={14} className="text-gold-600" /> Direct Leadership Supervision
+            </div>
+            <h2 className="font-display text-3xl text-emerald-950">Our Founding Story & Execution Promise</h2>
             <p className="mt-4 text-sm leading-7 text-graphite">
-              ATS Interior Solutions was established with a singular objective: to eliminate the ambiguity, hidden costs, and delayed handovers that homeowners frequently experience when hiring interior contractors in Delhi NCR.
+              ATS Interior Solutions was established by Mr. Manoj Sharma with a clear mission: to eliminate delays, cost escalations, and material compromises in home interior execution.
             </p>
             <p className="mt-4 text-sm leading-7 text-graphite">
-              By combining in-house 3D design concepts with precision factory modular manufacturing, we ensure that every wardrobe, modular kitchen, and false ceiling detail matches the exact approved design brief.
+              By combining in-house 3D design planning, factory modular production, and dedicated site engineer supervision (led by Site Engineer Utkarsh), we deliver projects that match approved 3D renders with exact material specifications.
             </p>
+
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-lg bg-mist p-4">
-                <p className="text-xs text-graphite font-semibold uppercase tracking-wider">GSTIN Registration</p>
-                <p className="font-display text-xl text-ink mt-1">{site.gstin}</p>
+              <div className="rounded-xl bg-mist p-4 border border-emerald-900/10">
+                <p className="text-xs text-graphite font-semibold uppercase tracking-wider">Direct Phone / WhatsApp</p>
+                <p className="font-display text-lg text-emerald-950 font-bold mt-1">{site.phone}</p>
               </div>
-              <div className="rounded-lg bg-mist p-4">
-                <p className="text-xs text-graphite font-semibold uppercase tracking-wider">Established</p>
-                <p className="font-display text-xl text-ink mt-1">{site.established} (8+ Years Experience)</p>
+              <div className="rounded-xl bg-mist p-4 border border-emerald-900/10">
+                <p className="text-xs text-graphite font-semibold uppercase tracking-wider">Official Email</p>
+                <p className="font-display text-sm text-emerald-950 font-bold mt-1.5 truncate">{site.email}</p>
               </div>
             </div>
           </article>
+        </div>
+      </section>
 
-          <aside className="rounded-xl bg-ink p-6 sm:p-8 text-white shadow-soft flex flex-col justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brass">Verified Industry Credentials</p>
-              <h3 className="font-display text-3xl mt-2">Memberships & Affiliations</h3>
-              <ul className="mt-6 grid gap-3 text-sm text-white/85">
-                {site.memberships.map((item) => (
-                  <li className="flex items-center gap-2.5" key={item}>
-                    <BadgeCheck className="text-brass shrink-0" size={18} /> {item}
-                  </li>
-                ))}
-              </ul>
+      {/* Team & Cabin Visual Showcase */}
+      <section className="py-12 bg-white border-y border-emerald-900/10">
+        <div className="section-shell">
+          <div className="mb-8 max-w-2xl">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">On-Site Real Proof</p>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl text-emerald-950">Design Discussions & Execution Team</h2>
+            <p className="mt-2 text-sm leading-6 text-graphite">
+              Mr. Manoj Sharma personally oversees architectural discussions and site progress across Noida, Greater Noida, and Delhi NCR.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div className="relative rounded-xl overflow-hidden shadow-md group h-[300px]">
+              <Image
+                src="/images/team-discussion.jpg"
+                alt="Manoj Sharma discussing interior design layout with architect"
+                fill
+                className="object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/20 to-transparent p-5 flex flex-col justify-end text-white">
+                <p className="font-display text-xl font-bold">Design & Architecture Discussion</p>
+                <p className="text-xs text-white/80 mt-1">Reviewing 3D floor plans with Senior Architect</p>
+              </div>
             </div>
-            
-            <div className="mt-8 border-t border-white/15 pt-6">
-              <p className="text-xs text-white/70">1-Year Execution Warranty</p>
-              <p className="text-sm font-semibold text-brass mt-1 flex items-center gap-1.5">
-                <ShieldCheck size={16} /> All ATS projects come with a formal 1-year after-service guarantee.
-              </p>
+
+            <div className="relative rounded-xl overflow-hidden shadow-md group h-[300px]">
+              <Image
+                src="/images/founder-cabin.jpg"
+                alt="Founder Manoj Sharma in ATS Owner Cabin"
+                fill
+                className="object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/20 to-transparent p-5 flex flex-col justify-end text-white">
+                <p className="font-display text-xl font-bold">Client Consultation Studio</p>
+                <p className="text-xs text-white/80 mt-1">Managing Director Cabin & Material Display Studio</p>
+              </div>
             </div>
-          </aside>
+          </div>
         </div>
       </section>
 
       {/* Trust Metrics */}
-      <section className="py-8">
+      <section className="py-12">
         <div className="section-shell grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {trustMetrics.map((metric) => {
             const Icon = metric.icon;
             return (
-              <div className="flex items-center gap-4 rounded-lg border border-moss/10 bg-white p-5 shadow-sm" key={metric.label}>
-                <div className="grid size-12 place-items-center rounded-md bg-moss text-white">
+              <div className="flex items-center gap-4 rounded-xl border border-emerald-900/10 bg-white p-5 shadow-sm" key={metric.label}>
+                <div className="grid size-12 place-items-center rounded-lg gradient-btn-gold font-bold text-ink shadow-md">
                   <Icon size={22} />
                 </div>
                 <div>
-                  <p className="font-display text-3xl text-ink">{metric.value}</p>
+                  <p className="font-display text-3xl text-emerald-950">{metric.value}</p>
                   <p className="text-xs font-semibold text-graphite">{metric.label}</p>
                 </div>
               </div>

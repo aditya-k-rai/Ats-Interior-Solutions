@@ -39,10 +39,10 @@ export const metadata: Metadata = {
     siteName: site.name,
     images: [
       {
-        url: `${site.url}/images/logo.webp`,
+        url: `${site.url}/images/logo.png`,
         width: 1200,
         height: 630,
-        alt: "ATS Interior Solutions Logo & Projects"
+        alt: "ATS Interior Solutions Transparent Logo & Projects"
       }
     ],
     locale: "en_IN",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ATS Interior Solutions",
     description: site.tagline,
-    images: [`${site.url}/images/logo.webp`]
+    images: [`${site.url}/images/logo.png`]
   }
 };
 
@@ -125,12 +125,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="sticky top-0 z-50 border-b border-gold-500/20 bg-emerald-950/95 text-white shadow-xl backdrop-blur-md">
           <nav className="section-shell flex min-h-[60px] sm:min-h-[64px] items-center justify-between gap-3 py-2">
             <Link className="group flex items-center gap-3" href="/">
-              <div className="relative h-10 w-28 sm:w-36 bg-white/90 rounded-lg p-1 shadow-md flex items-center justify-center transition group-hover:scale-105">
+              <div className="relative h-11 w-36 sm:w-44 flex items-center justify-start transition group-hover:scale-105">
                 <Image
-                  src="/images/logo.webp"
+                  src="/images/logo.png"
                   alt="ATS Interior Solutions Logo"
-                  width={140}
-                  height={40}
+                  width={180}
+                  height={50}
                   priority
                   className="h-full w-auto object-contain"
                 />
@@ -189,12 +189,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="section-shell relative z-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <div className="relative h-10 w-32 bg-white/90 rounded-lg p-1 shadow-md flex items-center justify-center">
+                <div className="relative h-12 w-40 flex items-center justify-start">
                   <Image
-                    src="/images/logo.webp"
+                    src="/images/logo.png"
                     alt="ATS Interior Solutions Logo"
-                    width={130}
-                    height={36}
+                    width={160}
+                    height={48}
                     className="h-full w-auto object-contain"
                   />
                 </div>

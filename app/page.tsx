@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, MapPin, MessageCircle, Play, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, MapPin, MessageCircle, Play, ShieldCheck, Sparkles, Star, UserCheck } from "lucide-react";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { BudgetEstimator } from "@/components/BudgetEstimator";
 import { JsonLd } from "@/components/JsonLd";
@@ -52,56 +52,66 @@ export default function HomePage() {
   };
 
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <JsonLd data={localBusiness} />
       <JsonLd data={faqSchema} />
       <JsonLd data={howToSchema} />
 
       {/* Hero Section */}
-      <section className="hero-image min-h-[88vh] text-white relative">
-        <div className="section-shell grid min-h-[88vh] items-end gap-8 pb-10 pt-20 lg:grid-cols-[1.08fr_0.72fr] lg:pb-16 relative z-10">
+      <section className="hero-image min-h-[85vh] sm:min-h-[88vh] text-white relative flex items-center">
+        <div className="section-shell grid min-h-[85vh] sm:min-h-[88vh] items-center gap-8 py-16 lg:py-20 lg:grid-cols-[1.1fr_0.9fr] relative z-10">
           <div className="max-w-3xl">
-            <p className="mb-4 inline-flex rounded-md bg-white/10 px-3.5 py-2 text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-gold-500/30 text-gold-300">
-              Greater Noida | Noida | Ghaziabad | Delhi NCR
-            </p>
-            <h1 className="text-balance font-display text-4xl font-semibold leading-tight sm:text-6xl lg:text-7xl">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-gold-500/30 text-gold-300 shadow-sm">
+              <Sparkles size={14} className="text-gold-400 animate-pulse" />
+              <span>Greater Noida • Noida • Ghaziabad • Delhi NCR</span>
+            </div>
+            <h1 className="text-balance font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
               Interior Designer in Noida, Greater Noida & Delhi NCR
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-white/85 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
               Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — planned around your budget, timeline and daily routine.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a className="inline-flex items-center gap-2 rounded-lg gradient-btn-gold px-6 py-4 font-bold text-ink shadow-lg shadow-gold-500/20 transition-all hover:scale-105 active:scale-95" href="#consultation">
-                Get Free Consultation <ArrowRight size={18} />
+              <a className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl gradient-btn-gold px-7 py-4 text-sm font-bold text-ink shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" href="#consultation">
+                <span>Get Free Consultation</span> <ArrowRight size={18} />
               </a>
-              <Link className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-4 font-bold text-white transition hover:bg-white/10 hover:border-gold-400/50" href="/portfolio">
-                <Play size={18} /> View Our Work
+              <Link className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/5 backdrop-blur px-6 py-4 text-sm font-bold text-white transition hover:bg-white/15 hover:border-gold-400/50 active:scale-95" href="/portfolio">
+                <Play size={17} /> View Our Work
               </Link>
             </div>
-            <div className="mt-8 grid max-w-xl grid-cols-3 gap-3">
-              {["50+ Projects Delivered", "4 NCR Cities Covered", "1 Year Warranty"].map((item) => (
-                <div className="rounded-lg border border-white/18 bg-white/10 p-3 text-xs font-semibold backdrop-blur sm:text-sm text-gold-200" key={item}>
-                  {item}
+
+            <div className="mt-8 grid grid-cols-3 gap-2.5 sm:gap-3 max-w-lg">
+              {[
+                { count: "50+", label: "Projects Delivered" },
+                { count: "4", label: "Cities Covered" },
+                { count: "1 Yr", label: "Warranty Included" }
+              ].map((item) => (
+                <div className="rounded-xl border border-white/15 bg-white/10 p-3 text-center backdrop-blur shadow-sm" key={item.label}>
+                  <p className="font-display text-xl sm:text-2xl font-bold text-gold-300">{item.count}</p>
+                  <p className="text-[10px] sm:text-xs font-semibold text-white/80">{item.label}</p>
                 </div>
               ))}
             </div>
           </div>
-          <LeadForm />
+
+          <div className="w-full">
+            <LeadForm />
+          </div>
         </div>
       </section>
 
       {/* Trust Metrics Strip */}
-      <section className="bg-white py-8 border-b border-emerald-900/10">
+      <section className="bg-white py-10 border-b border-emerald-950/10">
         <div className="section-shell grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {trustMetrics.map((metric) => {
             const Icon = metric.icon;
             return (
-              <div className="flex items-center gap-4 rounded-xl border border-emerald-900/10 bg-porcelain p-4 shadow-sm" key={metric.label}>
-                <div className="grid size-12 place-items-center rounded-lg bg-emerald-800 text-gold-400 font-bold shadow-md">
+              <div className="flex items-center gap-4 rounded-xl border border-emerald-950/10 bg-porcelain p-4 sm:p-5 shadow-sm transition hover:border-gold-500/40 hover:-translate-y-1" key={metric.label}>
+                <div className="grid size-12 place-items-center rounded-xl gradient-btn-gold text-ink font-bold shadow-md shrink-0">
                   <Icon size={22} />
                 </div>
                 <div>
-                  <p className="font-display text-3xl text-emerald-950">{metric.value}</p>
+                  <p className="font-display text-3xl font-bold text-emerald-950">{metric.value}</p>
                   <p className="text-xs font-semibold text-graphite">{metric.label}</p>
                 </div>
               </div>
@@ -111,35 +121,39 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-16" id="services">
+      <section className="py-16 sm:py-20" id="services">
         <div className="section-shell">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">Seven Core Services</p>
-              <h2 className="mt-2 font-display text-3xl sm:text-4xl text-emerald-950">Built for every stage of your space</h2>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-gold-100 px-3 py-1 rounded-full border border-gold-200">
+                Seven Core Services
+              </span>
+              <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">Built for every stage of your space</h2>
             </div>
-            <Link className="inline-flex items-center gap-2 font-bold text-emerald-800 hover:text-gold-600 transition text-sm" href="/services">
-              View all services <ArrowRight size={18} />
+            <Link className="inline-flex items-center gap-2 font-bold text-emerald-800 hover:text-gold-600 transition text-sm group" href="/services">
+              <span>View all services</span> <ArrowRight size={18} className="transition group-hover:translate-x-1" />
             </Link>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => {
               const Icon = service.icon;
               return (
-                <article className="rounded-xl bg-white p-6 shadow-soft border border-emerald-900/5 transition hover:-translate-y-1 hover:border-gold-500/30" key={service.slug}>
-                  <div className="mb-5 flex items-start justify-between gap-3">
-                    <div className="grid size-12 place-items-center rounded-lg bg-mist text-emerald-800">
-                      <Icon size={23} />
+                <article className="group rounded-2xl bg-white p-6 sm:p-7 shadow-soft border border-emerald-950/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-gold-500/40 flex flex-col justify-between" key={service.slug}>
+                  <div>
+                    <div className="mb-5 flex items-start justify-between gap-3">
+                      <div className="grid size-14 place-items-center rounded-xl bg-mist text-emerald-800 group-hover:gradient-btn-gold group-hover:text-ink transition duration-300 shadow-sm">
+                        <Icon size={25} />
+                      </div>
+                      <Link className="rounded-lg border border-emerald-950/15 px-3 py-1.5 text-xs font-bold text-emerald-800 hover:bg-emerald-950 hover:text-white transition" href={`/${service.slug}-noida`}>
+                        See Projects
+                      </Link>
                     </div>
-                    <Link className="rounded-md border border-emerald-900/15 px-3 py-1.5 text-xs font-bold text-emerald-800 hover:bg-mist hover:text-gold-600 transition" href={`/${service.slug}-noida`}>
-                      See Projects
-                    </Link>
+                    <h3 className="font-display text-2xl font-bold text-emerald-950">{service.name}</h3>
+                    <p className="mt-2.5 text-sm leading-6 text-graphite">{service.short}</p>
                   </div>
-                  <h3 className="font-display text-2xl text-emerald-950">{service.name}</h3>
-                  <p className="mt-2 min-h-[72px] text-sm leading-6 text-graphite">{service.short}</p>
-                  <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-mist pt-4">
-                    <span className="rounded-md bg-porcelain px-3 py-1.5 text-xs font-semibold text-graphite">{service.budget}</span>
-                    <a className="rounded-lg gradient-btn-gold px-4 py-1.5 text-xs font-bold text-ink shadow-sm transition hover:scale-105" href={whatsappHref(`I need a quote for ${service.name}.`)}>
+                  <div className="mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-mist pt-4">
+                    <span className="rounded-md bg-porcelain px-3 py-1.5 text-xs font-semibold text-graphite border border-emerald-950/5">{service.budget}</span>
+                    <a className="rounded-lg gradient-btn-gold px-4 py-2 text-xs font-bold text-ink shadow-sm transition hover:scale-105" href={whatsappHref(`I need a quote for ${service.name}.`)}>
                       Get Quote
                     </a>
                   </div>
@@ -151,23 +165,27 @@ export default function HomePage() {
       </section>
 
       {/* Portfolio Proof */}
-      <section className="bg-mist/80 py-16">
+      <section className="bg-mist/80 py-16 sm:py-20 border-y border-emerald-950/10">
         <div className="section-shell">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">Portfolio Case Studies</p>
-              <h2 className="mt-2 font-display text-3xl sm:text-4xl text-emerald-950">Real projects delivered across NCR</h2>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-white px-3 py-1 rounded-full border border-gold-200">
+                Portfolio Proof
+              </span>
+              <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">Real projects delivered across NCR</h2>
             </div>
-            <Link className="inline-flex items-center gap-2 font-bold text-emerald-800 hover:text-gold-600 transition text-sm" href="/portfolio">
-              Full portfolio <ArrowRight size={18} />
+            <Link className="inline-flex items-center gap-2 font-bold text-emerald-800 hover:text-gold-600 transition text-sm group" href="/portfolio">
+              <span>Full portfolio</span> <ArrowRight size={18} className="transition group-hover:translate-x-1" />
             </Link>
           </div>
-          <div className="grid gap-4 lg:grid-cols-3">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project) => (
-              <Link className={`relative flex min-h-[360px] items-end overflow-hidden rounded-xl p-6 text-white shadow-soft group border border-emerald-900/10 ${project.className}`} href={`/projects/${project.slug}`} key={project.slug}>
-                <div className="relative z-10 transition group-hover:translate-y-[-4px]">
-                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-gold-300">{project.city} | {project.area}</p>
-                  <h3 className="font-display text-3xl">{project.title}</h3>
+              <Link className={`relative flex min-h-[380px] items-end overflow-hidden rounded-2xl p-6 text-white shadow-soft group border border-emerald-950/10 ${project.className}`} href={`/projects/${project.slug}`} key={project.slug}>
+                <div className="relative z-10 transition duration-300 group-hover:translate-y-[-4px]">
+                  <span className="mb-2 inline-block rounded bg-gold-400/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-ink backdrop-blur">
+                    {project.city} • {project.area}
+                  </span>
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold leading-snug">{project.title}</h3>
                   <p className="mt-2 text-xs font-semibold text-white/90">{project.service} | {project.budget}</p>
                 </div>
               </Link>
@@ -177,13 +195,15 @@ export default function HomePage() {
       </section>
 
       {/* Interactive SXO Before & After Showcase */}
-      <section className="py-16">
+      <section className="py-16 sm:py-20">
         <div className="section-shell">
-          <div className="mb-8 max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">Interactive SXO Showcase</p>
-            <h2 className="mt-2 font-display text-3xl sm:text-4xl text-emerald-950">Drag to see the transformation</h2>
+          <div className="mb-10 max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-gold-100 px-3 py-1 rounded-full border border-gold-200">
+              Interactive SXO Showcase
+            </span>
+            <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">Drag or Touch to see the transformation</h2>
             <p className="mt-2 text-sm leading-6 text-graphite">
-              Slide back and forth to inspect original site condition vs finished modular interior execution.
+              Slide back and forth to inspect original site condition vs finished modular interior execution by Mr. Manoj Sharma & team.
             </p>
           </div>
           <BeforeAfterSlider />
@@ -191,28 +211,32 @@ export default function HomePage() {
       </section>
 
       {/* Material Comparison Section (GEO Strategy) */}
-      <section className="bg-white py-16 border-t border-emerald-900/10">
+      <section className="bg-white py-16 sm:py-20 border-t border-emerald-950/10">
         <div className="section-shell">
-          <div className="mb-8 max-w-2xl">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">Material Guidance (GEO & SXO)</p>
-            <h2 className="mt-2 font-display text-3xl sm:text-4xl text-emerald-950">Understand materials before buying</h2>
+          <div className="mb-10 max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-gold-100 px-3 py-1 rounded-full border border-gold-200">
+              Material Guidance (GEO & SXO)
+            </span>
+            <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">Understand materials before buying</h2>
             <p className="mt-2 text-sm leading-6 text-graphite">
               Clear comparison data helps home buyers choose board grades and shutter finishes with confidence.
             </p>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-3">
             {materialComparisons.map((item) => (
-              <div className="rounded-xl border border-emerald-900/10 bg-porcelain p-5 shadow-sm" key={item.title}>
-                <h3 className="font-display text-2xl text-emerald-950">{item.title}</h3>
-                <p className="mt-1 text-xs font-bold uppercase tracking-wider text-gold-600">{item.factor}</p>
-                <div className="mt-4 grid gap-3 text-xs leading-5 text-graphite">
-                  <div className="rounded-lg bg-white p-3 border border-emerald-900/10">
-                    <p className="font-bold text-emerald-800">Option A</p>
-                    <p className="mt-1">{item.optionA}</p>
-                  </div>
-                  <div className="rounded-lg bg-white p-3 border border-emerald-900/10">
-                    <p className="font-bold text-gold-600">Option B</p>
-                    <p className="mt-1">{item.optionB}</p>
+              <div className="rounded-2xl border border-emerald-950/10 bg-porcelain p-6 shadow-sm flex flex-col justify-between" key={item.title}>
+                <div>
+                  <h3 className="font-display text-2xl font-bold text-emerald-950">{item.title}</h3>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-wider text-gold-600">{item.factor}</p>
+                  <div className="mt-4 grid gap-3 text-xs leading-5 text-graphite">
+                    <div className="rounded-xl bg-white p-4 border border-emerald-950/10 shadow-sm">
+                      <p className="font-bold text-emerald-800 text-sm">Option A</p>
+                      <p className="mt-1">{item.optionA}</p>
+                    </div>
+                    <div className="rounded-xl bg-white p-4 border border-emerald-950/10 shadow-sm">
+                      <p className="font-bold text-gold-600 text-sm">Option B</p>
+                      <p className="mt-1">{item.optionB}</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -222,17 +246,21 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose ATS */}
-      <section className="py-16">
+      <section className="py-16 sm:py-20">
         <div className="section-shell">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">Why ATS</p>
-          <h2 className="mt-2 font-display text-3xl sm:text-4xl text-emerald-950">Trust signals for high-value interior decisions</h2>
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-gold-100 px-3 py-1 rounded-full border border-gold-200">
+            Why Choose ATS
+          </span>
+          <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">Trust signals for high-value interior decisions</h2>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {usp.map((item) => {
               const Icon = item.icon;
               return (
-                <div className="rounded-xl border border-emerald-900/10 bg-white p-5 shadow-soft hover:border-gold-500/30 transition" key={item.title}>
-                  <Icon className="mb-4 text-gold-600" size={24} />
-                  <h3 className="font-semibold text-emerald-950">{item.title}</h3>
+                <div className="rounded-2xl border border-emerald-950/10 bg-white p-6 shadow-soft hover:border-gold-500/40 hover:-translate-y-1 transition duration-300" key={item.title}>
+                  <div className="grid size-12 place-items-center rounded-xl bg-mist text-gold-600 mb-4">
+                    <Icon size={24} />
+                  </div>
+                  <h3 className="font-semibold text-lg text-emerald-950">{item.title}</h3>
                   <p className="mt-2 text-xs leading-5 text-graphite">{item.copy}</p>
                 </div>
               );
@@ -242,23 +270,25 @@ export default function HomePage() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-mist/70 py-16 border-t border-emerald-900/10">
+      <section className="bg-mist/70 py-16 sm:py-20 border-t border-emerald-950/10">
         <div className="section-shell">
           <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">5-Step Process</p>
-              <h2 className="mt-2 font-display text-3xl sm:text-4xl text-emerald-950">A clear path from brief to handover</h2>
-              <p className="mt-4 text-sm leading-6 text-graphite">
-                Transparent execution schedule ensures zero surprises, on-time delivery, and clean site closure.
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-white px-3 py-1 rounded-full border border-gold-200">
+                5-Step Process
+              </span>
+              <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">A clear path from brief to handover</h2>
+              <p className="mt-4 text-sm leading-7 text-graphite">
+                Transparent execution schedule ensures zero surprises, on-time delivery, and clean site closure under site engineer supervision.
               </p>
             </div>
-            <div className="grid gap-3">
+            <div className="grid gap-3.5">
               {process.map((step, index) => (
-                <div className="grid grid-cols-[48px_1fr] gap-4 rounded-xl bg-white p-4 shadow-soft border border-emerald-900/5" key={step.title}>
-                  <div className="grid size-12 place-items-center rounded-lg gradient-btn-gold font-bold text-ink font-display text-lg">{index + 1}</div>
+                <div className="grid grid-cols-[48px_1fr] sm:grid-cols-[56px_1fr] gap-4 rounded-2xl bg-white p-5 shadow-soft border border-emerald-950/5 items-center" key={step.title}>
+                  <div className="grid size-12 sm:size-14 place-items-center rounded-xl gradient-btn-gold font-bold text-ink font-display text-xl shadow-md">{index + 1}</div>
                   <div>
-                    <h3 className="font-display text-xl text-emerald-950">{step.title}</h3>
-                    <p className="mt-1 text-xs leading-5 text-graphite">{step.copy}</p>
+                    <h3 className="font-display text-xl sm:text-2xl font-bold text-emerald-950">{step.title}</h3>
+                    <p className="mt-1 text-xs sm:text-sm leading-6 text-graphite">{step.copy}</p>
                   </div>
                 </div>
               ))}
@@ -268,22 +298,24 @@ export default function HomePage() {
       </section>
 
       {/* Cost Estimator */}
-      <section className="py-16" id="cost">
+      <section className="py-16 sm:py-20" id="cost">
         <div className="section-shell">
           <BudgetEstimator />
         </div>
       </section>
 
       {/* Cities We Serve */}
-      <section className="bg-white py-16 border-t border-emerald-900/10">
+      <section className="bg-white py-16 sm:py-20 border-t border-emerald-950/10">
         <div className="section-shell">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">Cities We Serve</p>
-          <h2 className="mt-2 font-display text-3xl sm:text-4xl text-emerald-950">Hyperlocal coverage across Delhi NCR</h2>
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-gold-100 px-3 py-1 rounded-full border border-gold-200">
+            Cities We Serve
+          </span>
+          <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">Hyperlocal coverage across Delhi NCR</h2>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {cities.map((city) => (
-              <Link className="rounded-xl border border-emerald-900/10 bg-porcelain p-5 transition hover:-translate-y-1 hover:shadow-soft hover:border-gold-500/30" href={`/interior-design-${city.slug}`} key={city.slug}>
-                <MapPin className="mb-3 text-gold-600" size={24} />
-                <h3 className="font-display text-2xl text-emerald-950">{city.name}</h3>
+              <Link className="rounded-2xl border border-emerald-950/10 bg-porcelain p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-gold-500/40" href={`/interior-design-${city.slug}`} key={city.slug}>
+                <MapPin className="mb-3 text-gold-600" size={26} />
+                <h3 className="font-display text-2xl font-bold text-emerald-950">{city.name}</h3>
                 <p className="mt-2 text-xs leading-5 text-graphite">{city.focus}.</p>
               </Link>
             ))}
@@ -291,36 +323,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAQ & Hindi Voice Search Section */}
-      <section className="py-16">
-        <div className="section-shell grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+      {/* FAQ & Voice Search Section */}
+      <section className="py-16 sm:py-20">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">Reviews & Voice Search FAQs</p>
-            <h2 className="mt-2 font-display text-3xl sm:text-4xl text-emerald-950">Answers to common buyer questions</h2>
-            <div className="mt-6 rounded-xl bg-white p-6 shadow-soft border border-emerald-900/10">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-gold-100 px-3 py-1 rounded-full border border-gold-200">
+              Reviews & Voice Search FAQs
+            </span>
+            <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">Answers to common buyer questions</h2>
+            <div className="mt-6 rounded-2xl bg-white p-6 sm:p-7 shadow-soft border border-emerald-950/10">
               <div className="mb-3 flex gap-1 text-gold-400">
                 {[1, 2, 3, 4, 5].map((item) => (
                   <Star fill="currentColor" key={item} size={18} />
                 ))}
               </div>
-              <p className="text-sm leading-6 text-graphite">
-                The ATS team helped us plan storage, board grades and cove lighting before execution. The process was transparent and the final home felt exactly like the 3D renders.
+              <p className="text-sm leading-7 text-graphite">
+                Mr. Manoj Sharma personally reviewed our site layout. The ATS team helped us plan storage, board grades and cove lighting before execution. Handover was smooth and on schedule.
               </p>
               <p className="mt-4 text-xs font-bold text-emerald-950">Ritika Sharma | Noida Sector 137 (3 BHK Interior)</p>
             </div>
 
             <div className="mt-6">
-              <Link className="inline-flex items-center gap-2 font-bold text-emerald-800 hover:text-gold-600 transition text-sm" href="/faq">
-                View all 60+ FAQs & Hindi Voice Queries <ArrowRight size={16} />
+              <Link className="inline-flex items-center gap-2 font-bold text-emerald-800 hover:text-gold-600 transition text-sm group" href="/faq">
+                <span>View all 60+ FAQs & Hindi Voice Queries</span> <ArrowRight size={16} className="transition group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
           
-          <div className="grid gap-3">
+          <div className="grid gap-3.5">
             {faqs.slice(0, 5).map((faq) => (
-              <details className="rounded-xl bg-white p-4 shadow-soft border border-emerald-900/5" key={faq.q}>
-                <summary className="cursor-pointer font-semibold text-sm text-emerald-950">{faq.q}</summary>
-                <p className="mt-3 text-xs leading-6 text-graphite">{faq.a}</p>
+              <details className="rounded-2xl bg-white p-5 shadow-soft border border-emerald-950/5 group" key={faq.q}>
+                <summary className="cursor-pointer font-semibold text-sm sm:text-base text-emerald-950 group-hover:text-gold-600 transition">{faq.q}</summary>
+                <p className="mt-3 text-xs sm:text-sm leading-6 text-graphite border-t border-mist pt-3">{faq.a}</p>
               </details>
             ))}
           </div>
@@ -328,17 +362,21 @@ export default function HomePage() {
       </section>
 
       {/* Guides Section */}
-      <section className="bg-mist/80 py-16 border-t border-emerald-900/10">
+      <section className="bg-mist/80 py-16 sm:py-20 border-t border-emerald-950/10">
         <div className="section-shell">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">Guides & Resources</p>
-          <h2 className="mt-2 font-display text-3xl sm:text-4xl text-emerald-950">Commercial content clusters for search intent</h2>
-          <div className="mt-8 grid gap-4 lg:grid-cols-4">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-600 bg-white px-3 py-1 rounded-full border border-gold-200">
+            Guides & Resources
+          </span>
+          <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-emerald-950">Commercial content clusters for search intent</h2>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
-              <Link className="rounded-xl bg-white p-5 shadow-soft transition hover:-translate-y-1 hover:border-gold-500/30 border border-emerald-900/5" href="/blog" key={post.slug}>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">{post.category}</p>
-                <h3 className="mt-2 font-display text-xl leading-snug text-emerald-950">{post.title}</h3>
-                <p className="mt-2 text-xs leading-5 text-graphite">{post.excerpt}</p>
-                <p className="mt-4 text-xs font-bold text-emerald-800">{post.readTime} read</p>
+              <Link className="rounded-2xl bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-gold-500/40 border border-emerald-950/5 flex flex-col justify-between" href="/blog" key={post.slug}>
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-gold-600">{post.category}</span>
+                  <h3 className="mt-2 font-display text-xl font-bold leading-snug text-emerald-950">{post.title}</h3>
+                  <p className="mt-2 text-xs leading-5 text-graphite">{post.excerpt}</p>
+                </div>
+                <p className="mt-5 text-xs font-bold text-emerald-800 border-t border-mist pt-3">{post.readTime} read</p>
               </Link>
             ))}
           </div>
@@ -346,18 +384,24 @@ export default function HomePage() {
       </section>
 
       {/* Final Consultation Band */}
-      <section className="bg-emerald-950 py-16 text-white border-t border-gold-500/20" id="consultation">
-        <div className="section-shell grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+      <section className="bg-emerald-950 py-16 sm:py-20 text-white border-t border-gold-500/20 relative overflow-hidden" id="consultation">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr] relative z-10">
           <div className="self-center">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-400">Free Consultation</p>
-            <h2 className="mt-2 font-display text-4xl sm:text-5xl">Ready to transform your space?</h2>
-            <p className="mt-4 text-sm leading-7 text-white/80">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-gold-400 bg-white/10 px-3 py-1 rounded-full border border-gold-500/30">
+              Free Consultation
+            </span>
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl font-bold">Ready to transform your space?</h2>
+            <p className="mt-4 text-sm sm:text-base leading-7 text-white/80">
               Share your city, budget and timeline. Our design manager will contact you within 1 hour with a free consultation and floor plan evaluation.
             </p>
-            <ul className="mt-6 grid gap-3 text-xs text-white/85">
-              {["Contextual WhatsApp click tracking", "Multi-step lead qualification model", "1-Year comprehensive after-service execution warranty"].map((item) => (
-                <li className="flex items-center gap-2" key={item}>
-                  <CheckCircle2 className="text-gold-400" size={16} /> {item}
+            <ul className="mt-6 grid gap-3 text-xs sm:text-sm text-white/85">
+              {[
+                "Contextual WhatsApp click tracking",
+                "Multi-step lead qualification model",
+                "1-Year comprehensive after-service execution warranty"
+              ].map((item) => (
+                <li className="flex items-center gap-2.5" key={item}>
+                  <CheckCircle2 className="text-gold-400 shrink-0" size={17} /> <span>{item}</span>
                 </li>
               ))}
             </ul>

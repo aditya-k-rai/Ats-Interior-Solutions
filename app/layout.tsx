@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Link from "next/link";
-import { BadgeCheck, MessageCircle, Phone, ShieldCheck } from "lucide-react";
+import { BadgeCheck, MessageCircle, Phone, ShieldCheck, Sparkles } from "lucide-react";
 import "./globals.css";
 import { nav, services, site, whatsappHref } from "@/data/site";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
@@ -14,7 +14,7 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "ATS Interior Solutions | Interior Designer in Noida, Greater Noida, Ghaziabad and Delhi NCR",
+    default: "ATS Interior Solutions | Premium Interior Designer in Noida, Greater Noida, Ghaziabad and Delhi NCR",
     template: "%s | ATS Interior Solutions"
   },
   description:
@@ -115,34 +115,46 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans min-h-screen flex flex-col bg-porcelain text-ink">
+      <body className="font-sans min-h-screen flex flex-col bg-porcelain text-ink antialiased">
         <JsonLd data={organization} />
         <JsonLd data={localBusiness} />
 
-        {/* Global Header */}
-        <header className="sticky top-0 z-50 border-b border-white/15 bg-ink text-white shadow-md">
-          <nav className="section-shell flex min-h-16 items-center justify-between gap-4 py-2">
-            <Link className="font-display text-2xl font-semibold tracking-tight text-white hover:text-brass transition" href="/">
-              ATS Interior Solutions
+        {/* Global Main Header */}
+        <header className="sticky top-0 z-50 border-b border-amber-500/20 bg-ink/95 text-white shadow-xl backdrop-blur-md">
+          <nav className="section-shell flex min-h-[64px] items-center justify-between gap-4 py-2">
+            <Link className="group flex items-center gap-2" href="/">
+              <span className="grid size-9 place-items-center rounded-lg gradient-btn-gold font-display text-lg font-bold text-ink shadow-md transition group-hover:scale-105">
+                ATS
+              </span>
+              <div className="flex flex-col">
+                <span className="font-display text-xl font-bold tracking-tight text-white transition group-hover:text-brass">
+                  ATS Interior Solutions
+                </span>
+                <span className="text-[10px] uppercase tracking-widest text-brass font-semibold -mt-1 hidden sm:inline">
+                  Greater Noida • Noida • Delhi NCR
+                </span>
+              </div>
             </Link>
-            <div className="hidden items-center gap-6 text-sm font-semibold lg:flex">
+
+            <div className="hidden items-center gap-6 text-xs font-bold uppercase tracking-wider text-white/90 lg:flex">
               {nav.map((item) => (
-                <Link className="transition hover:text-brass" href={item.href} key={item.href}>
+                <Link className="relative transition hover:text-brass py-1 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-brass after:transition-all hover:after:w-full" href={item.href} key={item.href}>
                   {item.label}
                 </Link>
               ))}
             </div>
+
             <div className="flex items-center gap-2">
               <a
                 aria-label="Call ATS Interior Solutions"
-                className="grid size-9 place-items-center rounded-md border border-white/25 text-white transition hover:bg-white/10"
+                className="grid size-9 place-items-center rounded-lg border border-white/20 text-white transition hover:border-brass hover:text-brass hover:bg-white/10"
                 href={`tel:${site.phone.replaceAll(" ", "")}`}
               >
-                <Phone size={17} />
+                <Phone size={16} />
               </a>
               <a
                 aria-label="WhatsApp ATS Interior Solutions"
-                className="inline-flex items-center gap-1.5 rounded-md bg-clay px-3 py-2 text-xs font-bold text-white transition hover:bg-clay/90"
+                className="inline-flex items-center gap-1.5 rounded-lg gradient-btn-clay px-3.5 py-2 text-xs font-bold text-white shadow-md transition hover:scale-105"
                 href={whatsappHref("I want a free interior consultation.")}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -153,31 +165,40 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </header>
 
-        {/* Global Sticky Lead Bar */}
+        {/* Distinct Quick Quote Strip (Docked cleanly right under Header) */}
         <StickyEnquiryBar />
 
-        {/* Main Content */}
+        {/* Main Page Content */}
         <div className="flex-1">{children}</div>
 
-        {/* Global Floating WhatsApp Widget */}
+        {/* Global Floating WhatsApp Button */}
         <FloatingWhatsApp />
 
         {/* Global Footer */}
-        <footer className="bg-ink py-14 text-white">
-          <div className="section-shell grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+        <footer className="bg-ink py-16 text-white border-t border-amber-500/20 relative overflow-hidden">
+          {/* Ambient Background Glow */}
+          <div className="absolute top-0 right-0 size-96 rounded-full bg-brass/10 blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 size-96 rounded-full bg-clay/10 blur-3xl pointer-events-none" />
+
+          <div className="section-shell relative z-10 grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
             <div>
-              <h2 className="font-display text-3xl text-white">ATS Interior Solutions</h2>
-              <p className="mt-3 max-w-sm text-sm leading-6 text-white/75">{site.tagline}</p>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="grid size-9 place-items-center rounded-lg gradient-btn-gold font-display text-lg font-bold text-ink shadow-md">
+                  ATS
+                </span>
+                <h2 className="font-display text-2xl text-white">ATS Interior Solutions</h2>
+              </div>
+              <p className="text-xs leading-6 text-white/75">{site.tagline}</p>
               
-              <div className="mt-5 grid gap-2 text-xs text-white/70">
-                <p><strong>GSTIN:</strong> {site.gstin}</p>
-                <p><strong>Established:</strong> {site.established}</p>
-                <p><strong>Address:</strong> {site.address}</p>
+              <div className="mt-5 grid gap-1.5 text-xs text-white/70 bg-white/5 p-3.5 rounded-lg border border-white/10">
+                <p><strong className="text-brass">GSTIN:</strong> {site.gstin}</p>
+                <p><strong className="text-brass">Established:</strong> {site.established}</p>
+                <p><strong className="text-brass">Head Office:</strong> {site.address}</p>
               </div>
 
               <div className="mt-5 flex flex-wrap gap-2">
                 <a
-                  className="rounded-md bg-clay px-4 py-2.5 text-xs font-bold text-white transition hover:bg-clay/90"
+                  className="rounded-lg gradient-btn-clay px-4 py-2.5 text-xs font-bold text-white shadow-md transition hover:scale-105"
                   href={whatsappHref("I want to discuss my interior project.")}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -185,17 +206,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   WhatsApp Consultation
                 </a>
                 <a
-                  className="rounded-md border border-white/20 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10"
+                  className="rounded-lg border border-white/20 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10"
                   href={`tel:${site.phone.replaceAll(" ", "")}`}
                 >
                   {site.phone}
                 </a>
               </div>
 
-              {/* Memberships & Trust Badges */}
-              <div className="mt-6 flex flex-wrap items-center gap-3">
+              {/* Memberships & Badges */}
+              <div className="mt-6 flex flex-wrap items-center gap-2">
                 {site.memberships.map((badge) => (
-                  <span key={badge} className="inline-flex items-center gap-1 rounded bg-white/10 px-2.5 py-1 text-[11px] font-semibold text-brass backdrop-blur">
+                  <span key={badge} className="inline-flex items-center gap-1 rounded bg-white/10 px-2.5 py-1 text-[10px] font-semibold text-brass border border-brass/20">
                     <BadgeCheck size={13} /> {badge}
                   </span>
                 ))}
@@ -204,10 +225,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             <div>
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brass">Core Services</p>
-              <div className="grid gap-2 text-sm text-white/75">
+              <div className="grid gap-2 text-xs text-white/75">
                 {services.map((service) => (
-                  <Link className="hover:text-brass transition" href={`/${service.slug}-noida`} key={service.slug}>
-                    {service.name} in Noida
+                  <Link className="hover:text-brass transition flex items-center gap-1.5" href={`/${service.slug}-noida`} key={service.slug}>
+                    <Sparkles size={11} className="text-brass/60" /> {service.name} in Noida
                   </Link>
                 ))}
               </div>
@@ -215,23 +236,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             <div>
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brass">Local Hubs</p>
-              <div className="grid gap-2 text-sm text-white/75">
+              <div className="grid gap-2 text-xs text-white/75">
                 <Link className="hover:text-brass transition" href="/interior-design-greater-noida">Interior Greater Noida</Link>
                 <Link className="hover:text-brass transition" href="/modular-kitchen-noida">Modular Kitchen Noida</Link>
                 <Link className="hover:text-brass transition" href="/wardrobe-indirapuram">Wardrobe Indirapuram</Link>
                 <Link className="hover:text-brass transition" href="/false-ceiling-dwarka">False Ceiling Dwarka</Link>
                 <Link className="hover:text-brass transition" href="/locations">All 4 Cities</Link>
-                <Link className="hover:text-brass transition" href="/cost-calculator">Cost Calculator</Link>
+                <Link className="hover:text-brass transition" href="/cost-calculator">Cost Estimator</Link>
               </div>
             </div>
 
             <div>
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-brass">Company & Trust</p>
-              <div className="grid gap-2 text-sm text-white/75">
+              <div className="grid gap-2 text-xs text-white/75">
                 <Link className="hover:text-brass transition" href="/portfolio">Project Portfolio</Link>
                 <Link className="hover:text-brass transition" href="/testimonials">Client Testimonials</Link>
                 <Link className="hover:text-brass transition" href="/about">About ATS Team</Link>
-                <Link className="hover:text-brass transition" href="/faq">FAQ & Hindi Voice Search</Link>
+                <Link className="hover:text-brass transition" href="/process">5-Step Process</Link>
+                <Link className="hover:text-brass transition" href="/faq">FAQ & Voice Search</Link>
                 <Link className="hover:text-brass transition" href="/privacy">Privacy Policy</Link>
                 <Link className="hover:text-brass transition" href="/contact">Contact Us</Link>
               </div>
@@ -240,7 +262,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
           <div className="section-shell mt-12 border-t border-white/10 pt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-white/50">
             <p>© {new Date().getFullYear()} ATS Interior Solutions. All rights reserved.</p>
-            <p className="flex items-center gap-1"><ShieldCheck size={14} className="text-brass" /> 1-Year After-Service Execution Warranty Included</p>
+            <p className="flex items-center gap-1.5 font-semibold text-brass">
+              <ShieldCheck size={15} /> 1-Year Comprehensive After-Service Execution Warranty Included
+            </p>
           </div>
         </footer>
       </body>

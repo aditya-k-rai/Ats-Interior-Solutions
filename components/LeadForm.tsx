@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, Check, MessageCircle, Send } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, CheckCircle2, MessageCircle, Send, Sparkles } from "lucide-react";
 import { cities, services, whatsappHref } from "@/data/site";
 
 const budgets = ["Below Rs. 5L", "Rs. 5-10L", "Rs. 10-15L", "Rs. 15-25L", "Rs. 25L+", "Not decided"];
@@ -28,7 +28,7 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
   });
 
   const score = useMemo(() => {
-    let value = 10;
+    let value = 15;
     if (["Rs. 15-25L", "Rs. 25L+"].includes(form.budget)) value += 30;
     if (["Greater Noida", "Noida", "Ghaziabad", "Delhi NCR"].includes(form.city)) value += 20;
     if (["Immediate", "Within 1 month", "1-3 months"].includes(form.timeline)) value += 20;
@@ -43,7 +43,7 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
     {
       label: "Requirement",
       content: (
-        <Field label="What are you looking for?">
+        <Field label="What service are you looking for?">
           <select value={form.service} onChange={(event) => setForm({ ...form, service: event.target.value })}>
             {services.map((service) => (
               <option key={service.slug}>{service.name}</option>
@@ -55,7 +55,7 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
     {
       label: "Location",
       content: (
-        <Field label="Where is the property?">
+        <Field label="Where is your property located?">
           <select value={form.city} onChange={(event) => setForm({ ...form, city: event.target.value })}>
             {cities.map((city) => (
               <option key={city.slug}>{city.name}</option>
@@ -68,7 +68,7 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
     {
       label: "Property",
       content: (
-        <Field label="Property type">
+        <Field label="Property Type / Layout">
           <select value={form.property} onChange={(event) => setForm({ ...form, property: event.target.value })}>
             {properties.map((property) => (
               <option key={property}>{property}</option>
@@ -80,7 +80,7 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
     {
       label: "Budget",
       content: (
-        <Field label="Approximate budget">
+        <Field label="Approximate Budget Band">
           <select value={form.budget} onChange={(event) => setForm({ ...form, budget: event.target.value })}>
             {budgets.map((budget) => (
               <option key={budget}>{budget}</option>
@@ -92,7 +92,7 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
     {
       label: "Timeline",
       content: (
-        <Field label="Expected start">
+        <Field label="Expected Work Start Date">
           <select value={form.timeline} onChange={(event) => setForm({ ...form, timeline: event.target.value })}>
             {timelines.map((timeline) => (
               <option key={timeline}>{timeline}</option>
@@ -105,31 +105,35 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
       label: "Contact",
       content: (
         <div className="grid gap-3">
-          <Field label="Name">
-            <input value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} placeholder="Your name" />
+          <Field label="Your Full Name">
+            <input value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} placeholder="e.g. Rahul Sharma" />
           </Field>
-          <Field label="Phone / WhatsApp">
-            <input value={form.phone} onChange={(event) => setForm({ ...form, phone: event.target.value })} placeholder="10 digit mobile" inputMode="tel" />
+          <Field label="Phone / WhatsApp Number">
+            <input value={form.phone} onChange={(event) => setForm({ ...form, phone: event.target.value })} placeholder="10-digit mobile number" inputMode="tel" />
           </Field>
-          <Field label="Email">
-            <input value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} placeholder="Optional" type="email" />
+          <Field label="Email Address (Optional)">
+            <input value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} placeholder="name@example.com" type="email" />
           </Field>
         </div>
       )
     }
   ];
 
-  const message = `I am interested in ${form.service} in ${form.city}. Property: ${form.property}. Budget: ${form.budget}. Timeline: ${form.timeline}.`;
+  const message = `Hi ATS, I am interested in ${form.service} in ${form.city}. Property: ${form.property}, Budget: ${form.budget}, Timeline: ${form.timeline}. My Name: ${form.name || "Client"}.`;
 
   if (compact) {
     return (
-      <form className="grid gap-3 rounded-lg bg-white p-4 shadow-soft">
+      <form className="grid gap-3 rounded-xl bg-white p-5 shadow-xl border border-moss/10">
+        <div className="flex items-center gap-2 mb-1">
+          <Sparkles className="text-brass" size={18} />
+          <h3 className="font-display text-xl text-ink">Quick Consultation</h3>
+        </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Field label="Name">
             <input placeholder="Your name" />
           </Field>
           <Field label="Phone">
-            <input placeholder="Phone number" inputMode="tel" />
+            <input placeholder="Mobile number" inputMode="tel" />
           </Field>
           <Field label="City">
             <select defaultValue={defaultCity}>
@@ -146,76 +150,99 @@ export function LeadForm({ compact = false, defaultService = "Interior Design", 
             </select>
           </Field>
         </div>
-        <div className="flex flex-wrap gap-2">
-          <button className="inline-flex items-center justify-center gap-2 rounded-md bg-clay px-4 py-3 text-sm font-semibold text-white" type="button">
-            <Send size={16} /> Get Free Consultation
+        <div className="mt-2 flex flex-wrap gap-2">
+          <button className="flex-1 inline-flex items-center justify-center gap-2 rounded-lg gradient-btn-gold px-4 py-3 text-xs font-bold text-ink shadow-md transition hover:scale-105" type="button">
+            <Send size={15} /> Free Consultation
           </button>
-          <a className="inline-flex items-center justify-center gap-2 rounded-md border border-moss/20 px-4 py-3 text-sm font-semibold text-moss" href={whatsappHref(message)}>
-            <MessageCircle size={16} /> WhatsApp
+          <a className="inline-flex items-center justify-center gap-2 rounded-lg gradient-btn-clay px-4 py-3 text-xs font-bold text-white shadow-md transition hover:scale-105" href={whatsappHref(message)} target="_blank" rel="noopener noreferrer">
+            <MessageCircle size={15} /> WhatsApp
           </a>
         </div>
-        <p className="text-xs leading-5 text-graphite">By enquiring, you agree to be contacted about your project. Your details are used for consultation follow-up.</p>
       </form>
     );
   }
 
   return (
-    <div className="rounded-lg bg-white p-4 shadow-soft sm:p-5">
-      <div className="mb-4 flex items-center justify-between gap-3">
+    <div className="rounded-2xl bg-white/95 p-6 shadow-2xl backdrop-blur-md border border-white/40 sm:p-7 transition-all duration-300">
+      <div className="mb-5 flex items-center justify-between gap-3 border-b border-moss/10 pb-4">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-clay">Qualified enquiry</p>
-          <h3 className="font-display text-2xl text-ink">Book a free consultation</h3>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-mist px-3 py-1 text-[11px] font-bold uppercase tracking-widest text-moss">
+            <Sparkles size={12} className="text-brass" /> Step {step + 1} of 6
+          </span>
+          <h3 className="font-display text-2xl text-ink mt-1">Book Free Consultation</h3>
         </div>
-        <div className="rounded-md bg-mist px-3 py-2 text-right">
-          <p className="text-xs text-graphite">Lead score</p>
-          <p className="font-bold text-moss">{score}/100</p>
+        <div className="rounded-xl bg-ink p-3 text-right text-white shadow-inner">
+          <p className="text-[10px] uppercase font-bold text-brass tracking-wider">Lead Score</p>
+          <p className="font-display text-xl font-bold text-white">{score}<span className="text-xs text-brass">/100</span></p>
         </div>
       </div>
-      <div className="mb-5 grid grid-cols-3 gap-2 sm:grid-cols-6">
+
+      {/* Progress Indicators */}
+      <div className="mb-6 grid grid-cols-6 gap-1.5">
         {options.map((option, index) => (
           <button
             aria-label={option.label}
-            className={`h-2 rounded-full ${index <= step ? "bg-clay" : "bg-linen"}`}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              index === step
+                ? "bg-brass shadow-glow"
+                : index < step
+                ? "bg-moss"
+                : "bg-linen"
+            }`}
             key={option.label}
             onClick={() => setStep(index)}
             type="button"
           />
         ))}
       </div>
-      <div className="min-h-[96px]">{options[step].content}</div>
-      <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+
+      {/* Active Form Field */}
+      <div className="min-h-[105px] animate-slide-up">{options[step].content}</div>
+
+      {/* Navigation Buttons */}
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-moss/10 pt-4">
         <button
-          className="inline-flex items-center gap-2 rounded-md border border-moss/20 px-4 py-3 text-sm font-semibold text-moss disabled:opacity-40"
+          className="inline-flex items-center gap-2 rounded-lg border border-moss/20 px-4 py-2.5 text-xs font-bold text-moss transition hover:bg-mist disabled:opacity-40 disabled:hover:bg-transparent cursor-pointer"
           disabled={step === 0}
           onClick={() => setStep((value) => Math.max(0, value - 1))}
           type="button"
         >
-          <ArrowLeft size={16} /> Back
+          <ArrowLeft size={15} /> Back
         </button>
+
         {step < options.length - 1 ? (
           <button
-            className="inline-flex items-center gap-2 rounded-md bg-moss px-4 py-3 text-sm font-semibold text-white"
+            className="inline-flex items-center gap-2 rounded-lg bg-moss px-5 py-2.5 text-xs font-bold text-white shadow-md transition hover:bg-moss/90 cursor-pointer"
             onClick={() => setStep((value) => Math.min(options.length - 1, value + 1))}
             type="button"
           >
-            Next <ArrowRight size={16} />
+            Next Step <ArrowRight size={15} />
           </button>
         ) : (
-          <a className="inline-flex items-center gap-2 rounded-md bg-clay px-4 py-3 text-sm font-semibold text-white" href={whatsappHref(message)}>
-            <Check size={16} /> Send on WhatsApp
+          <a
+            className="inline-flex items-center gap-2 rounded-lg gradient-btn-clay px-5 py-2.5 text-xs font-bold text-white shadow-lg transition hover:scale-105 cursor-pointer"
+            href={whatsappHref(message)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Check size={15} /> Send via WhatsApp
           </a>
         )}
       </div>
-      <p className="mt-4 text-xs leading-5 text-graphite">By continuing, you agree to be contacted by ATS Interior Solutions about this enquiry.</p>
+
+      <p className="mt-4 text-[11px] leading-4 text-graphite/80 flex items-center gap-1">
+        <CheckCircle2 size={13} className="text-moss shrink-0" />
+        <span>By submitting, you agree to be contacted by ATS Interior Solutions for your free evaluation.</span>
+      </p>
     </div>
   );
 }
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <label className="grid gap-1.5 text-sm font-semibold text-ink">
+    <label className="grid gap-2 text-xs font-bold uppercase tracking-wider text-graphite">
       {label}
-      <span className="contents [&>input]:w-full [&>input]:rounded-md [&>input]:border [&>input]:border-moss/20 [&>input]:bg-white [&>input]:px-3 [&>input]:py-3 [&>input]:font-normal [&>select]:w-full [&>select]:rounded-md [&>select]:border [&>select]:border-moss/20 [&>select]:bg-white [&>select]:px-3 [&>select]:py-3 [&>select]:font-normal">
+      <span className="contents [&>input]:w-full [&>input]:rounded-lg [&>input]:border [&>input]:border-moss/20 [&>input]:bg-white [&>input]:px-3.5 [&>input]:py-3 [&>input]:text-sm [&>input]:font-normal [&>input]:text-ink [&>input]:focus:border-brass [&>input]:focus:outline-none [&>select]:w-full [&>select]:rounded-lg [&>select]:border [&>select]:border-moss/20 [&>select]:bg-white [&>select]:px-3.5 [&>select]:py-3 [&>select]:text-sm [&>select]:font-normal [&>select]:text-ink [&>select]:focus:border-brass [&>select]:focus:outline-none">
         {children}
       </span>
     </label>

@@ -29,13 +29,26 @@ export default function FaqPage() {
         }}
       />
 
-      <section className="bg-ink text-white py-16">
-        <div className="section-shell">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brass">AEO & Voice Search Knowledge Base</p>
-          <h1 className="mt-2 font-display text-4xl sm:text-6xl">Questions Buyers Ask First</h1>
-          <p className="mt-4 max-w-2xl text-sm leading-6 text-white/80">
-            Comprehensive answers regarding interior costs, modular kitchen material grades, timelines, society guidelines, and NCR voice search queries.
-          </p>
+      <section className="bg-navy-950 text-white py-16 sm:py-20 relative overflow-hidden">
+        <div className="section-shell relative z-10">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400">AEO & Voice Search Knowledge Base</p>
+              <h1 className="mt-2 font-display text-4xl sm:text-6xl font-bold leading-tight">Questions Buyers Ask First</h1>
+              <p className="mt-4 max-w-2xl text-sm leading-6 text-white/80">
+                Comprehensive answers regarding interior costs, modular kitchen material grades, timelines, society guidelines, and NCR voice search queries in English & Hindi.
+              </p>
+            </div>
+
+            {/* Desktop Feature Card */}
+            <div className="rounded-2xl glass-dark p-6 border border-amber-500/30 shadow-2xl relative overflow-hidden">
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-amber-400">Voice Assistant Ready</span>
+              <h3 className="font-display text-2xl text-white font-bold mt-1">Instant Direct Answers</h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/80">
+                Formulated for Google Assistant, Perplexity, Gemini, and Siri speech queries. Get immediate answers to pricing, warranties, and material grades.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

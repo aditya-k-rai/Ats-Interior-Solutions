@@ -33,19 +33,38 @@ export default function LocationsPage() {
       <JsonLd data={citySchema} />
 
       {/* Hero Section */}
-      <section className="hero-image min-h-[55vh] text-white relative flex items-center">
-        <div className="section-shell min-h-[55vh] flex flex-col justify-end pb-12 pt-28">
-          <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-amber-500/30 text-amber-300 shadow-sm">
-              <Sparkles size={14} className="text-amber-400 animate-pulse" />
-              <span>Hyperlocal NCR Coverage • 50+ Premium Sectors</span>
+      <section className="hero-image min-h-[55vh] text-white relative flex items-center py-20">
+        <div className="section-shell w-full pt-12">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+            <div>
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-amber-500/30 text-amber-300 shadow-sm">
+                <Sparkles size={14} className="text-amber-400 animate-pulse" />
+                <span>Hyperlocal NCR Coverage • 50+ Premium Sectors</span>
+              </div>
+              <h1 className="text-balance font-display text-4xl sm:text-6xl font-bold leading-tight">
+                Interior Services Across Delhi NCR
+              </h1>
+              <p className="mt-4 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
+                Explore ATS Interior Solutions hyper-local service coverage across 50+ high-demand sectors in Noida Expressway, Central Noida, Greater Noida, and Greater Noida West.
+              </p>
             </div>
-            <h1 className="text-balance font-display text-4xl sm:text-6xl font-bold leading-tight">
-              Interior Services Across Delhi NCR
-            </h1>
-            <p className="mt-4 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
-              Explore ATS Interior Solutions hyper-local service coverage across 50+ high-demand sectors in Noida Expressway, Central Noida, Greater Noida, and Greater Noida West.
-            </p>
+
+            {/* Desktop Feature Card */}
+            <div className="rounded-2xl glass-dark p-6 sm:p-8 border border-amber-500/30 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 size-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-amber-400 flex items-center gap-1.5">
+                <Building2 size={14} /> Local Studio Reach
+              </span>
+              <h3 className="font-display text-2xl text-white font-bold mt-1">4 Major City Hubs</h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/80">
+                Greater Noida (Pari Chowk, Site-4), Noida Expressway (Sector 128, 137, 150), Ghaziabad (Indirapuram), & Delhi NCR.
+              </p>
+
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/80">
+                <span>📍 Site Measurement in 24 Hours</span>
+                <span className="font-bold text-amber-400">Zero Travel Charge</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

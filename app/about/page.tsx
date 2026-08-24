@@ -5,8 +5,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { site, trustMetrics } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "About ATS Interior Solutions | Founder Manoj Sharma & Team",
-  description: "Learn about ATS Interior Solutions founded by Mr. Manoj Sharma in 2018 in Noida & Greater Noida. Contact: +91 98737 57487."
+  title: "About ATS Interior Solutions | Founder Manoj Pal & Team",
+  description: "Learn about ATS Interior Solutions founded by Mr. Manoj Pal in 2018 in Noida & Greater Noida. Contact: +91 98737 57487."
 };
 
 export default function AboutPage() {
@@ -18,7 +18,7 @@ export default function AboutPage() {
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400">E-E-A-T Leadership & Verification</p>
           <h1 className="mt-2 font-display text-4xl sm:text-6xl">About ATS Interior Solutions</h1>
           <p className="mt-4 max-w-2xl text-sm leading-6 text-white/80">
-            Founded in 2018 by Mr. Manoj Sharma, ATS Interior Solutions is a leading local interior design, custom modular kitchen, and house execution company operating across Greater Noida, Noida, Ghaziabad and Delhi NCR.
+            Founded in 2018 by Mr. Manoj Pal, ATS Interior Solutions is a leading local interior design, custom modular kitchen, and house execution company operating across Greater Noida, Noida, Ghaziabad and Delhi NCR.
           </p>
         </div>
       </section>
@@ -31,14 +31,14 @@ export default function AboutPage() {
           <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-navy-900/10 group">
             <Image
               src="/images/work/founder-manoj-sharma.jpg"
-              alt="Manoj Sharma - Founder & Managing Director ATS Interior Solutions"
+              alt="Manoj Pal - Founder & Managing Director ATS Interior Solutions"
               width={600}
               height={700}
               className="w-full h-[440px] object-cover object-top transition duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/30 to-transparent flex flex-col justify-end p-6 text-white">
               <span className="text-xs font-bold uppercase tracking-widest text-amber-400">Founder & Managing Director</span>
-              <h3 className="font-display text-3xl font-bold">Manoj Sharma</h3>
+              <h3 className="font-display text-3xl font-bold">Manoj Pal</h3>
               <p className="text-xs text-white/80 mt-1">Lead Design Director & Project Head</p>
             </div>
           </div>
@@ -49,7 +49,7 @@ export default function AboutPage() {
             </div>
             <h2 className="font-display text-3xl text-navy-950">Our Founding Story & Execution Promise</h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">
-              ATS Interior Solutions was established by Mr. Manoj Sharma with a clear mission: to eliminate delays, cost escalations, and material compromises in home interior execution.
+              ATS Interior Solutions was established by Mr. Manoj Pal with a clear mission: to eliminate delays, cost escalations, and material compromises in home interior execution.
             </p>
             <p className="mt-4 text-sm leading-7 text-slate-600">
               By combining in-house 3D design planning, factory modular production, and dedicated site engineer supervision (led by Site Engineer Utkarsh), we deliver projects that match approved 3D renders with exact material specifications.
@@ -76,7 +76,7 @@ export default function AboutPage() {
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-600">On-Site Real Proof</p>
             <h2 className="mt-2 font-display text-3xl sm:text-4xl text-navy-950">Design Discussions & Execution Team</h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">
-              Mr. Manoj Sharma personally oversees architectural discussions and site progress across Noida, Greater Noida, and Delhi NCR.
+              Mr. Manoj Pal personally oversees architectural discussions and site progress across Noida, Greater Noida, and Delhi NCR.
             </p>
           </div>
 
@@ -84,7 +84,7 @@ export default function AboutPage() {
             <div className="relative rounded-xl overflow-hidden shadow-md group h-[300px]">
               <Image
                 src="/images/work/owner-architect-discussion.jpg"
-                alt="Manoj Sharma discussing interior design layout with architect"
+                alt="Manoj Pal discussing interior design layout with architect"
                 fill
                 className="object-cover transition duration-500 group-hover:scale-105"
               />
@@ -97,7 +97,7 @@ export default function AboutPage() {
             <div className="relative rounded-xl overflow-hidden shadow-md group h-[300px]">
               <Image
                 src="/images/work/owner-engineer-cabin.jpg"
-                alt="Founder Manoj Sharma with Site Engineer in Cabin"
+                alt="Founder Manoj Pal with Site Engineer in Cabin"
                 fill
                 className="object-cover transition duration-500 group-hover:scale-105"
               />

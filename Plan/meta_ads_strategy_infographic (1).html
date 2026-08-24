@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Ads Strategy: Noida High-Value Leads</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        body { font-family: 'Roboto', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .chart-container { position: relative; width: 100%; max-width: 700px; margin-left: auto; margin-right: auto; height: 350px; max-height: 450px; }
+        @media (min-width: 768px) { .chart-container { height: 400px; } }
+        .vibrant-gradient { background: linear-gradient(135deg, #003f5c 0%, #2f4b7c 100%); }
+        .card-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .step-node { position: relative; z-index: 10; }
+        .step-line::after { content: ''; position: absolute; top: 50%; left: 100%; width: 2rem; height: 2px; background: #d1d5db; z-index: 0; }
+    </style>
+</head>
+<body class="p-0 m-0">
+
+<!-- 
+    Plan Narrative & Structure:
+    1. Introduction: Setting the context of Noida's Luxury Real Estate boom.
+    2. Market Dynamics: Visualizing the correlation between property price and interior budget.
+    3. Targeting Architecture: Comparing the profiles for Full Interiors vs. Modular Kitchens.
+    4. Geographic Precision: Highlighting the hyper-local sectors.
+    5. The Funnel Strategy: Mapping the lead qualification and CAPI flow.
+    6. Performance Benchmarks: Setting expectations for CPQL and conversion rates.
+
+    Visualization Justification:
+    - Big Numbers (Inform): Core KPIs for property sizes and budgets. 
+    - Stacked Bar (Composition): Budget breakdown for Luxury Kitchens vs. Full Homes (Chart.js).
+    - Radar Chart (Compare): Buyer persona characteristics (Chart.js).
+    - Scatter Plot (Relationship): Property Valuation vs. Interior Expenditure (Plotly - GL).
+    - HTML Flowchart (Process): The Acquisition Funnel (CSS/Tailwind).
+    - Sorted Bar (Ranking): Sector-wise Ticket Sizes (Chart.js).
+
+    *NO SVG OR MERMAID JS USED*
+    *Selected Palette: "Brilliant Blues & Vibrant Orange" - #003f5c, #2f4b7c, #665191, #a05195, #d45087, #f95d6a, #ff7c43, #ffa600*
+-->
+
+<nav class="vibrant-gradient text-white p-4 sticky top-0 z-50 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+        <span class="text-xl font-bold tracking-tight">NOIDA LUXURY ADS STRATEGY</span>
+        <div class="hidden md:flex space-x-6 text-sm font-medium">
+            <a href="#market" class="hover:text-orange-400">Market Potential</a>
+            <a href="#targeting" class="hover:text-orange-400">Targeting</a>
+            <a href="#geofencing" class="hover:text-orange-400">Geofencing</a>
+            <a href="#funnel" class="hover:text-orange-400">The Funnel</a>
+        </div>
+    </div>
+</nav>
+
+<header class="bg-white py-12 border-b border-gray-200">
+    <div class="container mx-auto px-6">
+        <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">Capturing High-Net-Worth Leads</h1>
+        <p class="text-lg text-slate-600 max-w-3xl leading-relaxed">
+            Noida has evolved into a primary hub for luxury residential acquisitions in the NCR. With property prices in sectors like 150 and 128 reaching up to ₹19 Crore, the demand for ₹20L+ interiors and ₹8L+ modular kitchens is at an all-time high. This strategy outlines the precise Meta Ads framework required to isolate these high-value prospects.
+        </p>
+    </div>
+</header>
+
+<main class="container mx-auto px-6 py-12 space-y-16">
+
+    <section id="market" class="space-y-8">
+        <div class="border-l-4 border-orange-500 pl-4">
+            <h2 class="text-3xl font-bold text-slate-800">Macro-Market Dynamics</h2>
+            <p class="text-slate-600 mt-2">Correlation between residential floor plates and interior capitalization.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-[#003f5c]">
+                <span class="text-sm font-bold text-slate-400 uppercase">Avg. Luxury Unit Size</span>
+                <div class="text-3xl font-bold text-[#003f5c] mt-2">2,500 - 7,200</div>
+                <div class="text-sm text-slate-500 mt-1">Square Feet per Unit</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-[#ffa600]">
+                <span class="text-sm font-bold text-slate-400 uppercase">Min. Interior Budget</span>
+                <div class="text-3xl font-bold text-[#ffa600] mt-2">₹20 Lakhs</div>
+                <div class="text-sm text-slate-500 mt-1">For 3BHK/4BHK Standard</div>
+            </div>
+            <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-[#f95d6a]">
+                <span class="text-sm font-bold text-slate-400 uppercase">Kitchen Allocation</span>
+                <div class="text-3xl font-bold text-[#f95d6a] mt-2">₹8L - ₹20L</div>
+                <div class="text-sm text-slate-500 mt-1">Premium Modular Systems</div>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl card-shadow">
+            <h3 class="text-xl font-bold mb-6 text-center">Investment Correlation: Property Value vs. Design Budget</h3>
+            <div id="propertyBudgetScatter" class="w-full h-96"></div>
+            <p class="text-sm text-slate-500 mt-4 italic text-center">
+                Visualizing the direct mathematical relationship: As property ticket sizes increase, the propensity for high-end turnkey interiors scales exponentially.
+            </p>
+        </div>
+    </section>
+
+    <section id="targeting" class="space-y-8">
+        <div class="border-l-4 border-purple-600 pl-4">
+            <h2 class="text-3xl font-bold text-slate-800">Targeting Architecture</h2>
+            <p class="text-slate-600 mt-2">The 'AND' logic intersection: Layering demographics, interests, and behaviors.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="chart-container">
+                <canvas id="personaRadarChart"></canvas>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h4 class="font-bold text-slate-800 mb-2">High-Value Persona Traits</h4>
+                    <ul class="space-y-2 text-slate-600">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Age 32-58: Peak purchasing power executives.</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Interest: Architectural Digest & Luxury Lifestyle.</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Behavior: Frequent International Travelers.</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span> Hardware: High Affinity for iOS & Premium Devices.</li>
+                    </ul>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    By targeting specific hardware brands like <strong>Häfele</strong> or <strong>Blum</strong> for kitchens, we filter out budget-constrained shoppers. High-ticket buyers demonstrate awareness of mechanics and material longevity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="geofencing" class="space-y-8">
+        <div class="border-l-4 border-blue-500 pl-4">
+            <h2 class="text-3xl font-bold text-slate-800">Spatial Precision: Geofencing Corridors</h2>
+            <p class="text-slate-600 mt-2">Hyper-local targeting in Noida/Greater Noida prevents budget leakage into industrial zones.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="chart-container">
+                <canvas id="sectorBarChart"></canvas>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse bg-white rounded-xl overflow-hidden card-shadow">
+                    <thead class="vibrant-gradient text-white">
+                        <tr>
+                            <th class="p-4 text-sm">Sector Cluster</th>
+                            <th class="p-4 text-sm">Key Projects</th>
+                            <th class="p-4 text-sm">Radius</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-600">
+                        <tr class="border-b">
+                            <td class="p-4 font-bold text-slate-800">Sector 150</td>
+                            <td class="p-4 text-sm">CRC Peridona, ATS Pious</td>
+                            <td class="p-4 text-sm">2.5 km</td>
+                        </tr>
+                        <tr class="border-b bg-slate-50">
+                            <td class="p-4 font-bold text-slate-800">Sector 128</td>
+                            <td class="p-4 text-sm">Max Estate, Kalpataru</td>
+                            <td class="p-4 text-sm">3.0 km</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="p-4 font-bold text-slate-800">Sector 94/124</td>
+                            <td class="p-4 text-sm">M3M Cullinan, Knightsbridge</td>
+                            <td class="p-4 text-sm">2.0 km</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="p-4 font-bold text-slate-800">Gr. Noida W</td>
+                            <td class="p-4 text-sm">Elite X, Nirala Diadem</td>
+                            <td class="p-4 text-sm">3.0 km</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="text-center text-slate-500 text-sm max-w-2xl mx-auto">
+            Strategic geofencing targets the high-rise sky mansions directly while excluding industrial areas like Sector 63, ensuring every rupee of ad spend hits a residential decision-maker.
+        </p>
+    </section>
+
+    <section id="funnel" class="space-y-12">
+        <div class="border-l-4 border-red-500 pl-4">
+            <h2 class="text-3xl font-bold text-slate-800">High-Ticket Lead Engine</h2>
+            <p class="text-slate-600 mt-2">Combining creative friction with automated qualification.</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between items-start space-y-8 md:space-y-0 md:space-x-4">
+            <div class="flex-1 bg-white p-6 rounded-xl card-shadow border-b-4 border-[#d45087] text-center w-full">
+                <div class="w-12 h-12 vibrant-gradient rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">1</div>
+                <h4 class="font-bold text-slate-800 mb-2">Price Anchor Creative</h4>
+                <p class="text-sm text-slate-500">Video walkthroughs of finished sites with clear "Starting from ₹20L" copy to filter budget.</p>
+            </div>
+            <div class="flex-1 bg-white p-6 rounded-xl card-shadow border-b-4 border-[#a05195] text-center w-full">
+                <div class="w-12 h-12 vibrant-gradient rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">2</div>
+                <h4 class="font-bold text-slate-800 mb-2">Multi-Step Form</h4>
+                <p class="text-sm text-slate-500">Mandatory BHK and Budget dropdowns. Disqualifies leads below threshold automatically.</p>
+            </div>
+            <div class="flex-1 bg-white p-6 rounded-xl card-shadow border-b-4 border-[#665191] text-center w-full">
+                <div class="w-12 h-12 vibrant-gradient rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">3</div>
+                <h4 class="font-bold text-slate-800 mb-2">WhatsApp Engine</h4>
+                <p class="text-sm text-slate-500">Instant ping (<60s) with design portfolio and automated booking for site visit.</p>
+            </div>
+            <div class="flex-1 bg-white p-6 rounded-xl card-shadow border-b-4 border-[#2f4b7c] text-center w-full">
+                <div class="w-12 h-12 vibrant-gradient rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">4</div>
+                <h4 class="font-bold text-slate-800 mb-2">CAPI Optimization</h4>
+                <p class="text-sm text-slate-500">Feedback qualified lead status to Meta via CAPI for deep algorithmic learning.</p>
+            </div>
+        </div>
+
+        <div class="bg-slate-900 text-white p-8 rounded-2xl shadow-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-orange-400 mb-4">Performance Benchmarks</h3>
+                    <p class="text-slate-400 mb-6">Target metrics for a healthy ₹20L+ interior campaign.</p>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                            <span>Cost Per Qualified Lead (CPQL)</span>
+                            <span class="font-bold text-white">₹1,500 - ₹3,800</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                            <span>Qualification Rate</span>
+                            <span class="font-bold text-white">25% - 40%</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+                            <span>Target CAC (Per Deal)</span>
+                            <span class="font-bold text-white">₹35k - ₹80k</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="budgetCompChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="bg-slate-100 py-12 border-t border-gray-200">
+    <div class="container mx-auto px-6 text-center">
+        <p class="text-slate-500 text-sm">Strategic Report for Noida/Greater Noida Interior Market</p>
+        <p class="text-slate-400 text-xs mt-2">&copy; 2024 Luxury Interiors Lead Acquisition Framework</p>
+    </div>
+</footer>
+
+<script>
+    const tooltipConfig = {
+        callbacks: {
+            title: function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            }
+        }
+    };
+
+    const wrapLabel = (str) => {
+        if (str.length <= 16) return str;
+        const words = str.split(' ');
+        let lines = [];
+        let currentLine = words[0];
+        for (let i = 1; i < words.length; i++) {
+            if (currentLine.length + words[i].length + 1 <= 16) {
+                currentLine += ' ' + words[i];
+            } else {
+                lines.push(currentLine);
+                currentLine = words[i];
+            }
+        }
+        lines.push(currentLine);
+        return lines;
+    };
+
+    new Chart(document.getElementById('personaRadarChart'), {
+        type: 'radar',
+        data: {
+            labels: [
+                wrapLabel('Luxury Goods Affinity'),
+                wrapLabel('International Travel'),
+                wrapLabel('Professional Degrees'),
+                wrapLabel('New Homeowners'),
+                wrapLabel('Premium Device Usage')
+            ],
+            datasets: [{
+                label: 'Interior Prospect',
+                data: [95, 88, 90, 85, 92],
+                fill: true,
+                backgroundColor: 'rgba(0, 63, 92, 0.2)',
+                borderColor: '#003f5c',
+                pointBackgroundColor: '#003f5c',
+            }, {
+                label: 'Modular Kitchen Prospect',
+                data: [80, 75, 82, 98, 85],
+                fill: true,
+                backgroundColor: 'rgba(255, 166, 0, 0.2)',
+                borderColor: '#ffa600',
+                pointBackgroundColor: '#ffa600',
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: { tooltip: tooltipConfig },
+            scales: {
+                r: { angleLines: { display: false }, suggestMin: 50, suggestMax: 100 }
+            }
+        }
+    });
+
+    new Chart(document.getElementById('sectorBarChart'), {
+        type: 'bar',
+        data: {
+            labels: [
+                wrapLabel('Sector 150'),
+                wrapLabel('Sector 128'),
+                wrapLabel('Sector 94'),
+                wrapLabel('Sector 43'),
+                wrapLabel('Gr. Noida West')
+            ],
+            datasets: [{
+                label: 'Avg. Property Value (Cr)',
+                data: [11.2, 8.5, 7.8, 4.0, 2.3],
+                backgroundColor: ['#003f5c', '#2f4b7c', '#665191', '#a05195', '#d45087']
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: { tooltip: tooltipConfig },
+            scales: {
+                x: { grid: { display: false } },
+                y: { grid: { display: false } }
+            }
+        }
+    });
+
+    new Chart(document.getElementById('budgetCompChart'), {
+        type: 'bar',
+        data: {
+            labels: [wrapLabel('Full Interior'), wrapLabel('Modular Kitchen')],
+            datasets: [
+                {
+                    label: 'Base Fit-out',
+                    data: [15, 6],
+                    backgroundColor: '#003f5c'
+                },
+                {
+                    label: 'Premium Finishes',
+                    data: [12, 5],
+                    backgroundColor: '#665191'
+                },
+                {
+                    label: 'Hardware & Tech',
+                    data: [8, 7],
+                    backgroundColor: '#ffa600'
+                }
+            ]
+        },
+        options: {
+            maintainAspectRatio: false,
+            plugins: { tooltip: tooltipConfig },
+            scales: {
+                x: { stacked: true },
+                y: { stacked: true, title: { display: true, text: 'Budget (Lakhs INR)' } }
+            }
+        }
+    });
+
+    const scatterData = {
+        x: [2.5, 3.5, 4.5, 5.5, 7.0, 9.0, 12.0, 15.0, 19.0],
+        y: [18, 25, 32, 45, 60, 85, 120, 150, 190],
+        mode: 'markers+lines',
+        type: 'scattergl',
+        name: 'Investment Trend',
+        marker: { size: 12, color: '#ff7c43' },
+        line: { color: '#003f5c', width: 3 }
+    };
+
+    const scatterLayout = {
+        margin: { t: 20, b: 40, l: 50, r: 20 },
+        xaxis: { title: 'Property Value (Crores INR)', gridcolor: '#e2e8f0' },
+        yaxis: { title: 'Interior Budget (Lakhs INR)', gridcolor: '#e2e8f0' },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)',
+        hovermode: 'closest'
+    };
+
+    Plotly.newPlot('propertyBudgetScatter', [scatterData], scatterLayout, {responsive: true, displayModeBar: false});
+</script>
+
+</body>
+</html>

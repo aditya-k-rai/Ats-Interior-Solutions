@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { blogPosts, cities, getLandingPages, projects, services, site } from "@/data/site";
+import { societiesData } from "@/data/societies";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = site.url;
@@ -7,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/services",
     "/locations",
+    "/societies",
     "/portfolio",
     "/testimonials",
     "/about",
@@ -32,6 +34,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date()
   }));
 
+  const societyPages = societiesData.map((society) => ({
+    url: `${base}/societies/${society.slug}`,
+    lastModified: new Date()
+  }));
+
   const cityHubs = cities.map((city) => ({
     url: `${base}/locations/${city.slug}`,
     lastModified: new Date()
@@ -47,5 +54,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date()
   }));
 
-  return [...fixed, ...servicePages, ...localPages, ...cityHubs, ...projectPages, ...posts];
+  return [...fixed, ...servicePages, ...localPages, ...societyPages, ...cityHubs, ...projectPages, ...posts];
 }

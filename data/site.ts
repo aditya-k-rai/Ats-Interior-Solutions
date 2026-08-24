@@ -14,46 +14,95 @@ import {
   ShieldCheck,
   Sparkles,
   Star,
-  WalletCards
+  WalletCards,
+  Wrench
 } from "lucide-react";
 
 export const site = {
   name: "ATS Interior Solutions",
-  url: "https://atsinteriorsolutions.in",
+  url: "https://atsinteriorsolution.com",
   phone: "+91 98737 57487",
+  phoneRaw: "09873757487",
   email: "atsinteriorsolution@gmail.com",
   whatsapp: "919873757487",
-  address: "Sector 62 & Greater Noida West, Delhi NCR",
-  gstin: "07AAAAA0000A1Z5",
+  address: "1st Floor, Site-4, Ecotech 1, Plot-49, Sector 31, Nilkamal Nara, Greater Noida, Uttar Pradesh 201308",
+  streetAddress: "1st Floor, Site-4, Ecotech 1, Plot-49, Sector 31, Nilkamal Nara",
+  city: "Greater Noida",
+  state: "Uttar Pradesh",
+  pincode: "201308",
+  gstin: "09AXHPK0269P1ZV",
   established: "2018",
-  founder: "Manoj Sharma (Founder & Managing Director)",
+  founder: "Manoj Pal (Founder & Managing Director)",
+  founderName: "Manoj Pal",
   memberships: ["CREDAI NCR Partner", "ASSOCHAM Member", "Indian Institute of Interior Designers (IIID)"],
-  tagline: "Premium interior design, custom modular kitchens, wardrobes and house construction across Greater Noida, Noida, Ghaziabad and Delhi NCR."
+  tagline: "Premium interior design, custom modular kitchens, wardrobes and house construction across Greater Noida, Noida, Ghaziabad and Delhi NCR.",
+  geo: {
+    latitude: 28.4549694,
+    longitude: 77.5365544
+  },
+  mapIframe: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.815772792102!2d77.5365544!3d28.4549694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cc03bc0000001%3A0x45f8c681a004c24e!2sATS%20INTERIOR%20SOLUTION!5e0!3m2!1sen!2sin!4v1787609773989!5m2!1sen!2sin",
+  mapUrl: "https://maps.google.com/?q=ATS+INTERIOR+SOLUTION+Greater+Noida",
+  socials: {
+    facebook: "https://www.facebook.com/profile.php?id=61588562688008#",
+    pinterest: "https://www.pinterest.com/Atsinteriorsolution/",
+    instagram: "https://www.instagram.com/atsinterior_/"
+  },
+  directories: {
+    indiamart: "https://www.indiamart.com/ats-interior-solution/profile.html?srsltid=AfmBOopHEvr4Qb8R8RPSqD_98kZfSOM5MlaosjnGOSPDRac3lXQSv9Ey",
+    justdial: "https://www.justdial.com/Greater-Noida/Ats-Interior-Solution-Surajpur-Site-4/011PXX11-XX11-221104210703-W3S1_BZDET",
+    kreatecube: "https://kreatecube.com/profile/ats-interior-solution",
+    greaterNoidaDirectory: "https://greater-noida.idbf.in/418044/ats-interior-solution",
+    magicpin: "https://magicpin.in/Greater-Noida/Ithums-Galleria/Lifestyle/Ats-Interior-Solution/store/1a49a09?srsltid=AfmBOoqVtL02CUY2h2nV8rOynCdDmbV96D2IdZycsKVK7cU3z-rmKSdb"
+  },
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=61588562688008#",
+    "https://www.pinterest.com/Atsinteriorsolution/",
+    "https://www.instagram.com/atsinterior_/",
+    "https://www.indiamart.com/ats-interior-solution/profile.html",
+    "https://www.justdial.com/Greater-Noida/Ats-Interior-Solution-Surajpur-Site-4/011PXX11-XX11-221104210703-W3S1_BZDET",
+    "https://kreatecube.com/profile/ats-interior-solution",
+    "https://greater-noida.idbf.in/418044/ats-interior-solution",
+    "https://magicpin.in/Greater-Noida/Ithums-Galleria/Lifestyle/Ats-Interior-Solution/store/1a49a09"
+  ]
 };
+
+export const businessTypes = [
+  "Interior Designer",
+  "Modular Kitchen Designer & Manufacturer",
+  "Civil Construction & Renovation Contractor"
+];
 
 export const services = [
   {
     slug: "interior-design",
     name: "Interior Design",
-    short: "End-to-end home interiors with planning, 3D concepts, materials and site execution by Manoj Sharma & team.",
+    short: "Turnkey home interiors, 3D architectural planning, PU lacquer & acrylic joinery, and site execution by Manoj Pal & team.",
     icon: Home,
-    budget: "Rs. 3L to Rs. 50L+",
-    timeline: "6 to 12 weeks"
+    budget: "Rs. 10L to Rs. 1.5Cr+",
+    timeline: "6 to 16 weeks"
   },
   {
     slug: "modular-kitchen",
     name: "Modular Kitchen",
-    short: "Factory-finished kitchens planned around storage, workflow, HDMR/Plywood and durable hardware.",
+    short: "German tandem island kitchens, Action Tesa HDHMR, Dekton sintered stone countertops & Blum/Häfele hardware.",
     icon: ChefHat,
-    budget: "Rs. 1.5L to Rs. 8L+",
-    timeline: "3 to 6 weeks"
+    budget: "Rs. 5L to Rs. 50L+",
+    timeline: "3 to 8 weeks"
+  },
+  {
+    slug: "civil-construction",
+    name: "Civil Construction & Renovation",
+    short: "Structural brickwork, CPVC 10-bar pressure tested plumbing, FRLS rewiring, waterproofing, marble flooring & facade elevation.",
+    icon: Wrench,
+    budget: "Rs. 10L to Rs. 1.5Cr+",
+    timeline: "8 to 24 weeks"
   },
   {
     slug: "false-ceiling",
     name: "False Ceiling",
     short: "Clean ceiling designs with layered cove lighting, POP details and electrical integration.",
     icon: Layers3,
-    budget: "Rs. 60K to Rs. 3L+",
+    budget: "Rs. 1L to Rs. 5L+",
     timeline: "1 to 3 weeks"
   },
   {
@@ -61,7 +110,7 @@ export const services = [
     name: "Wardrobe",
     short: "Acrylic cream, metallic blue, sliding and hinged fitted storage tailored to bedroom size.",
     icon: Building2,
-    budget: "Rs. 75K to Rs. 5L+",
+    budget: "Rs. 1.5L to Rs. 12L+",
     timeline: "2 to 5 weeks"
   },
   {
@@ -69,24 +118,16 @@ export const services = [
     name: "Bathroom",
     short: "Vanities, tiles, waterproofing and premium fittings for compact and luxury bathrooms.",
     icon: Bath,
-    budget: "Rs. 1L to Rs. 6L+",
+    budget: "Rs. 2L to Rs. 10L+",
     timeline: "3 to 6 weeks"
-  },
-  {
-    slug: "wallpaper",
-    name: "Wallpaper",
-    short: "Feature walls, 3D textures and subtle patterns that transform rooms without heavy civil work.",
-    icon: Paintbrush,
-    budget: "Rs. 20K to Rs. 2L+",
-    timeline: "2 to 7 days"
   },
   {
     slug: "office-interior",
     name: "Office Interior",
     short: "Commercial spaces planned for workflow, executive cabins, reception and fast delivery.",
-    icon: BriefcaseBusiness,
-    budget: "Rs. 5L to Rs. 60L+",
-    timeline: "5 to 14 weeks"
+    icon: Building2,
+    budget: "Rs. 10L to Rs. 80L+",
+    timeline: "4 to 12 weeks"
   }
 ];
 
@@ -133,10 +174,10 @@ export const projects = [
     image: "/images/work/tv-unit-living-1.jpg",
     slug: "3-bhk-contemporary-interior-noida-sector-137",
     challenge: "The client needed maximum storage, a soothing open-plan living area with a custom TV panel unit, and a functional kitchen for a 4-member family.",
-    solution: "Founder Manoj Sharma & team crafted custom concealed storage, warm ambient LED cove lighting, neutral palette laminates, and an optimized modular kitchen layout.",
+    solution: "Founder Manoj Pal & team crafted custom concealed storage, warm ambient LED cove lighting, neutral palette laminates, and an optimized modular kitchen layout.",
     scope: ["Living and dining design", "Custom TV unit panel", "Bedroom wardrobes with lofts", "Modular kitchen with acrylic finish", "POP false ceiling and cove lighting"],
     materials: ["BWP Marine Plywood", "High-gloss Acrylic shutters", "Quartz countertop", "Warm LED cove lighting", "Hettich soft-close channels"],
-    testimonial: "Mr. Manoj Sharma personally reviewed our site layout. The design felt premium and was delivered right on time."
+    testimonial: "Mr. Manoj Pal personally reviewed our site layout. The design felt premium and was delivered right on time."
   },
   {
     title: "Acrylic Gloss Modular Kitchen",
@@ -216,7 +257,7 @@ export const projects = [
     solution: "U-shaped HDMR board kitchen with anti-scratch laminate, corner carousel units, and under-counter tandem boxes.",
     scope: ["3D layout rendering", "U-shaped modular carcass", "Corner carousel pull-out", "Chimney & hob installation"],
     materials: ["Action Tesa HDMR Board", "Anti-scratch Matte Laminate", "Granite countertop", "Blum Tandem drawers"],
-    testimonial: "Very sturdy kitchen build quality. Storage planning was handled brilliantly by Mr. Manoj Sharma."
+    testimonial: "Very sturdy kitchen build quality. Storage planning was handled brilliantly by Mr. Manoj Pal."
   },
   {
     title: "Custom Kids Bedroom & Study Storage",
@@ -245,13 +286,13 @@ export const realWorkGallery = [
     title: "Executive Cabin Studio & Materials Studio",
     category: "Studio & Team",
     image: "/images/work/owner-engineer-cabin.jpg",
-    description: "Founder Manoj Sharma with Site Engineer Utkarsh in the ATS Noida Executive Cabin."
+    description: "Founder Manoj Pal with Site Engineer Utkarsh in the ATS Noida Executive Cabin."
   },
   {
     title: "Architecture & 3D Design Consultation",
     category: "Design Process",
     image: "/images/work/owner-architect-discussion.jpg",
-    description: "Manoj Sharma reviewing floor plans and 3D concept renders with Senior Architect."
+    description: "Manoj Pal reviewing floor plans and 3D concept renders with Senior Architect."
   },
   {
     title: "Contemporary Living Room TV Panel Unit",
@@ -297,7 +338,7 @@ export const testimonials = [
     city: "Noida",
     project: "3 BHK Interior (Sector 137)",
     rating: 5,
-    quote: "Manoj Sharma Sir and his team helped us understand budget options and material grades before work began. Handover was smooth and on schedule."
+    quote: "Manoj Pal Sir and his team helped us understand budget options and material grades before work began. Handover was smooth and on schedule."
   },
   {
     name: "Amit Bansal",
@@ -330,7 +371,7 @@ export const trustMetrics = [
 ];
 
 export const process = [
-  { title: "Free Consultation", copy: "Understand scope, property layout, budget band and timeline expectations with Manoj Sharma & design team." },
+  { title: "Free Consultation", copy: "Understand scope, property layout, budget band and timeline expectations with Manoj Pal & design team." },
   { title: "Design Brief & 3D Concept", copy: "Finalize room layouts, 3D visual renders and detailed material selections." },
   { title: "Transparent Quotation", copy: "Detailed itemized breakdown with board grades, hardware and finish clarity." },
   { title: "Factory & Site Execution", copy: "Precision factory modular production paired with supervised site execution by Site Engineers." },
@@ -348,7 +389,7 @@ export const faqs = [
   },
   {
     q: "Who is the founder of ATS Interior Solutions?",
-    a: "ATS Interior Solutions is founded and led by Mr. Manoj Sharma (Founder & Managing Director), supported by Senior Architect & Site Engineer Utkarsh."
+    a: "ATS Interior Solutions is founded and led by Mr. Manoj Pal (Founder & Managing Director), supported by Senior Architect & Site Engineer Utkarsh."
   },
   {
     q: "What is the cost of a modular kitchen in Noida?",
@@ -370,7 +411,7 @@ export const faqs = [
   },
   {
     q: "[Hindi] Greater Noida mein sabse accha interior designer kaun hai?",
-    a: "ATS Interior Solutions (Founder Mr. Manoj Sharma) Greater Noida aur Noida mein high-quality modular kitchen aur full home interior design ke liye ek bharosemand naam hai."
+    a: "ATS Interior Solutions (Founder Mr. Manoj Pal) Greater Noida aur Noida mein high-quality modular kitchen aur full home interior design ke liye ek bharosemand naam hai."
   }
 ];
 
@@ -415,7 +456,7 @@ export const materialComparisons = [
 
 export const usp = [
   { title: "Factory-direct materials", copy: "Clear material options, branded hardware (Hettich/Hafele) and transparent board grade selection.", icon: Sparkles },
-  { title: "In-house design team", copy: "Led by Mr. Manoj Sharma & senior architects for 3D renders and execution.", icon: Home },
+  { title: "In-house design team", copy: "Led by Mr. Manoj Pal & senior architects for 3D renders and execution.", icon: Home },
   { title: "Transparent pricing", copy: "Itemized estimates with zero hidden surprises or sudden cost escalations.", icon: WalletCards },
   { title: "On-time delivery", copy: "Strict milestone schedule with dedicated site engineer supervision.", icon: Clock3 },
   { title: "WhatsApp-first support", copy: "Instant photo updates, quick query resolution and direct contact.", icon: MessageCircle }
@@ -435,6 +476,9 @@ export function getServiceBySlug(slug: string) {
 export function getCityBySlug(slug: string) {
   return cities.find((city) => city.slug === slug);
 }
+
+import { premiumLocations } from "./locations50";
+import { longtailKeywords, getLongtailKeywordBySlug } from "./longtailKeywords";
 
 export function getLandingPages() {
   const servicePages = services.map((service) => ({
@@ -467,7 +511,32 @@ export function getLandingPages() {
     )
   );
 
-  return [...servicePages, ...cityPages, ...areaPages];
+  const premiumLocationPages = services.flatMap((service) =>
+    premiumLocations.map((loc) => ({
+      slug: `${service.slug}-${loc.slug}`,
+      service,
+      city: cities.find((c) => c.name.toLowerCase().includes(loc.city.toLowerCase())) ?? cities[1],
+      area: loc.slug,
+      type: "area" as const
+    }))
+  );
+
+  const keywordPages = longtailKeywords.map((kw) => ({
+    slug: kw.slug,
+    service: services.find((s) => s.slug === "interior-design") || services[0],
+    city: cities.find((c) => c.name.toLowerCase().includes(kw.city.toLowerCase())) ?? cities[1],
+    area: kw.location,
+    type: "keyword" as const
+  }));
+
+  // Unique slugs map to prevent duplicates
+  const allPages = [...servicePages, ...cityPages, ...areaPages, ...premiumLocationPages, ...keywordPages];
+  const seen = new Set<string>();
+  return allPages.filter((p) => {
+    if (seen.has(p.slug)) return false;
+    seen.add(p.slug);
+    return true;
+  });
 }
 
 export function getLandingPage(slug: string) {
@@ -491,19 +560,19 @@ export const nav = [
 export { Phone };
 
 export const serviceSubtypes: Record<string, string[]> = {
-  "interior-design": ["Full home interior", "2 BHK interior", "3 BHK interior", "Villa interior", "Renovation"],
-  "modular-kitchen": ["L-shaped kitchen", "U-shaped kitchen", "Parallel kitchen", "Island kitchen", "Straight kitchen"],
-  "false-ceiling": ["Living room ceiling", "Bedroom ceiling", "POP ceiling", "Gypsum ceiling", "LED cove ceiling"],
-  wardrobe: ["Sliding wardrobe", "Hinged wardrobe", "Walk-in wardrobe", "Loft storage", "Kids room storage"],
-  bathroom: ["Compact bathroom", "Luxury bathroom", "Vanity unit", "Tile selection", "Bathroom renovation"],
-  wallpaper: ["Accent wall", "Texture finish", "Kids room wallpaper", "3D wallpaper", "Paint and wallpaper"],
-  "office-interior": ["Corporate office", "Retail shop", "Clinic interior", "Co-working space", "Reception area"]
+  "interior-design": ["Turnkey 3BHK/4BHK interior", "Bare-shell penthouse styling", "Golf villa interior", "Luxury PU lacquer & acrylic joinery", "Full home renovation"],
+  "modular-kitchen": ["German tandem island kitchen", "Glass & PU shutter kitchen", "Sintered porcelain Dekton kitchen", "L-shaped & U-shaped acrylic kitchen", "Parallel chef kitchen"],
+  "civil-construction": ["Structural alterations & brickwork", "CPVC 10-bar plumbing overhaul", "FRLS electrical 16A/20A rewiring", "Italian marble & vitrified flooring", "Waterproofing & elevation facade"],
+  "false-ceiling": ["Living room POP cove ceiling", "Bedroom layered ceiling", "Magnetic track light ceiling", "Gypsum acoustic ceiling", "LED cove trough ceiling"],
+  wardrobe: ["Dual-tone acrylic sliding wardrobe", "Floor-to-ceiling walk-in wardrobe", "Hinged PU lacquer wardrobe", "Loft storage units", "Kids room ergonomic storage"],
+  bathroom: ["Luxury vanity unit", "CPVC plumbing & shower enclosure", "Large format slab tiling", "Jaquar / Kohler sanitary fitments", "Complete bathroom overhaul"],
+  "office-interior": ["Managing Director cabin", "Corporate open workstation", "Reception lounge", "Conference room", "Retail showroom interior"]
 };
 
 export const pricingTiers = [
-  { tier: "Budget", range: "Rs. 900-1,400/sqft", includes: "Core storage, practical laminates, essential lighting and clean execution." },
-  { tier: "Mid-range", range: "Rs. 1,400-2,200/sqft", includes: "Better finishes, more custom storage, feature walls, branded hardware and refined lighting." },
-  { tier: "Premium", range: "Rs. 2,200+/sqft", includes: "Premium finishes, detailed ceiling, custom furniture, advanced hardware and higher-touch supervision." }
+  { tier: "Essential Luxury", range: "Rs. 1,200 - 1,800/sqft", includes: "Interiors starting from Rs. 10 Lakhs; Modular Kitchens from Rs. 5 Lakhs using Action Tesa HDHMR, 1.0mm laminate, Hettich soft-close hardware." },
+  { tier: "Premium Architectural", range: "Rs. 1,800 - 3,500/sqft", includes: "Interiors Rs. 25 Lakhs to Rs. 60 Lakhs; Kitchens Rs. 10 Lakhs to Rs. 25 Lakhs using IS 710 BWP marine plywood, 2.0mm acrylic, Blum Legrabox." },
+  { tier: "Ultra Luxury Penthouse & Villa", range: "Rs. 3,500 - 7,000+/sqft", includes: "Custom Fit-outs Rs. 60 Lakhs to Rs. 1.5 Crore+; German Island Kitchens Rs. 25 Lakhs to Rs. 50 Lakhs+ featuring PU Lacquer, Dekton sintered porcelain, motorized Aventos." }
 ];
 
 export const contentClusters = [

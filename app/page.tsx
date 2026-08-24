@@ -69,7 +69,7 @@ export default function HomePage() {
               Interior Designer in Noida, Greater Noida & Delhi NCR
             </h1>
             <p className="mt-5 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
-              Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — led by Founder Manoj Sharma & site team.
+              Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — led by Founder Manoj Pal & site team.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl gradient-btn-gold px-7 py-4 text-sm font-extrabold text-navy-950 shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" href="#consultation">
@@ -253,7 +253,7 @@ export default function HomePage() {
             </span>
             <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-navy-950">Drag or Touch to see the transformation</h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">
-              Slide back and forth to inspect original site condition vs finished modular interior execution by Mr. Manoj Sharma & team.
+              Slide back and forth to inspect original site condition vs finished modular interior execution by Mr. Manoj Pal & team.
             </p>
           </div>
           <BeforeAfterSlider />
@@ -364,7 +364,7 @@ export default function HomePage() {
                 ))}
               </div>
               <p className="text-sm leading-7 text-slate-600">
-                Mr. Manoj Sharma personally reviewed our site layout. The ATS team helped us plan storage, board grades and cove lighting before execution. Handover was smooth and on schedule.
+                Mr. Manoj Pal personally reviewed our site layout. The ATS team helped us plan storage, board grades and cove lighting before execution. Handover was smooth and on schedule.
               </p>
               <p className="mt-4 text-xs font-bold text-navy-950">Ritika Sharma | Noida Sector 137 (3 BHK Interior)</p>
             </div>

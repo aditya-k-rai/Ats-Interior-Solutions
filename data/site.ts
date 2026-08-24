@@ -443,14 +443,38 @@ export const materialComparisons = [
   {
     title: "Acrylic vs Laminate Shutters",
     factor: "Finish & Durability",
-    optionA: "Acrylic: High mirror gloss, premium look, UV-resistant.",
-    optionB: "Laminate: Matte/suede/gloss textures, scratch-resistant, economical."
+    optionA: "Acrylic: High mirror gloss, 2.0mm PMMA solid sheet, UV-resistant, ultra-premium aesthetics.",
+    optionB: "Laminate: Anti-scratch matte/suede/gloss textures, highly durable, economical."
   },
   {
     title: "BWP Plywood vs HDMR Board",
-    factor: "Moisture & Strength",
-    optionA: "BWP Plywood (IS 710): 100% waterproof, suitable for wet sink zones.",
-    optionB: "HDMR Board: High density moisture resistant, ideal for bedroom wardrobes."
+    factor: "Moisture & Structural Strength",
+    optionA: "BWP Plywood (IS 710): 100% boiling-water-proof (72h test), ideal for wet kitchen sink zones.",
+    optionB: "Action Tesa HDHMR (850 kg/m³): High density moisture resistant, smooth surface for bedroom wardrobes."
+  },
+  {
+    title: "Dekton Porcelain vs Quartz Countertop",
+    factor: "Heat & Stain Resistance",
+    optionA: "Sintered Porcelain (Dekton): 1200°C fireproof, 100% stain-proof, Mohs 8-9 hardness for luxury islands.",
+    optionB: "Engineered Quartz (Kalingastone): Non-porous elegance, scratch-resistant, 15-20mm heavy duty durability."
+  },
+  {
+    title: "PU Architectural Lacquer vs Laminate",
+    factor: "Seamless Aesthetics & Custom RAL Colors",
+    optionA: "PU Lacquer: Multi-coat hand-rubbed finish, zero edge-tape joint lines, unlimited custom color options.",
+    optionB: "High-Pressure Laminate: Factory machine-pressed, budget-friendly, scratch-resistant woodgrain finishes."
+  },
+  {
+    title: "Blum Legrabox vs Standard Channels",
+    factor: "Hardware Motion & Load Capacity",
+    optionA: "Blum Legrabox / Aventos: German engineered, 65kg heavy-duty load rating, 100,000 cycle lifetime warranty.",
+    optionB: "Telescopic Soft-Close Channels: Smooth everyday drawer glides, soft-close dampening, economical choice."
+  },
+  {
+    title: "CPVC 10-Bar Plumbing vs Regular PVC",
+    factor: "Pressure & Leakage Safety",
+    optionA: "CPVC Class 1 (10-Bar Tested): 24-hour pressure tested, heat-resistant up to 93°C, zero joint leakage.",
+    optionB: "Standard PVC Piping: Suitable for low-pressure drainage lines, cost-effective for utility zones."
   }
 ];
 

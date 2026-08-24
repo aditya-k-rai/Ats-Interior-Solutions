@@ -117,12 +117,12 @@ export function BeforeAfterSlider({
           <p className="mt-1 text-xs sm:text-sm text-graphite max-w-xl leading-relaxed">{subtitle}</p>
         </div>
         <a
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-clay px-5 py-3 text-xs font-bold text-white shadow-md transition hover:scale-105 active:scale-95"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold px-5 py-3 text-xs font-extrabold text-navy-950 shadow-gold transition hover:scale-105 active:scale-95"
           href={whatsappHref(`I want a similar transformation for my ${title}.`)}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <MessageCircle size={16} /> Get a Similar Transformation
+          <MessageCircle size={16} /> Get Similar Transformation
         </a>
       </div>
     </div>

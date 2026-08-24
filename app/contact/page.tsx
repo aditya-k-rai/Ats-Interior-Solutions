@@ -63,19 +63,81 @@ export default function ContactPage() {
       <JsonLd data={localBusiness} />
 
       {/* Hero Section */}
-      <section className="hero-image min-h-[52vh] text-white relative flex items-center">
-        <div className="section-shell min-h-[52vh] flex flex-col justify-end pb-12 pt-28">
-          <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-amber-500/30 text-amber-300 shadow-sm">
-              <Sparkles size={14} className="text-amber-400 animate-pulse" />
-              <span>Direct Consultation • Greater Noida & Noida</span>
+      <section className="hero-image min-h-[55vh] text-white relative flex items-center py-20">
+        <div className="section-shell w-full pt-12">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+            <div>
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-amber-500/30 text-amber-300 shadow-sm">
+                <Sparkles size={14} className="text-amber-400 animate-pulse" />
+                <span>Direct Consultation • Greater Noida & Noida</span>
+              </div>
+              <h1 className="text-balance font-display text-4xl sm:text-6xl font-bold leading-tight">
+                Contact ATS Interior Solutions
+              </h1>
+              <p className="mt-4 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
+                Visit our studio or schedule a site measurement with Founder Manoj Pal & senior engineering team. Transparent pricing, 3D layouts, and zero hidden costs.
+              </p>
+              
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <a
+                  href={`tel:${site.phoneRaw}`}
+                  className="inline-flex items-center gap-2 rounded-xl gradient-btn-gold px-5 py-3 text-xs sm:text-sm font-extrabold text-navy-950 shadow-gold transition hover:scale-105"
+                >
+                  <Phone size={16} /> Call Founder Manoj Pal ({site.phone})
+                </a>
+                <a
+                  href={whatsappHref("Hi ATS Interior, I want an on-site consultation.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-5 py-3 text-xs sm:text-sm font-bold text-white hover:bg-emerald-500 transition border border-emerald-400/30 shadow-md"
+                >
+                  <MessageCircle size={16} /> Instant WhatsApp
+                </a>
+              </div>
             </div>
-            <h1 className="text-balance font-display text-4xl sm:text-6xl font-bold leading-tight">
-              Contact ATS Interior Solutions
-            </h1>
-            <p className="mt-4 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
-              Visit our studio or schedule a site measurement with Founder Manoj Pal & senior engineering team. Transparent pricing, 3D layouts, and zero hidden costs.
-            </p>
+
+            {/* Right-Side Desktop Feature Card (Fills Hero Blank Area) */}
+            <div className="rounded-2xl glass-dark p-6 sm:p-8 border border-amber-500/30 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 size-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-amber-400 flex items-center gap-1.5">
+                <Sparkles size={14} /> Official Studio & Factory
+              </span>
+              <h3 className="font-display text-2xl text-white font-bold mt-1">ATS Experience Center</h3>
+              
+              <div className="mt-4 space-y-3 text-xs sm:text-sm text-white/85">
+                <p className="flex items-start gap-2.5">
+                  <MapPin size={18} className="text-amber-400 shrink-0 mt-0.5" />
+                  <span>1st Floor, Site-4, Ecotech 1, Plot-49, Sector 31, Greater Noida UP 201308</span>
+                </p>
+                <p className="flex items-center gap-2.5">
+                  <Clock3 size={16} className="text-amber-400 shrink-0" />
+                  <span>Mon – Sat: 09:30 AM – 08:00 PM</span>
+                </p>
+                <p className="flex items-center gap-2.5">
+                  <ShieldCheck size={16} className="text-amber-400 shrink-0" />
+                  <span>GSTIN: <strong className="text-amber-300 font-mono">{site.gstin}</strong></span>
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row gap-3">
+                <a
+                  href={site.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 text-center rounded-xl bg-white/10 hover:bg-white/20 px-4 py-2.5 text-xs font-bold text-white border border-white/20 transition"
+                >
+                  📍 Open in Google Maps
+                </a>
+                <a
+                  href={whatsappHref("Hi Manoj Pal, I am visiting the Ecotech 1 studio.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 text-center rounded-xl gradient-btn-gold px-4 py-2.5 text-xs font-extrabold text-navy-950 shadow-gold transition hover:scale-105"
+                >
+                  💬 Schedule Visit
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

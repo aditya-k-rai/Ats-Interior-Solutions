@@ -34,19 +34,38 @@ export default function SocietiesDirectoryPage() {
       <JsonLd data={directorySchema} />
 
       {/* Hero Section */}
-      <section className="hero-image min-h-[55vh] text-white relative flex items-center">
-        <div className="section-shell min-h-[55vh] flex flex-col justify-end pb-12 pt-28">
-          <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-amber-500/30 text-amber-300 shadow-sm">
-              <Sparkles size={14} className="text-amber-400 animate-pulse" />
-              <span>Hyper-Local Society Proof • Noida & Greater Noida</span>
+      <section className="hero-image min-h-[55vh] text-white relative flex items-center py-20">
+        <div className="section-shell w-full pt-12">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center">
+            <div>
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-amber-500/30 text-amber-300 shadow-sm">
+                <Sparkles size={14} className="text-amber-400 animate-pulse" />
+                <span>Hyper-Local Society Proof • Noida & Greater Noida</span>
+              </div>
+              <h1 className="text-balance font-display text-4xl sm:text-6xl font-bold leading-tight">
+                Top Luxury Society Projects
+              </h1>
+              <p className="mt-4 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
+                Explore real turnkey interiors, bare-shell executions, and German modular kitchens delivered across Noida Expressway, Jaypee Greens, and Greater Noida&apos;s most prestigious enclaves.
+              </p>
             </div>
-            <h1 className="text-balance font-display text-4xl sm:text-6xl font-bold leading-tight">
-              Top Luxury Society Projects
-            </h1>
-            <p className="mt-4 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
-              Explore real turnkey interiors, bare-shell executions, and German modular kitchens delivered across Noida Expressway, Jaypee Greens, and Greater Noida&apos;s most prestigious enclaves.
-            </p>
+
+            {/* Right-Side Desktop Feature Card */}
+            <div className="rounded-2xl glass-dark p-6 sm:p-8 border border-amber-500/30 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 size-40 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+              <span className="text-[11px] font-extrabold uppercase tracking-widest text-amber-400 flex items-center gap-1.5">
+                <Building2 size={14} /> Flagship Coverage
+              </span>
+              <h3 className="font-display text-2xl text-white font-bold mt-1">30+ High Society Case Studies</h3>
+              <p className="mt-2 text-xs leading-relaxed text-white/80">
+                Pre-rendered architectural specs, material checklists (IS 710 BWP, HDHMR, Blum/Häfele), property valuation brackets, and verified client story handovers.
+              </p>
+
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/80">
+                <span>⚡ 3D Floor Plan Approval</span>
+                <span className="font-bold text-amber-400">100% Price Lock BOQ</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

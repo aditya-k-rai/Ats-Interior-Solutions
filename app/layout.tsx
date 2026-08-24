@@ -9,7 +9,6 @@ import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { JsonLd } from "@/components/JsonLd";
 import { MobileNav } from "@/components/MobileNav";
 import { MobileStickyBar } from "@/components/MobileStickyBar";
-import { StickyEnquiryBar } from "@/components/StickyEnquiryBar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair", display: "swap" });
@@ -171,9 +170,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </nav>
         </header>
-
-        {/* Distinct Collapsible Quick Quote Strip */}
-        <StickyEnquiryBar />
 
         {/* Main Page Content */}
         <div className="flex-1">{children}</div>

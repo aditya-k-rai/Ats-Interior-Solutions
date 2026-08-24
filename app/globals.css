@@ -67,10 +67,10 @@ body {
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(229, 169, 60, 0.3);
+    box-shadow: 0 2px 8px rgba(229, 169, 60, 0.15);
   }
   50% {
-    box-shadow: 0 0 35px rgba(229, 169, 60, 0.7);
+    box-shadow: 0 4px 12px rgba(229, 169, 60, 0.25);
   }
 }
 

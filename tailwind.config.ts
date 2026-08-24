@@ -42,10 +42,10 @@ const config: Config = {
       },
       boxShadow: {
         soft: "0 20px 50px rgba(11, 19, 41, 0.08)",
-        glow: "0 0 25px rgba(229, 169, 60, 0.4)",
+        glow: "0 2px 10px rgba(229, 169, 60, 0.15)",
         card: "0 10px 30px rgba(0, 0, 0, 0.05)",
-        gold: "0 8px 25px rgba(229, 169, 60, 0.3)",
-        navy: "0 8px 25px rgba(15, 27, 56, 0.35)"
+        gold: "0 2px 8px rgba(229, 169, 60, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05)",
+        navy: "0 4px 14px rgba(15, 27, 56, 0.25)"
       }
     }
   },

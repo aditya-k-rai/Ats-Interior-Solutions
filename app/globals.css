@@ -97,34 +97,34 @@ body {
   animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* CRO High-Converting Buttons & Gradients */
+/* CRO High-Converting Buttons & Gradients from Plan Palette */
 .gradient-btn-gold {
-  background: linear-gradient(135deg, #f3c368 0%, #e5a93c 50%, #d99218 100%);
-  color: #0b1329;
+  background: linear-gradient(135deg, #ffa600 0%, #ff7c43 100%);
+  color: #003f5c;
 }
 
 .gradient-btn-gold:hover {
-  background: linear-gradient(135deg, #f9dd9d 0%, #f3c368 50%, #e5a93c 100%);
+  background: linear-gradient(135deg, #ffb833 0%, #ffa600 100%);
 }
 
 .gradient-btn-navy {
-  background: linear-gradient(135deg, #16284f 0%, #0b1329 100%);
+  background: linear-gradient(135deg, #003f5c 0%, #2f4b7c 100%);
   color: #ffffff;
 }
 
 .gradient-btn-cta {
-  background: linear-gradient(135deg, #ff6b35 0%, #d9381e 100%);
+  background: linear-gradient(135deg, #ff7c43 0%, #f95d6a 100%);
   color: #ffffff;
 }
 
 .gradient-text-gold {
-  background: linear-gradient(135deg, #f9dd9d 0%, #e5a93c 50%, #d99218 100%);
+  background: linear-gradient(135deg, #ffa600 0%, #ff7c43 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-brand {
-  background: linear-gradient(135deg, #0b1329 0%, #16284f 50%, #e5a93c 100%);
+  background: linear-gradient(135deg, #003f5c 0%, #2f4b7c 50%, #ffa600 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

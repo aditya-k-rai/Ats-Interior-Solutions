@@ -364,8 +364,8 @@ export const testimonials = [
 ];
 
 export const trustMetrics = [
-  { label: "Projects Completed", value: "50+", icon: BadgeCheck },
-  { label: "Cities Served", value: "4", icon: MapPin },
+  { label: "Projects Completed", value: "130+", icon: BadgeCheck },
+  { label: "Active Live Sites", value: "6 Live", icon: Sparkles },
   { label: "Happy Families", value: "200+", icon: Star },
   { label: "After-service Warranty", value: "1 yr", icon: ShieldCheck }
 ];

@@ -9,34 +9,44 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0b1329",
+        ink: "#121316",
+        obsidian: "#121316",
         navy: {
-          950: "#003f5c",
-          900: "#0b1c2d",
-          800: "#2f4b7c",
-          700: "#3b5b91",
-          600: "#496ba6",
-          500: "#587cbc",
-          100: "#e6eef5",
-          50: "#f0f5fa"
+          950: "#0D0F12",
+          900: "#121316",
+          800: "#181B20",
+          700: "#1E232B",
+          600: "#2A303C",
+          500: "#3E4656",
+          100: "#E8E3DC",
+          50: "#F4F3EF"
         },
         amber: {
-          600: "#d48600",
-          500: "#e69500",
-          400: "#ffa600",
-          300: "#ffb833",
-          200: "#ffca66",
-          100: "#fff0d4",
-          50: "#fff8eb"
+          600: "#A88452",
+          500: "#C5A880",
+          400: "#D8C29D",
+          300: "#E3D1B0",
+          200: "#EFE3CD",
+          100: "#F8F3EA",
+          50: "#FDFBF7"
         },
-        accent: "#ffa600",
-        gold: "#ffa600",
-        orange: "#ff7c43",
-        coral: "#f95d6a",
-        porcelain: "#f8fafc",
-        linen: "#f1f5f9",
-        mist: "#e2e8f0",
-        graphite: "#334155"
+        champagne: {
+          600: "#A88452",
+          500: "#C5A880",
+          400: "#D8C29D",
+          300: "#E3D1B0",
+          200: "#EFE3CD",
+          100: "#F8F3EA",
+          50: "#FDFBF7"
+        },
+        accent: "#C5A880",
+        gold: "#C5A880",
+        travertine: "#E8E3DC",
+        alabaster: "#FBFBF9",
+        porcelain: "#FBFBF9",
+        linen: "#F4F3EF",
+        mist: "#E8E3DC",
+        graphite: "#2A303C"
       },
       fontFamily: {
         sans: ["var(--font-inter)", "Arial", "sans-serif"],

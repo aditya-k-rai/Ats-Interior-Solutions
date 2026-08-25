@@ -4,9 +4,9 @@
 
 :root {
   color-scheme: light;
-  --page-bg: #f8fafc;
-  --accent-amber: #e5a93c;
-  --accent-navy: #0f1b38;
+  --page-bg: #FBFBF9;
+  --accent-gold: #C5A880;
+  --accent-obsidian: #121316;
 }
 
 * {
@@ -21,14 +21,14 @@ html {
 body {
   margin: 0;
   background: var(--page-bg);
-  color: #0b1329;
+  color: #121316;
   font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #0f1b38;
-  color: #e5a93c;
+  background: #121316;
+  color: #C5A880;
 }
 
 .section-shell {
@@ -45,14 +45,14 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b1329;
+  background: #0D0F12;
 }
 ::-webkit-scrollbar-thumb {
-  background: #16284f;
+  background: #181B20;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #e5a93c;
+  background: #C5A880;
 }
 
 /* Keyframe Animations */
@@ -67,10 +67,10 @@ body {
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 2px 8px rgba(229, 169, 60, 0.15);
+    box-shadow: 0 2px 8px rgba(197, 168, 128, 0.15);
   }
   50% {
-    box-shadow: 0 4px 12px rgba(229, 169, 60, 0.25);
+    box-shadow: 0 4px 12px rgba(197, 168, 128, 0.25);
   }
 }
 
@@ -97,51 +97,55 @@ body {
   animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* CRO High-Converting Buttons & Gradients from Plan Palette */
+/* 1. The "Brushed Champagne Metallic" Gradient (For CTAs, Form Submit Buttons & Badges) */
 .gradient-btn-gold {
-  background: linear-gradient(135deg, #ffa600 0%, #ff7c43 100%);
-  color: #003f5c;
+  background: linear-gradient(135deg, #D8C29D 0%, #C5A880 50%, #A88452 100%);
+  color: #121316;
+  font-weight: 800;
+  border: 1px solid rgba(197, 168, 128, 0.4);
 }
 
 .gradient-btn-gold:hover {
-  background: linear-gradient(135deg, #ffb833 0%, #ffa600 100%);
+  background: linear-gradient(135deg, #E3D1B0 0%, #D8C29D 50%, #C5A880 100%);
+  box-shadow: 0 4px 15px rgba(197, 168, 128, 0.22);
 }
 
 .gradient-btn-navy {
-  background: linear-gradient(135deg, #003f5c 0%, #2f4b7c 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #1E232B 0%, #0B0D10 100%);
+  color: #F4F3EF;
+  border: 1px solid rgba(197, 168, 128, 0.2);
 }
 
 .gradient-btn-cta {
-  background: linear-gradient(135deg, #ff7c43 0%, #f95d6a 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #D8C29D 0%, #C5A880 50%, #A88452 100%);
+  color: #121316;
 }
 
 .gradient-text-gold {
-  background: linear-gradient(135deg, #ffa600 0%, #ff7c43 100%);
+  background: linear-gradient(135deg, #D8C29D 0%, #C5A880 50%, #A88452 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-brand {
-  background: linear-gradient(135deg, #003f5c 0%, #2f4b7c 50%, #ffa600 100%);
+  background: linear-gradient(135deg, #121316 0%, #1E232B 50%, #C5A880 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Glassmorphism & Cards */
+/* 3. Soft Mist / Frosted Travertine Gradient (For Light Mode Feature Cards) */
 .glass-card {
-  background: rgba(255, 255, 255, 0.88);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F0ECE3 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(22, 40, 79, 0.1);
+  border: 1px solid rgba(232, 227, 220, 0.8);
 }
 
 .glass-dark {
-  background: rgba(11, 19, 41, 0.92);
+  background: rgba(13, 15, 18, 0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 166, 0, 0.25);
+  border: 1px solid rgba(197, 168, 128, 0.3);
 }
 
 /* Card Hover Polish & Elevated Shadows */
@@ -150,7 +154,7 @@ body {
 }
 .card-hover-effect:hover {
   transform: translateY(-5px);
-  box-shadow: 0 14px 32px -4px rgba(0, 63, 92, 0.14);
+  box-shadow: 0 14px 32px -4px rgba(18, 19, 22, 0.12);
 }
 
 /* Shimmer & Glow Effects */
@@ -160,17 +164,17 @@ body {
 }
 
 .btn-shimmer {
-  background: linear-gradient(90deg, #ffa600 0%, #ffc866 50%, #ffa600 100%);
+  background: linear-gradient(90deg, #C5A880 0%, #E3D1B0 50%, #C5A880 100%);
   background-size: 200% 100%;
   animation: shimmer 3.5s infinite;
 }
 
-/* Hero Background & Card Overlays */
+/* 2. The "Architectural Spotlight" Radial Gradient (For Hero Banners & Dark Backgrounds) */
 .hero-image {
   background-image:
-    radial-gradient(circle at 82% 18%, rgba(229, 169, 60, 0.22) 0%, transparent 45%),
-    radial-gradient(circle at 18% 82%, rgba(22, 40, 79, 0.95) 0%, transparent 65%),
-    linear-gradient(180deg, rgba(11, 19, 41, 0.9) 0%, rgba(11, 19, 41, 0.78) 100%),
+    radial-gradient(circle at 75% 20%, rgba(197, 168, 128, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(30, 35, 43, 0.95) 0%, transparent 65%),
+    linear-gradient(180deg, rgba(13, 15, 18, 0.94) 0%, rgba(11, 13, 16, 0.88) 100%),
     url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=85");
   background-size: cover;
   background-position: center;

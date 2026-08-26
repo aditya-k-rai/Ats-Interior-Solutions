@@ -75,59 +75,99 @@ export const businessTypes = [
 export const services = [
   {
     slug: "interior-design",
-    name: "Interior Design",
-    short: "Turnkey home interiors, 3D architectural planning, PU lacquer & acrylic joinery, and site execution by Manoj Pal & team.",
+    name: "Turnkey Home Interior",
+    short: "Full 3BHK/4BHK home interiors, 3D architectural planning, PU lacquer joinery & site execution.",
     icon: Home,
     budget: "Rs. 10L to Rs. 1.5Cr+",
-    timeline: "6 to 16 weeks"
+    timeline: "6 to 16 weeks",
+    subcategories: [
+      "3BHK & 4BHK Villa Interiors",
+      "Living & Dining Room Styling",
+      "Master Bedroom Suites",
+      "Kids Room & Custom Study",
+      "Pooja Room Mandir Design",
+      "Balcony & Bar Lounge Setup"
+    ]
   },
   {
     slug: "modular-kitchen",
     name: "Modular Kitchen",
-    short: "German tandem island kitchens, Action Tesa HDHMR, Dekton sintered stone countertops & Blum/Häfele hardware.",
+    short: "German tandem island kitchens, Action Tesa HDHMR, Dekton stone countertops & Blum/Häfele hardware.",
     icon: ChefHat,
     budget: "Rs. 5L to Rs. 50L+",
-    timeline: "3 to 8 weeks"
-  },
-  {
-    slug: "civil-construction",
-    name: "Civil Construction & Renovation",
-    short: "Structural brickwork, CPVC 10-bar pressure tested plumbing, FRLS rewiring, waterproofing, marble flooring & facade elevation.",
-    icon: Wrench,
-    budget: "Rs. 10L to Rs. 1.5Cr+",
-    timeline: "8 to 24 weeks"
-  },
-  {
-    slug: "false-ceiling",
-    name: "False Ceiling",
-    short: "Clean ceiling designs with layered cove lighting, POP details and electrical integration.",
-    icon: Layers3,
-    budget: "Rs. 1L to Rs. 5L+",
-    timeline: "1 to 3 weeks"
+    timeline: "3 to 8 weeks",
+    subcategories: [
+      "German Tandem Island Kitchens",
+      "U-Shape & Parallel Kitchens",
+      "Acrylic & PU Shaker Shutters",
+      "Action Tesa HDHMR Cabinets",
+      "Blum Soft-Close Drawers",
+      "Dekton Sintered Countertops"
+    ]
   },
   {
     slug: "wardrobe",
-    name: "Wardrobe",
-    short: "Acrylic cream, metallic blue, sliding and hinged fitted storage tailored to bedroom size.",
+    name: "Custom Wardrobe",
+    short: "Floor-to-ceiling sliding, walk-in closets, tinted glass & lacquered acrylic storage.",
     icon: Building2,
     budget: "Rs. 1.5L to Rs. 12L+",
-    timeline: "2 to 5 weeks"
+    timeline: "2 to 5 weeks",
+    subcategories: [
+      "Floor-to-Ceiling Sliding Units",
+      "Walk-in Closets & Dressers",
+      "Acrylic & Glass Shutters",
+      "Lacquered Mirror Wardrobes",
+      "Integrated Sensor LED Strips",
+      "Hettich Hydraulic Organizers"
+    ]
   },
   {
-    slug: "bathroom",
-    name: "Bathroom",
-    short: "Vanities, tiles, waterproofing and premium fittings for compact and luxury bathrooms.",
-    icon: Bath,
-    budget: "Rs. 2L to Rs. 10L+",
-    timeline: "3 to 6 weeks"
+    slug: "false-ceiling",
+    name: "False Ceiling & Lighting",
+    short: "Gypsum cove ceilings, wooden baffle paneling, magnetic tracks & smart architectural lights.",
+    icon: Layers3,
+    budget: "Rs. 1L to Rs. 5L+",
+    timeline: "1 to 3 weeks",
+    subcategories: [
+      "Gypsum Perimeter Cove Ceiling",
+      "Wooden Louver & Baffle Panels",
+      "Magnetic Track Spotlighting",
+      "CNC Jali & Stretch Ceilings",
+      "Acoustic Theater Ceiling",
+      "Smart Dimming Strip Lighting"
+    ]
+  },
+  {
+    slug: "civil-construction",
+    name: "Civil Renovation & Structural",
+    short: "Masonry, CPVC 10-bar pressure plumbing, FRLS wiring, marble flooring & luxury bathrooms.",
+    icon: Wrench,
+    budget: "Rs. 10L to Rs. 1.5Cr+",
+    timeline: "8 to 24 weeks",
+    subcategories: [
+      "Structural Wall Alterations",
+      "CPVC 10-Bar Pressure Plumbing",
+      "FRLS Heavy Duty Rewiring",
+      "Italian Marble & Slab Tiling",
+      "Terrace & Wet Area Waterproofing",
+      "Luxury Vanity & Bathroom Fit-Outs"
+    ]
   },
   {
     slug: "office-interior",
-    name: "Office Interior",
-    short: "Commercial spaces planned for workflow, executive cabins, reception and fast delivery.",
-    icon: Building2,
+    name: "Office & Commercial Interior",
+    short: "Executive cabins, ergonomic workstations, acoustic conference rooms & fast handover.",
+    icon: BriefcaseBusiness,
     budget: "Rs. 10L to Rs. 80L+",
-    timeline: "4 to 12 weeks"
+    timeline: "4 to 12 weeks",
+    subcategories: [
+      "Executive Cabins & Workstations",
+      "Acoustic Conference Rooms",
+      "Reception & Branding Walls",
+      "Cafeteria & Lounge Fit-Outs",
+      "Raised Access & Carpet Flooring",
+      "HVAC & Commercial Lighting"
+    ]
   }
 ];
 
@@ -567,8 +607,10 @@ export function getLandingPage(slug: string) {
   return getLandingPages().find((page) => page.slug === slug);
 }
 
-export function whatsappHref(message: string) {
-  return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`;
+export function whatsappHref(message?: string) {
+  const basePrefix = "Hi ATS Team, I visited your website and I am interested in your services.";
+  if (!message) return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(basePrefix)}`;
+  return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(`${basePrefix}\n\nInquiry Details: ${message}`)}`;
 }
 
 export const nav = [

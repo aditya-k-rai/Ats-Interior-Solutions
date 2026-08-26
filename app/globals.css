@@ -5,7 +5,7 @@
 :root {
   color-scheme: light;
   --page-bg: #FBFBF9;
-  --accent-gold: #C5A880;
+  --accent-gold: #D4AF37;
   --accent-obsidian: #121316;
 }
 
@@ -28,7 +28,7 @@ body {
 
 ::selection {
   background: #121316;
-  color: #C5A880;
+  color: #D4AF37;
 }
 
 .section-shell {
@@ -52,7 +52,7 @@ body {
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C5A880;
+  background: #D4AF37;
 }
 
 /* Keyframe Animations */
@@ -67,10 +67,10 @@ body {
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 2px 8px rgba(197, 168, 128, 0.15);
+    box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25);
   }
   50% {
-    box-shadow: 0 4px 12px rgba(197, 168, 128, 0.25);
+    box-shadow: 0 6px 22px rgba(212, 175, 55, 0.45);
   }
 }
 
@@ -97,40 +97,73 @@ body {
   animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* 1. The "Brushed Champagne Metallic" Gradient (For CTAs, Form Submit Buttons & Badges) */
+/* Luxury 3-Stop Brushed Champagne Metallic Button System (Ref: Best Colour File) */
 .gradient-btn-gold {
-  background: linear-gradient(135deg, #D8C29D 0%, #C5A880 50%, #A88452 100%);
-  color: #121316;
+  background: linear-gradient(135deg, #F7E7CE 0%, #D4AF37 48%, #AA7C11 100%);
+  color: #0D0F12;
   font-weight: 800;
-  border: 1px solid rgba(197, 168, 128, 0.4);
+  border: 1px solid rgba(255, 240, 205, 0.85);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gradient-btn-gold:hover {
-  background: linear-gradient(135deg, #E3D1B0 0%, #D8C29D 50%, #C5A880 100%);
-  box-shadow: 0 4px 15px rgba(197, 168, 128, 0.22);
+  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(135deg, #FFF0D4 0%, #E5BE48 50%, #C59B27 100%);
+  border-color: #FFF5DD;
+  box-shadow: 0 6px 28px rgba(212, 175, 55, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 .gradient-btn-navy {
-  background: linear-gradient(135deg, #1E232B 0%, #0B0D10 100%);
+  background: rgba(13, 15, 18, 0.92);
   color: #F4F3EF;
-  border: 1px solid rgba(197, 168, 128, 0.2);
+  font-weight: 700;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 0 18px rgba(13, 15, 18, 0.5), inset 0 0 12px rgba(212, 175, 55, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gradient-btn-navy:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: rgba(24, 27, 32, 0.98);
+  border-color: rgba(247, 231, 206, 0.9);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.4), inset 0 0 16px rgba(212, 175, 55, 0.2);
+  color: #FFFFFF;
 }
 
 .gradient-btn-cta {
-  background: linear-gradient(135deg, #D8C29D 0%, #C5A880 50%, #A88452 100%);
-  color: #121316;
+  background: linear-gradient(135deg, #F7E7CE 0%, #D4AF37 48%, #AA7C11 100%);
+  color: #0D0F12;
+  font-weight: 800;
+  border: 1px solid rgba(255, 240, 205, 0.85);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.gradient-text-gold {
-  background: linear-gradient(135deg, #D8C29D 0%, #C5A880 50%, #A88452 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.gradient-btn-cta:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 30px rgba(212, 175, 55, 0.55);
 }
 
-.gradient-text-brand {
-  background: linear-gradient(135deg, #121316 0%, #1E232B 50%, #C5A880 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.glow-pill-btn {
+  background: rgba(13, 15, 18, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.2), inset 0 0 10px rgba(212, 175, 55, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-pill-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(247, 231, 206, 0.9);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.45), inset 0 0 14px rgba(212, 175, 55, 0.2);
 }
 
 /* 3. Soft Mist / Frosted Travertine Gradient (For Light Mode Feature Cards) */
@@ -138,14 +171,14 @@ body {
   background: linear-gradient(180deg, #FFFFFF 0%, #F0ECE3 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(232, 227, 220, 0.8);
+  border: 1px solid rgba(232, 227, 220, 0.9);
 }
 
 .glass-dark {
-  background: rgba(13, 15, 18, 0.94);
+  background: rgba(13, 15, 18, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(197, 168, 128, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.35);
 }
 
 /* Card Hover Polish & Elevated Shadows */
@@ -154,7 +187,7 @@ body {
 }
 .card-hover-effect:hover {
   transform: translateY(-5px);
-  box-shadow: 0 14px 32px -4px rgba(18, 19, 22, 0.12);
+  box-shadow: 0 14px 32px -4px rgba(18, 19, 22, 0.14);
 }
 
 /* Shimmer & Glow Effects */
@@ -164,17 +197,130 @@ body {
 }
 
 .btn-shimmer {
-  background: linear-gradient(90deg, #C5A880 0%, #E3D1B0 50%, #C5A880 100%);
+  background: linear-gradient(90deg, #D4AF37 0%, #F7E7CE 50%, #D4AF37 100%);
   background-size: 200% 100%;
   animation: shimmer 3.5s infinite;
+}
+
+/* Multi-Color Glassmorphic Neon Glowing Border Button System (Ref: Glowing Neon Border Buttons) */
+.glow-btn-purple {
+  background: rgba(18, 15, 32, 0.85);
+  color: #F4F0FF;
+  border: 1px solid rgba(168, 85, 247, 0.6);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.35), inset 0 0 10px rgba(168, 85, 247, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-btn-purple:hover {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(192, 132, 252, 0.95);
+  box-shadow: 0 0 28px rgba(168, 85, 247, 0.65), inset 0 0 16px rgba(168, 85, 247, 0.3);
+  color: #FFFFFF;
+}
+
+.glow-btn-teal {
+  background: rgba(12, 26, 28, 0.85);
+  color: #E6FFFA;
+  border: 1px solid rgba(45, 212, 191, 0.6);
+  box-shadow: 0 0 16px rgba(45, 212, 191, 0.35), inset 0 0 10px rgba(45, 212, 191, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-btn-teal:hover {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(94, 234, 212, 0.95);
+  box-shadow: 0 0 28px rgba(45, 212, 191, 0.65), inset 0 0 16px rgba(45, 212, 191, 0.3);
+  color: #FFFFFF;
+}
+
+.glow-btn-amber {
+  background: rgba(28, 20, 12, 0.85);
+  color: #FFFBEB;
+  border: 1px solid rgba(251, 191, 36, 0.6);
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.35), inset 0 0 10px rgba(251, 191, 36, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-btn-amber:hover {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(253, 224, 71, 0.95);
+  box-shadow: 0 0 28px rgba(251, 191, 36, 0.65), inset 0 0 16px rgba(251, 191, 36, 0.3);
+  color: #FFFFFF;
+}
+
+.glow-btn-blue {
+  background: rgba(12, 20, 34, 0.85);
+  color: #EFF6FF;
+  border: 1px solid rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.35), inset 0 0 10px rgba(59, 130, 246, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-btn-blue:hover {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(147, 197, 253, 0.95);
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.65), inset 0 0 16px rgba(59, 130, 246, 0.3);
+  color: #FFFFFF;
+}
+
+.glow-btn-pink {
+  background: rgba(28, 14, 24, 0.85);
+  color: #FDF2F8;
+  border: 1px solid rgba(236, 72, 153, 0.6);
+  box-shadow: 0 0 16px rgba(236, 72, 153, 0.35), inset 0 0 10px rgba(236, 72, 153, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-btn-pink:hover {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(249, 168, 212, 0.95);
+  box-shadow: 0 0 28px rgba(236, 72, 153, 0.65), inset 0 0 16px rgba(236, 72, 153, 0.3);
+  color: #FFFFFF;
+}
+
+.glow-btn-rose {
+  background: rgba(28, 12, 18, 0.85);
+  color: #FFF1F2;
+  border: 1px solid rgba(244, 63, 94, 0.6);
+  box-shadow: 0 0 16px rgba(244, 63, 94, 0.35), inset 0 0 10px rgba(244, 63, 94, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-btn-rose:hover {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(253, 164, 175, 0.95);
+  box-shadow: 0 0 28px rgba(244, 63, 94, 0.65), inset 0 0 16px rgba(244, 63, 94, 0.3);
+  color: #FFFFFF;
+}
+
+.glow-btn-emerald {
+  background: rgba(10, 26, 20, 0.85);
+  color: #ECFDF5;
+  border: 1px solid rgba(16, 185, 129, 0.6);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.35), inset 0 0 10px rgba(16, 185, 129, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glow-btn-emerald:hover {
+  transform: translateY(-2px) scale(1.04);
+  border-color: rgba(110, 231, 183, 0.95);
+  box-shadow: 0 0 28px rgba(16, 185, 129, 0.65), inset 0 0 16px rgba(16, 185, 129, 0.3);
+  color: #FFFFFF;
 }
 
 /* 2. The "Architectural Spotlight" Radial Gradient (For Hero Banners & Dark Backgrounds) */
 .hero-image {
   background-image:
-    radial-gradient(circle at 75% 20%, rgba(197, 168, 128, 0.22) 0%, transparent 45%),
-    radial-gradient(circle at 20% 80%, rgba(30, 35, 43, 0.95) 0%, transparent 65%),
-    linear-gradient(180deg, rgba(13, 15, 18, 0.94) 0%, rgba(11, 13, 16, 0.88) 100%),
+    radial-gradient(circle at 75% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(18, 19, 22, 0.15) 0%, transparent 65%),
+    linear-gradient(180deg, rgba(13, 15, 18, 0.10) 0%, rgba(18, 19, 22, 0.10) 100%),
     url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=85");
   background-size: cover;
   background-position: center;
@@ -182,7 +328,7 @@ body {
 
 .kitchen-image {
   background-image:
-    linear-gradient(180deg, rgba(11, 19, 41, 0.15), rgba(11, 19, 41, 0.85)),
+    linear-gradient(180deg, rgba(13, 15, 18, 0.2), rgba(13, 15, 18, 0.88)),
     url("https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=82");
   background-size: cover;
   background-position: center;
@@ -190,7 +336,7 @@ body {
 
 .living-image {
   background-image:
-    linear-gradient(180deg, rgba(11, 19, 41, 0.15), rgba(11, 19, 41, 0.85)),
+    linear-gradient(180deg, rgba(13, 15, 18, 0.2), rgba(13, 15, 18, 0.88)),
     url("https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=82");
   background-size: cover;
   background-position: center;
@@ -198,7 +344,7 @@ body {
 
 .wardrobe-image {
   background-image:
-    linear-gradient(180deg, rgba(11, 19, 41, 0.15), rgba(11, 19, 41, 0.85)),
+    linear-gradient(180deg, rgba(13, 15, 18, 0.2), rgba(13, 15, 18, 0.88)),
     url("https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=82");
   background-size: cover;
   background-position: center;

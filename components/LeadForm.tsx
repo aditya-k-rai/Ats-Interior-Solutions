@@ -13,14 +13,23 @@ interface LeadFormProps {
 export function LeadForm({ defaultCity = "Noida", defaultService = "Full Home Interior", compact }: LeadFormProps = {}) {
   const [step, setStep] = useState(1);
   const [city, setCity] = useState(defaultCity);
-  const [bhk, setBhk] = useState("3 BHK");
-  const [service, setService] = useState(defaultService);
+  const [selectedScopes, setSelectedScopes] = useState<string[]>([defaultService === "Full Home Interior" ? "3 BHK" : defaultService]);
   const [budget, setBudget] = useState("10L - 15L");
   const [timeline, setTimeline] = useState("1-2 Months");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const toggleScope = (scopeName: string) => {
+    if (selectedScopes.includes(scopeName)) {
+      if (selectedScopes.length > 1) {
+        setSelectedScopes(selectedScopes.filter((item) => item !== scopeName));
+      }
+    } else {
+      setSelectedScopes([...selectedScopes, scopeName]);
+    }
+  };
 
   // Calculate Lead Score dynamically (CRO Science)
   const calculateLeadScore = () => {
@@ -46,8 +55,9 @@ export function LeadForm({ defaultCity = "Noida", defaultService = "Full Home In
           name,
           phone,
           city,
-          bhk,
-          service,
+          scopes: selectedScopes,
+          bhk: selectedScopes.join(", "),
+          service: selectedScopes.join(", "),
           budget,
           timeline,
           leadScore: calculateLeadScore()
@@ -61,7 +71,7 @@ export function LeadForm({ defaultCity = "Noida", defaultService = "Full Home In
     }
   };
 
-  const whatsappMessage = `Hi ATS Interior, I requested a quote:\nName: ${name}\nCity: ${city}\nScope: ${service} (${bhk})\nBudget: ${budget}\nTimeline: ${timeline}`;
+  const whatsappMessage = `Hi ATS Team, I requested a quote:\nName: ${name}\nCity: ${city}\nScope: ${selectedScopes.join(", ")}\nBudget: ${budget}\nTimeline: ${timeline}`;
 
   if (submitted) {
     return (
@@ -74,7 +84,7 @@ export function LeadForm({ defaultCity = "Noida", defaultService = "Full Home In
         </span>
         <h3 className="font-display text-2xl sm:text-3xl font-bold text-navy-950">Thank You, {name}!</h3>
         <p className="mt-2 text-sm leading-6 text-slate-600">
-          Your project requirement for <strong>{service} ({bhk})</strong> in <strong>{city}</strong> has been logged. Our Design Director will call you within 1 hour.
+          Your project requirement for <strong>{selectedScopes.join(", ")}</strong> in <strong>{city}</strong> has been logged. Our Design Director will call you within 1 hour.
         </p>
 
         <div className="mt-6 flex flex-col gap-3">
@@ -96,8 +106,8 @@ export function LeadForm({ defaultCity = "Noida", defaultService = "Full Home In
       {/* High-Converting Accent Header */}
       <div className="mb-5 flex items-center justify-between border-b border-slate-100 pb-4">
         <div>
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-600">
-            <Sparkles size={13} className="text-amber-500" /> Instant 60-Second Quote
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-700">
+            <Sparkles size={13} className="text-amber-500 animate-pulse" /> Instant 60-Second Quote
           </span>
           <h3 className="font-display text-xl sm:text-2xl font-bold text-navy-950 mt-0.5">Get Free Design Estimate</h3>
         </div>
@@ -122,15 +132,20 @@ export function LeadForm({ defaultCity = "Noida", defaultService = "Full Home In
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-navy-900 mb-1.5">1. Select City</label>
               <div className="grid grid-cols-2 gap-2">
-                {["Noida", "Greater Noida", "Ghaziabad", "Delhi NCR"].map((c) => (
+                {[
+                  { name: "Noida", glow: "glow-btn-blue" },
+                  { name: "Greater Noida", glow: "glow-btn-teal" },
+                  { name: "Ghaziabad", glow: "glow-btn-purple" },
+                  { name: "Delhi NCR", glow: "glow-btn-amber" }
+                ].map(({ name: c, glow }) => (
                   <button
                     type="button"
                     key={c}
                     onClick={() => setCity(c)}
-                    className={`rounded-xl px-3 py-2.5 text-xs font-bold transition border ${
+                    className={`rounded-xl px-3 py-2.5 text-xs font-bold transition ${
                       city === c
-                        ? "bg-navy-950 text-amber-400 border-navy-950 shadow-sm"
-                        : "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300"
+                        ? `${glow} font-extrabold scale-[1.02]`
+                        : "bg-slate-50 text-slate-700 border border-slate-200 hover:border-slate-400"
                     }`}
                   >
                     {c}
@@ -140,36 +155,45 @@ export function LeadForm({ defaultCity = "Noida", defaultService = "Full Home In
             </div>
 
             <div>
-              <label className="block text-xs font-bold uppercase tracking-wider text-navy-900 mb-1.5">2. Property Scope</label>
+              <div className="flex items-center justify-between mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-navy-900">2. Property Scope</label>
+                <span className="text-[10px] font-extrabold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full border border-amber-300">
+                  Select Multiple
+                </span>
+              </div>
               <div className="grid grid-cols-3 gap-2">
-                {["2 BHK", "3 BHK", "4 BHK / Villa", "Modular Kitchen", "Wardrobes", "Office"].map((s) => (
-                  <button
-                    type="button"
-                    key={s}
-                    onClick={() => {
-                      if (s.includes("BHK") || s.includes("Villa")) {
-                        setBhk(s);
-                        setService("Full Home Interior");
-                      } else {
-                        setService(s);
-                      }
-                    }}
-                    className={`rounded-xl px-2 py-2 text-xs font-bold transition border ${
-                      (s.includes("BHK") && bhk === s) || service === s
-                        ? "bg-amber-500 text-navy-950 border-amber-400 shadow-sm font-extrabold"
-                        : "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300"
-                    }`}
-                  >
-                    {s}
-                  </button>
-                ))}
+                {[
+                  { name: "2 BHK", glow: "glow-btn-teal" },
+                  { name: "3 BHK", glow: "glow-btn-amber" },
+                  { name: "4 BHK / Villa", glow: "glow-btn-purple" },
+                  { name: "Modular Kitchen", glow: "glow-btn-emerald" },
+                  { name: "Wardrobes", glow: "glow-btn-pink" },
+                  { name: "Office", glow: "glow-btn-blue" }
+                ].map(({ name: s, glow }) => {
+                  const isSelected = selectedScopes.includes(s);
+                  return (
+                    <button
+                      type="button"
+                      key={s}
+                      onClick={() => toggleScope(s)}
+                      className={`relative rounded-xl px-2 py-2.5 text-xs font-bold transition flex items-center justify-center gap-1 cursor-pointer ${
+                        isSelected
+                          ? `${glow} font-extrabold scale-[1.02] shadow-md`
+                          : "bg-slate-50 text-slate-700 border border-slate-200 hover:border-slate-400"
+                      }`}
+                    >
+                      <span>{s}</span>
+                      {isSelected && <span className="text-[10px] text-amber-400 font-extrabold">✓</span>}
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
             <button
               type="button"
               onClick={() => setStep(2)}
-              className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold py-3.5 text-sm font-bold text-navy-950 shadow-gold transition hover:scale-[1.02] active:scale-95"
+              className="mt-2 w-full inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold py-3.5 text-sm font-extrabold text-navy-950 shadow-gold transition hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
               <span>Next: Budget & Timeline</span> <ChevronRight size={18} />
             </button>
@@ -181,15 +205,20 @@ export function LeadForm({ defaultCity = "Noida", defaultService = "Full Home In
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-navy-900 mb-1.5">3. Budget Range</label>
               <div className="grid grid-cols-2 gap-2">
-                {["3L - 6L", "6L - 10L", "10L - 15L", "15L - 25L+"].map((b) => (
+                {[
+                  { name: "3L - 6L", glow: "glow-btn-teal" },
+                  { name: "6L - 10L", glow: "glow-btn-blue" },
+                  { name: "10L - 15L", glow: "glow-btn-amber" },
+                  { name: "15L - 25L+", glow: "glow-btn-purple" }
+                ].map(({ name: b, glow }) => (
                   <button
                     type="button"
                     key={b}
                     onClick={() => setBudget(b)}
-                    className={`rounded-xl px-3 py-2.5 text-xs font-bold transition border ${
+                    className={`rounded-xl px-3 py-2.5 text-xs font-bold transition ${
                       budget === b
-                        ? "bg-navy-950 text-amber-400 border-navy-950 shadow-sm"
-                        : "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300"
+                        ? `${glow} font-extrabold scale-[1.02]`
+                        : "bg-slate-50 text-slate-700 border border-slate-200 hover:border-slate-400"
                     }`}
                   >
                     Rs. {b}
@@ -201,15 +230,19 @@ export function LeadForm({ defaultCity = "Noida", defaultService = "Full Home In
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-navy-900 mb-1.5">4. Expected Timeline</label>
               <div className="grid grid-cols-3 gap-2">
-                {["Immediate", "1-2 Months", "Planning"].map((t) => (
+                {[
+                  { name: "Immediate", glow: "glow-btn-rose" },
+                  { name: "1-2 Months", glow: "glow-btn-amber" },
+                  { name: "Planning", glow: "glow-btn-purple" }
+                ].map(({ name: t, glow }) => (
                   <button
                     type="button"
                     key={t}
                     onClick={() => setTimeline(t)}
-                    className={`rounded-xl px-2.5 py-2 text-xs font-bold transition border ${
+                    className={`rounded-xl px-2.5 py-2 text-xs font-bold transition ${
                       timeline === t
-                        ? "bg-amber-500 text-navy-950 border-amber-400 shadow-sm"
-                        : "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300"
+                        ? `${glow} font-extrabold scale-[1.02]`
+                        : "bg-slate-50 text-slate-700 border border-slate-200 hover:border-slate-400"
                     }`}
                   >
                     {t}
@@ -264,8 +297,8 @@ export function LeadForm({ defaultCity = "Noida", defaultService = "Full Home In
             </div>
 
             <div className="rounded-xl bg-amber-50 border border-amber-200 p-3 text-[11px] text-amber-900 flex items-center justify-between">
-              <span>Selected: <strong>{city}</strong> • <strong>{bhk}</strong> • <strong>{budget}</strong></span>
-              <button type="button" onClick={() => setStep(1)} className="text-amber-700 underline font-bold">Edit</button>
+              <span className="truncate pr-2">Selected: <strong>{city}</strong> • <strong>{selectedScopes.join(", ")}</strong> • <strong>{budget}</strong></span>
+              <button type="button" onClick={() => setStep(1)} className="text-amber-700 underline font-bold shrink-0">Edit</button>
             </div>
 
             <div className="flex gap-2 mt-1">

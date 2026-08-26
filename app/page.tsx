@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, MapPin, MessageCircle, Play, ShieldCheck, Sparkles, Star, UserCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, MapPin, MessageCircle, Phone, Play, ShieldCheck, Sparkles, Star, UserCheck } from "lucide-react";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { BudgetEstimator } from "@/components/BudgetEstimator";
 import { JsonLd } from "@/components/JsonLd";
@@ -65,30 +65,30 @@ export default function HomePage() {
               <Sparkles size={14} className="text-amber-400 animate-pulse" />
               <span>Greater Noida • Noida • Ghaziabad • Delhi NCR</span>
             </div>
-            <h1 className="text-balance font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+            <h1 className="text-balance font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               Interior Designer in Noida, Greater Noida & Delhi NCR
             </h1>
-            <p className="mt-5 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
+            <p className="mt-5 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white font-medium drop-shadow-[0_1px_5px_rgba(0,0,0,0.8)]">
               Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — led by Founder Manoj Pal & site team.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl gradient-btn-gold px-7 py-4 text-sm font-extrabold text-navy-950 shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" href="#consultation">
                 <span>Get Free Consultation</span> <ArrowRight size={18} />
               </a>
-              <Link className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/5 backdrop-blur px-6 py-4 text-sm font-bold text-white transition hover:bg-white/15 hover:border-amber-400/50 active:scale-95" href="/portfolio">
-                <Play size={17} /> View Real Work
+              <Link className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl glow-btn-purple px-6 py-4 text-sm font-bold transition active:scale-95" href="/portfolio">
+                <Play size={17} className="text-purple-300 animate-pulse" /> View Real Work
               </Link>
             </div>
 
             <div className="mt-8 grid grid-cols-3 gap-2.5 sm:gap-3 max-w-lg">
               {[
-                { count: "50+", label: "Projects Delivered" },
-                { count: "4", label: "Cities Covered" },
-                { count: "1 Yr", label: "Warranty Included" }
+                { count: "50+", label: "Projects Delivered", glow: "glow-btn-amber" },
+                { count: "4", label: "Cities Covered", glow: "glow-btn-teal" },
+                { count: "1 Yr", label: "Warranty Included", glow: "glow-btn-purple" }
               ].map((item) => (
-                <div className="rounded-xl border border-white/15 bg-white/10 p-3 text-center backdrop-blur shadow-sm" key={item.label}>
-                  <p className="font-display text-xl sm:text-2xl font-bold text-amber-300">{item.count}</p>
-                  <p className="text-[10px] sm:text-xs font-semibold text-white/80">{item.label}</p>
+                <div className={`rounded-xl ${item.glow} p-3 text-center backdrop-blur shadow-sm`} key={item.label}>
+                  <p className="font-display text-xl sm:text-2xl font-bold">{item.count}</p>
+                  <p className="text-[10px] sm:text-xs font-semibold opacity-90">{item.label}</p>
                 </div>
               ))}
             </div>
@@ -103,11 +103,13 @@ export default function HomePage() {
       {/* Trust Metrics Strip */}
       <section className="bg-white py-10 border-b border-navy-950/10">
         <div className="section-shell grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {trustMetrics.map((metric) => {
+          {trustMetrics.map((metric, idx) => {
             const Icon = metric.icon;
+            const glows = ["glow-btn-amber", "glow-btn-teal", "glow-btn-purple", "glow-btn-blue"];
+            const currentGlow = glows[idx % glows.length];
             return (
               <div className="flex items-center gap-4 rounded-xl border border-navy-950/10 bg-porcelain p-4 sm:p-5 shadow-sm transition hover:border-amber-500/40 hover:-translate-y-1" key={metric.label}>
-                <div className="grid size-12 place-items-center rounded-xl gradient-btn-gold text-navy-950 font-bold shadow-md shrink-0">
+                <div className={`grid size-12 place-items-center rounded-xl ${currentGlow} font-bold shadow-md shrink-0`}>
                   <Icon size={22} />
                 </div>
                 <div>
@@ -125,8 +127,8 @@ export default function HomePage() {
         <div className="section-shell">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
-                Seven Core Services
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 bg-amber-100 px-3.5 py-1.5 rounded-full border border-amber-300 shadow-sm">
+                6 Core Categories • 36 Subcategories
               </span>
               <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-navy-950">Built for every stage of your space</h2>
             </div>
@@ -134,23 +136,46 @@ export default function HomePage() {
               <span>View all services</span> <ArrowRight size={18} className="transition group-hover:translate-x-1" />
             </Link>
           </div>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => {
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => {
               const Icon = service.icon;
+              const cardThemes = [
+                { glow: "glow-btn-amber", iconBg: "bg-navy-950 text-amber-400 group-hover:bg-amber-400 group-hover:text-navy-950 group-hover:border-amber-300 group-hover:shadow-[0_0_22px_rgba(212,175,55,0.6)]" },
+                { glow: "glow-btn-emerald", iconBg: "bg-navy-950 text-emerald-400 group-hover:bg-emerald-400 group-hover:text-navy-950 group-hover:border-emerald-300 group-hover:shadow-[0_0_22px_rgba(16,185,129,0.6)]" },
+                { glow: "glow-btn-purple", iconBg: "bg-navy-950 text-purple-400 group-hover:bg-purple-400 group-hover:text-navy-950 group-hover:border-purple-300 group-hover:shadow-[0_0_22px_rgba(168,85,247,0.6)]" },
+                { glow: "glow-btn-rose", iconBg: "bg-navy-950 text-rose-400 group-hover:bg-rose-400 group-hover:text-navy-950 group-hover:border-rose-300 group-hover:shadow-[0_0_22px_rgba(244,63,94,0.6)]" },
+                { glow: "glow-btn-blue", iconBg: "bg-navy-950 text-blue-400 group-hover:bg-blue-400 group-hover:text-navy-950 group-hover:border-blue-300 group-hover:shadow-[0_0_22px_rgba(59,130,246,0.6)]" },
+                { glow: "glow-btn-teal", iconBg: "bg-navy-950 text-cyan-400 group-hover:bg-cyan-400 group-hover:text-navy-950 group-hover:border-cyan-300 group-hover:shadow-[0_0_22px_rgba(45,212,191,0.6)]" }
+              ];
+              const theme = cardThemes[index % cardThemes.length];
               return (
                 <article className="group rounded-2xl bg-white p-6 sm:p-7 shadow-soft border border-navy-950/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-amber-500/40 flex flex-col justify-between" key={service.slug}>
                   <div>
                     <div className="mb-5 flex items-start justify-between gap-3">
-                      <div className="grid size-14 place-items-center rounded-xl bg-slate-100 text-navy-800 group-hover:gradient-btn-gold group-hover:text-navy-950 transition duration-300 shadow-sm">
-                        <Icon size={25} />
+                      <div className={`grid size-14 place-items-center rounded-2xl border border-amber-500/20 ${theme.iconBg} transition-all duration-300 shadow-md`}>
+                        <Icon size={26} className="transition duration-300 group-hover:scale-110" />
                       </div>
-                      <Link className="rounded-lg border border-navy-950/15 px-3 py-1.5 text-xs font-bold text-navy-800 hover:bg-navy-950 hover:text-white transition" href={`/${service.slug}-noida`}>
+                      <Link className={`rounded-xl ${theme.glow} px-3 py-1.5 text-xs font-bold transition`} href={`/${service.slug}-noida`}>
                         See Projects
                       </Link>
                     </div>
-                    <h3 className="font-display text-2xl font-bold text-navy-950">{service.name}</h3>
+                    <h3 className="font-display text-2xl font-bold text-navy-950 group-hover:text-amber-600 transition">{service.name}</h3>
                     <p className="mt-2.5 text-sm leading-6 text-slate-600">{service.short}</p>
+
+                    {/* 6 Subcategories Grid */}
+                    <div className="mt-4 pt-3.5 border-t border-slate-100">
+                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 block mb-2">6 Subcategories Included:</span>
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1.5 text-xs text-slate-700">
+                        {service.subcategories.map((sub) => (
+                          <li key={sub} className="flex items-center gap-1.5 font-medium hover:text-navy-950 transition">
+                            <span className="size-1.5 rounded-full bg-amber-500 shrink-0" />
+                            <span className="truncate">{sub}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
+
                   <div className="mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-4">
                     <span className="rounded-md bg-porcelain px-3 py-1.5 text-xs font-semibold text-slate-700 border border-navy-950/5">{service.budget}</span>
                     <a className="rounded-lg gradient-btn-gold px-4 py-2 text-xs font-extrabold text-navy-950 shadow-sm transition hover:scale-105" href={whatsappHref(`I need a quote for ${service.name}.`)}>
@@ -298,16 +323,59 @@ export default function HomePage() {
       {/* Process Section */}
       <section className="bg-slate-100/70 py-16 sm:py-20 border-t border-navy-950/10">
         <div className="section-shell">
-          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 bg-white px-3 py-1 rounded-full border border-amber-200">
-                5-Step Process
-              </span>
-              <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-navy-950">A clear path from brief to handover</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-600">
-                Transparent execution schedule ensures zero surprises, on-time delivery, and clean site closure under site engineer supervision.
-              </p>
+          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] items-start">
+            <div className="flex flex-col justify-between h-full">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 bg-white px-3 py-1 rounded-full border border-amber-200">
+                  5-Step Process
+                </span>
+                <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-navy-950">A clear path from brief to handover</h2>
+                <p className="mt-4 text-sm leading-7 text-slate-600">
+                  Transparent execution schedule ensures zero surprises, on-time delivery, and clean site closure under site engineer supervision.
+                </p>
+              </div>
+
+              {/* High-Trust Site Supervision Card to Fill Blank Space */}
+              <div className="mt-6 rounded-2xl bg-white p-5 sm:p-6 shadow-soft border border-amber-500/30 relative overflow-hidden group">
+                <div className="relative h-48 w-full overflow-hidden rounded-xl bg-navy-950 mb-4">
+                  <Image
+                    src="/images/team-discussion.jpg"
+                    alt="ATS Site Engineer Supervision & Planning"
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent" />
+                  <span className="absolute bottom-3 left-3 rounded-lg gradient-btn-gold px-3 py-1 text-[11px] font-extrabold text-navy-950 shadow">
+                    Direct Site Engineer Supervision
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <div className="rounded-xl bg-porcelain p-2.5 border border-navy-950/5">
+                    <p className="text-[10px] font-extrabold text-amber-700 uppercase tracking-wider">Timeline</p>
+                    <p className="text-xs font-bold text-navy-950 mt-0.5">Zero Delay</p>
+                  </div>
+                  <div className="rounded-xl bg-porcelain p-2.5 border border-navy-950/5">
+                    <p className="text-[10px] font-extrabold text-amber-700 uppercase tracking-wider">Precision</p>
+                    <p className="text-xs font-bold text-navy-950 mt-0.5">German CNC</p>
+                  </div>
+                  <div className="rounded-xl bg-porcelain p-2.5 border border-navy-950/5">
+                    <p className="text-[10px] font-extrabold text-amber-700 uppercase tracking-wider">Coverage</p>
+                    <p className="text-xs font-bold text-navy-950 mt-0.5">1-Yr Warranty</p>
+                  </div>
+                </div>
+
+                <a
+                  className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold py-3 text-xs font-extrabold text-navy-950 shadow-gold transition hover:scale-[1.02] active:scale-95 cursor-pointer"
+                  href={whatsappHref("I want to schedule a professional consultation with the ATS Design Team.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Phone size={15} /> Schedule Professional Consultation
+                </a>
+              </div>
             </div>
+
             <div className="grid gap-3.5">
               {process.map((step, index) => (
                 <div className="grid grid-cols-[48px_1fr] sm:grid-cols-[56px_1fr] gap-4 rounded-2xl bg-white p-5 shadow-soft border border-navy-950/5 items-center" key={step.title}>

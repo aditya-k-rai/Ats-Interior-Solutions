@@ -9,9 +9,9 @@ export function MobileStickyBar() {
       <div className="grid grid-cols-3 gap-2 text-center">
         <a
           href={`tel:${site.phone.replaceAll(" ", "").replaceAll("-", "")}`}
-          className="flex flex-col items-center justify-center rounded-xl bg-white/10 py-2 px-1 text-[11px] font-bold text-white transition active:scale-95 border border-white/10"
+          className="flex flex-col items-center justify-center rounded-xl glow-btn-blue py-2 px-1 text-[11px] font-bold transition active:scale-95"
         >
-          <Phone size={16} className="text-amber-400 mb-0.5" />
+          <Phone size={16} className="text-blue-300 mb-0.5" />
           <span>Call Now</span>
         </a>
 
@@ -19,9 +19,9 @@ export function MobileStickyBar() {
           href={whatsappHref("Hi ATS Interior, I want an instant quote for my property.")}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center rounded-xl bg-emerald-600 py-2 px-1 text-[11px] font-extrabold text-white shadow-md transition active:scale-95 border border-emerald-400/30"
+          className="flex flex-col items-center justify-center rounded-xl glow-btn-emerald py-2 px-1 text-[11px] font-extrabold shadow-md transition active:scale-95"
         >
-          <MessageCircle size={16} className="mb-0.5 animate-pulse" />
+          <MessageCircle size={16} className="mb-0.5 animate-pulse text-emerald-300" />
           <span>WhatsApp</span>
         </a>
 

@@ -1,0 +1,58 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://atsinteriorsolution.com/#organization",
+      "name": "ATS Interior Solutions",
+      "alternateName": ["ATS Interior Solution", "ATS Interiors Noida"],
+      "url": "https://atsinteriorsolution.com",
+      "logo": "https://atsinteriorsolution.com/images/logo.png",
+      "foundingDate": "2018",
+      "vatID": "09AXHPK0269P1ZV",
+      "telephone": "+91 98737 57487",
+      "email": "atsinteriorsolution@gmail.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Manoj Pal",
+        "jobTitle": "Founder & Managing Director"
+      },
+      "memberOf": [
+        {
+          "@type": "Organization",
+          "name": "CREDAI NCR Partner"
+        },
+        {
+          "@type": "Organization",
+          "name": "ASSOCHAM Member"
+        },
+        {
+          "@type": "Organization",
+          "name": "Indian Institute of Interior Designers (IIID)"
+        }
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://atsinteriorsolution.com/#localbusiness",
+      "name": "ATS Interior Solutions Greater Noida",
+      "image": "https://atsinteriorsolution.com/images/founder-cabin.jpg",
+      "priceRange": "₹₹₹",
+      "telephone": "+91 98737 57487",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1st Floor, Site-4, Ecotech 1, Plot-49, Sector 31, Nilkamal Nara",
+        "addressLocality": "Greater Noida",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "201308",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.4549694,
+        "longitude": 77.5365544
+      },
+      "areaServed": ["Greater Noida", "Noida", "Ghaziabad", "Delhi NCR"]
+    }
+  ]
+}

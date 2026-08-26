@@ -206,11 +206,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     }
   };
 
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "ATS Interior Solutions Home",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: ["h1", "h2", ".hero-subtitle"]
+    }
+  };
+
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="font-sans min-h-screen flex flex-col bg-porcelain text-ink antialiased pb-16 sm:pb-0">
         <JsonLd data={organization} />
         <JsonLd data={localBusiness} />
+        <JsonLd data={speakableSchema} />
 
         {/* Global Main Header - High Trust Midnight Sapphire Navy */}
         <header className="sticky top-0 z-50 border-b border-amber-500/20 bg-navy-950/95 text-white shadow-xl backdrop-blur-md">

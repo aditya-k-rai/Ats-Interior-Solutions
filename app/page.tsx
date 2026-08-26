@@ -51,18 +51,37 @@ export default function HomePage() {
     }))
   };
 
+  const videoSchema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: "ATS Interior Solutions Site Work & Modular Kitchen Transformation",
+    description: "Real site video walkthrough of modular kitchen, living room TV console, and custom wardrobe installation in Noida & Greater Noida.",
+    thumbnailUrl: `${site.url}/images/work/modular-kitchen-1.jpg`,
+    uploadDate: "2024-01-15T08:00:00+05:30",
+    contentUrl: "https://atsinteriorsolution.com/portfolio",
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${site.url}/images/logo.png`
+      }
+    }
+  };
+
   return (
     <main className="overflow-x-hidden">
       <JsonLd data={localBusiness} />
       <JsonLd data={faqSchema} />
       <JsonLd data={howToSchema} />
+      <JsonLd data={videoSchema} />
 
       {/* Hero Section */}
       <section className="hero-image min-h-[85vh] sm:min-h-[88vh] text-white relative flex items-center">
         <div className="section-shell grid min-h-[85vh] sm:min-h-[88vh] items-center gap-8 py-16 lg:py-20 lg:grid-cols-[1.1fr_0.9fr] relative z-10">
           <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-amber-500/30 text-amber-300 shadow-sm">
-              <Sparkles size={14} className="text-amber-400 animate-pulse" />
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-amber-500/30 text-amber-300 shadow-sm animate-pulse">
+              <Sparkles size={14} className="text-amber-400 animate-spin" />
               <span>Greater Noida • Noida • Ghaziabad • Delhi NCR</span>
             </div>
             <h1 className="text-balance font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
@@ -72,7 +91,7 @@ export default function HomePage() {
               Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — led by Founder Manoj Pal & site team.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl gradient-btn-gold px-7 py-4 text-sm font-extrabold text-navy-950 shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" href="#consultation">
+              <a className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl gradient-btn-gold animate-shimmer-sweep px-7 py-4 text-sm font-extrabold text-navy-950 shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer" href="#consultation">
                 <span>Get Free Consultation</span> <ArrowRight size={18} />
               </a>
               <Link className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl glow-btn-purple px-6 py-4 text-sm font-bold transition active:scale-95" href="/portfolio">

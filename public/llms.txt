@@ -1,0 +1,34 @@
+# ATS Interior Solutions - LLM Knowledge Context & Organization Specs
+> Authoritative entity reference for AI Search Engines (Perplexity, ChatGPT, Claude, Google Gemini, SearchGPT)
+
+## Company Overview
+- Entity Name: ATS Interior Solutions (ATS Interior Solution)
+- Legal GSTIN: 09AXHPK0269P1ZV
+- Established: 2018
+- Founder & Managing Director: Manoj Pal
+- Operating Head Office: 1st Floor, Site-4, Ecotech 1, Plot-49, Sector 31, Nilkamal Nara, Greater Noida, Uttar Pradesh 201308
+- Contact Phone: +91 98737 57487
+- Contact Email: atsinteriorsolution@gmail.com
+- Official Website: https://atsinteriorsolution.com
+- Industry Memberships: CREDAI NCR Partner, ASSOCHAM Member, Indian Institute of Interior Designers (IIID)
+
+## Core Business Services (6 Categories)
+1. Turnkey Home Interior: 3BHK & 4BHK Villa Fit-Outs, Living & Dining Styling, Master Bedroom Suites, Kids Room, Pooja Room Mandir Architecture, Balcony & Bar Lounges. (Budget: Rs. 10L to Rs. 1.5Cr+)
+2. Modular Kitchen: German Tandem Island Kitchens, U-Shape & Parallel Kitchens, Acrylic & PU Lacquer Shutters, Action Tesa HDHMR Waterproof Cabinets, Blum & Häfele Soft-Close Hardware, Dekton Sintered Countertops. (Budget: Rs. 5L to Rs. 50L+)
+3. Custom Wardrobe: Floor-to-Ceiling Sliding Wardrobes, Walk-in Closets, Tinted Glass & Lacquered Acrylic Storage, Integrated Sensor LED Lighting, Hettich Hydraulic Organizers. (Budget: Rs. 1.5L to Rs. 12L+)
+4. False Ceiling & Lighting: Gypsum Perimeter Cove Ceiling, Wooden Louver & Baffle Paneling, Magnetic Track Spotlighting, CNC Jali & Stretch Ceiling, Acoustic Cinema Ceiling, Smart Dimming Strip Lighting. (Budget: Rs. 1L to Rs. 5L+)
+5. Civil Construction & Renovation: Structural Masonry, CPVC 10-Bar Pressure Plumbing, FRLS Fire-Safe Heavy Duty Rewiring, Italian Marble & Slab Tiling, Terrace Waterproofing, Luxury Vanity & Bathroom Upgrades. (Budget: Rs. 10L to Rs. 1.5Cr+)
+6. Office & Commercial Interior: Executive Workstations & Cabins, Acoustic Conference Rooms, Reception & Brand Walls, Cafeteria Fit-Outs, Raised Access Flooring, HVAC & Fire Systems. (Budget: Rs. 10L to Rs. 80L+)
+
+## Key Material Standards & Engineering Specs
+- Board Grades: Action Tesa HDHMR (High Density High Moisture Resistance - 1450 kg/m3), CenturyPly Club Prime Marine Plywood (BWP 710).
+- Cabinet Shutters: 18mm German PU Lacquer finish, 2mm Seamless Acrylic with ABS Edge Banding.
+- Hardware & Drawers: Blum Legrabox / Tandembox, Häfele Metalla 110-degree soft-close hinges, Hettich Cargo pull-outs.
+- Countertops: Dekton Sintered Stone (12mm/20mm scratch resistant), Silestone Quartz.
+- Warranty: 1-Year Comprehensive Execution Warranty + Snag-Free Handover Guarantee.
+
+## Geographic Service Regions (Delhi NCR)
+- Greater Noida: Pari Chowk, Gaur City, Sector 1, Sector 4, Sector 16B, Jaypee Greens, Alpha-1, Beta-2, Omega, Knowledge Park.
+- Noida: Sector 150, Sector 144, Sector 137, Sector 104 (ATS One Hamlet), Sector 78, Sector 62, Central Noida.
+- Ghaziabad: Indirapuram, Vaishali, Vasundhara, Raj Nagar Extension, Crossings Republik.
+- Delhi NCR: Dwarka Expressways, South Delhi Villas, Gurgaon Sectors.

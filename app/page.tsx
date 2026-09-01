@@ -6,9 +6,11 @@ import { BudgetEstimator } from "@/components/BudgetEstimator";
 import { ClientTestimonials } from "@/components/ClientTestimonials";
 import { CompleteSolutions } from "@/components/CompleteSolutions";
 import { CoreValues } from "@/components/CoreValues";
+import { CurvedLoop } from "@/components/CurvedLoop";
 import { ExpertTeam } from "@/components/ExpertTeam";
 import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
+import { TrueFocusProcess } from "@/components/TrueFocusProcess";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { WorkProcess } from "@/components/WorkProcess";
 import { blogPosts, cities, faqs, materialComparisons, process, projects, realWorkGallery, services, site, trustMetrics, usp, whatsappHref } from "@/data/site";
@@ -125,6 +127,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Curved Loop Wave Banner (Exact animation & effect from newdesigninternitystudio) */}
+      <CurvedLoop marqueeText="ATS Interior Solutions        ATS Interior Solutions        ATS Interior Solutions        ATS Interior Solutions        " />
+
       {/* Trust Metrics Strip */}
       <section className="bg-white py-10 border-b border-navy-950/10">
         <div className="section-shell grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -146,6 +151,9 @@ export default function HomePage() {
           })}
         </div>
       </section>
+
+      {/* True Focus Animated Process Banner (Exact component & blur effect from reference site) */}
+      <TrueFocusProcess />
 
       {/* Services Section */}
       <section className="py-16 sm:py-20" id="services">

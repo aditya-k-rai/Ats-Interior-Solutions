@@ -87,10 +87,20 @@ export function TrueFocusProcess({
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center justify-center text-center relative z-10">
         
-        {/* Main Stage Text Container - Compact, zero-scroll flex bar */}
+        {/* Luxury Section Header */}
+        <div className="mb-3 sm:mb-6 flex flex-col items-center text-center">
+          <h2 className="font-display text-lg sm:text-3xl md:text-4xl font-bold tracking-tight text-white drop-shadow-md">
+            Our 4-Step Working Process
+          </h2>
+          <p className="mt-1 text-[11px] sm:text-sm text-white/70 max-w-md">
+            From initial consultation to key handover — crafted with precision.
+          </p>
+        </div>
+
+        {/* Main Stage Text Container - All 4 stages on 1 single line on Smartphone */}
         <div
           ref={containerRef}
-          className="relative inline-flex flex-wrap justify-center items-center gap-4 sm:gap-8 md:gap-12 max-w-5xl mx-auto py-4 z-10"
+          className="relative flex flex-nowrap whitespace-nowrap justify-between sm:justify-center items-center gap-1 sm:gap-6 md:gap-10 w-full max-w-full mx-auto py-4 z-10 px-0.5 sm:px-4"
         >
           {stages.map((stageName, idx) => {
             const isActive = idx === currentIndex;
@@ -108,7 +118,7 @@ export function TrueFocusProcess({
                   e.stopPropagation();
                   setHoveredIndex(null);
                 }}
-                className={`relative z-10 inline-block font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-tight px-3 py-1.5 transition-all duration-500 ${
+                className={`relative z-10 inline-block font-serif text-[10px] min-[360px]:text-[11px] min-[390px]:text-xs sm:text-2xl md:text-3xl lg:text-4xl font-normal tracking-tight leading-tight px-1 sm:px-3 py-0.5 transition-all duration-500 shrink-0 ${
                   isActive
                     ? "text-white opacity-100 scale-105"
                     : "text-white/40 opacity-30 hover:opacity-75"
@@ -123,7 +133,7 @@ export function TrueFocusProcess({
             );
           })}
 
-          {/* Exact Rounded L-shaped White Corner Brackets ┌ ┐ └ ┘ */}
+          {/* Exact L-shaped Corner Brackets ┌ ┐ └ ┘ matching reference screenshot */}
           <div
             className="absolute top-0 left-0 pointer-events-none transition-all ease-out duration-500 box-border z-20"
             style={{
@@ -133,14 +143,14 @@ export function TrueFocusProcess({
               opacity: frameStyle.opacity
             }}
           >
-            {/* Top-Left Corner */}
-            <span className="absolute -top-2.5 -left-2.5 w-4 h-4 sm:w-5 sm:h-5 border-t-2 border-l-2 border-white shadow-[0_0_10px_rgba(255,255,255,0.85)] rounded-tl-md" />
-            {/* Top-Right Corner */}
-            <span className="absolute -top-2.5 -right-2.5 w-4 h-4 sm:w-5 sm:h-5 border-t-2 border-r-2 border-white shadow-[0_0_10px_rgba(255,255,255,0.85)] rounded-tr-md" />
-            {/* Bottom-Left Corner */}
-            <span className="absolute -bottom-2.5 -left-2.5 w-4 h-4 sm:w-5 sm:h-5 border-b-2 border-l-2 border-white shadow-[0_0_10px_rgba(255,255,255,0.85)] rounded-bl-md" />
-            {/* Bottom-Right Corner */}
-            <span className="absolute -bottom-2.5 -right-2.5 w-4 h-4 sm:w-5 sm:h-5 border-b-2 border-r-2 border-white shadow-[0_0_10px_rgba(255,255,255,0.85)] rounded-br-md" />
+            {/* Top-Left Corner ┌ */}
+            <span className="absolute -top-2 -left-2 w-3.5 h-3.5 sm:w-4 sm:h-4 border-t-[2.5px] border-l-[2.5px] border-white shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
+            {/* Top-Right Corner ┐ */}
+            <span className="absolute -top-2 -right-2 w-3.5 h-3.5 sm:w-4 sm:h-4 border-t-[2.5px] border-r-[2.5px] border-white shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
+            {/* Bottom-Left Corner └ */}
+            <span className="absolute -bottom-2 -left-2 w-3.5 h-3.5 sm:w-4 sm:h-4 border-b-[2.5px] border-l-[2.5px] border-white shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
+            {/* Bottom-Right Corner ┘ */}
+            <span className="absolute -bottom-2 -right-2 w-3.5 h-3.5 sm:w-4 sm:h-4 border-b-[2.5px] border-r-[2.5px] border-white shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
           </div>
         </div>
 

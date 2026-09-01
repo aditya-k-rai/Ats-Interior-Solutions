@@ -43,7 +43,7 @@ export function MobileNav() {
           >
             <div className="relative h-10 w-36 flex items-center justify-start">
               <Image
-                src="/images/logo.png"
+                src="/images/LOGO_OF_ATS.png"
                 alt="ATS Interior Solutions Logo"
                 width={150}
                 height={40}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, MapPin, MessageCircle, Phone, Play, ShieldCheck, Sparkles, Star, UserCheck } from "lucide-react";
@@ -19,8 +19,51 @@ import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { WorkProcess } from "@/components/WorkProcess";
 import { blogPosts, cities, faqs, materialComparisons, process, projects, realWorkGallery, services, site, trustMetrics, usp, whatsappHref } from "@/data/site";
 
+const smartphoneImages = [
+  "/images/Smartphone/1.png",
+  "/images/Smartphone/2.png",
+  "/images/Smartphone/3.png",
+  "/images/Smartphone/4.png",
+  "/images/Smartphone/5.png"
+];
+
+const tabletImages = [
+  "/images/Tablet/1.png",
+  "/images/Tablet/2.png",
+  "/images/Tablet/3.png",
+  "/images/Tablet/4.png",
+  "/images/Tablet/5.png"
+];
+
+const laptopImages = [
+  "/images/Laptop/1.png",
+  "/images/Laptop/2.png",
+  "/images/Laptop/3.png"
+];
+
 export default function HomePage() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => prev + 1);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const getSlideClasses = (idx: number, total: number) => {
+    const current = currentSlide % total;
+    const previous = (currentSlide - 1 + total) % total;
+
+    if (idx === current) {
+      return "z-20 opacity-100 transition-opacity duration-3000 ease-in-out";
+    }
+    if (idx === previous) {
+      return "z-10 opacity-100 transition-none";
+    }
+    return "z-0 opacity-0 pointer-events-none transition-none";
+  };
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "InteriorDesigner",
@@ -89,55 +132,113 @@ export default function HomePage() {
       <JsonLd data={howToSchema} />
       <JsonLd data={videoSchema} />
 
-      {/* Hero Section - True Transparent Navbar Overlay & Pixel-Perfect Header Spacing */}
-      <section className="hero-image min-h-[60vh] sm:min-h-[65vh] text-white relative flex items-center pt-[100px] sm:pt-[104px] lg:pt-[108px] pb-6 sm:pb-8 overflow-hidden">
+      {/* Hero Section - Smooth Auto-Sliding Device Background Carousel (3s interval, 1s smooth slide) */}
+      <section className="relative min-h-[100dvh] sm:min-h-[85vh] text-white flex flex-col justify-between pt-[88px] sm:pt-28 md:pt-32 pb-16 sm:pb-12 overflow-hidden bg-navy-950">
+        {/* 1. Smartphone Background Slider (0 - 640px) */}
+        <div className="block sm:hidden absolute inset-0 z-0 overflow-hidden">
+          {smartphoneImages.map((src, idx) => (
+            <div
+              key={src}
+              className={`absolute inset-0 ${getSlideClasses(idx, smartphoneImages.length)}`}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url('${src}')`
+                }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* 2. Tablet Background Slider (640px - 1024px) */}
+        <div className="hidden sm:block lg:hidden absolute inset-0 z-0 overflow-hidden">
+          {tabletImages.map((src, idx) => (
+            <div
+              key={src}
+              className={`absolute inset-0 ${getSlideClasses(idx, tabletImages.length)}`}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url('${src}')`
+                }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* 3. Laptop & Desktop Background Slider (1024px+) */}
+        <div className="hidden lg:block absolute inset-0 z-0 overflow-hidden">
+          {laptopImages.map((src, idx) => (
+            <div
+              key={src}
+              className={`absolute inset-0 ${getSlideClasses(idx, laptopImages.length)}`}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: `url('${src}')`
+                }}
+              />
+            </div>
+          ))}
+        </div>
+
         {/* Luxury Background Glow Overlays */}
-        <div className="absolute top-1/4 left-10 size-[500px] rounded-full bg-amber-500/15 blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-10 right-10 size-[500px] rounded-full bg-navy-800/45 blur-[160px] pointer-events-none" />
+        <div className="absolute top-1/4 left-10 size-[500px] rounded-full bg-amber-500/15 blur-[140px] pointer-events-none z-[1]" />
+        <div className="absolute bottom-10 right-10 size-[500px] rounded-full bg-navy-800/45 blur-[160px] pointer-events-none z-[1]" />
 
-        <div className="section-shell w-full max-w-6xl mx-auto flex flex-col items-start justify-center text-left relative z-10">
-          <div className="mb-3 sm:mb-4 inline-flex max-w-full items-center gap-1.5 rounded-full bg-navy-950/85 sm:bg-navy-950/80 px-2.5 sm:px-3 py-1 text-[9px] sm:text-[11px] font-bold uppercase tracking-wider backdrop-blur-md border border-amber-400/80 text-amber-300 shadow-sm">
-            <Sparkles size={12} className="text-amber-400 shrink-0 animate-spin" />
-            <span>Greater Noida • Noida • Ghaziabad • Delhi NCR</span>
+        <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col justify-between items-start text-left relative z-10 h-full flex-1">
+          {/* Top Group: Location Badge, Main Heading & Subtitle Description */}
+          <div className="flex flex-col items-start text-left w-full">
+            <div className="mb-3 sm:mb-4 inline-flex max-w-full items-center gap-1.5 sm:gap-2.5 rounded-full bg-navy-950/85 sm:bg-navy-950/80 px-2.5 sm:px-5 py-1.5 sm:py-2 text-[10.5px] sm:text-xs font-bold sm:font-extrabold uppercase tracking-wider sm:tracking-[0.18em] backdrop-blur-md border border-amber-400/80 text-amber-300 shadow-sm">
+              <Sparkles size={13} className="text-amber-400 shrink-0 animate-spin" />
+              <span>Greater Noida • Noida • Ghaziabad • Delhi NCR</span>
+            </div>
+
+            <h1 className="font-display text-[39px] sm:text-[50px] md:text-[62px] lg:text-[75px] xl:text-[79px] font-bold leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] w-full max-w-full lg:max-w-6xl text-left">
+              Discover the Best Interior Designers in Greater Noida West for Your Noida Home
+            </h1>
+
+            <p className="mt-3.5 sm:mt-4 max-w-3xl lg:max-w-4xl text-[14px] sm:text-lg md:text-xl leading-relaxed text-slate-100 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-left">
+              Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — led by Founder Manoj Pal & team.
+            </p>
           </div>
 
-          <h1 className="text-balance font-display text-[33px] sm:text-[41px] md:text-[52px] lg:text-[62px] xl:text-[66px] font-bold leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] w-full max-w-5xl text-left">
-            Discover the Best Interior Designers in Greater Noida West for Your Noida Home
-          </h1>
+          {/* Bottom Group: 4 Trust Cards Above, 2 CTA Buttons Down on Smartphone (flex-col-reverse sm:flex-col) */}
+          <div className="mt-auto pt-4 sm:pt-6 flex flex-col-reverse sm:flex-col items-start text-left w-full gap-3 sm:gap-6">
+            {/* 2 CTA Buttons (Bottom on Mobile, Top on Desktop) */}
+            <div className="flex flex-row items-center justify-start gap-2.5 sm:gap-4 w-full sm:w-auto">
+              <button
+                onClick={() => setIsQuoteModalOpen(true)}
+                type="button"
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl gradient-btn-gold animate-shimmer-sweep px-4.5 py-3.5 sm:px-7 sm:py-4 text-xs sm:text-sm md:text-base font-extrabold text-navy-950 shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <span>Get Free Consultation</span> <ArrowRight size={17} className="shrink-0 sm:size-4" />
+              </button>
+              <Link
+                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl glow-btn-purple px-4.5 py-3.5 sm:px-6 sm:py-4 text-xs sm:text-sm md:text-base font-bold transition active:scale-95"
+                href="/portfolio"
+              >
+                <Play size={16} className="text-purple-300 animate-pulse shrink-0 sm:size-4" /> View Real Work
+              </Link>
+            </div>
 
-          <p className="mt-3.5 sm:mt-4 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed text-slate-100 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-left">
-            Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — led by Founder Manoj Pal & team.
-          </p>
-
-          <div className="mt-5 sm:mt-8 flex flex-row items-center justify-start gap-2.5 w-full sm:w-auto">
-            <button
-              onClick={() => setIsQuoteModalOpen(true)}
-              type="button"
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl gradient-btn-gold animate-shimmer-sweep px-4.5 py-3.5 sm:px-7 sm:py-4 text-xs sm:text-sm md:text-base font-extrabold text-navy-950 shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
-            >
-              <span>Get Free Consultation</span> <ArrowRight size={17} className="shrink-0 sm:size-4" />
-            </button>
-            <Link
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl glow-btn-purple px-4.5 py-3.5 sm:px-6 sm:py-4 text-xs sm:text-sm md:text-base font-bold transition active:scale-95"
-              href="/portfolio"
-            >
-              <Play size={16} className="text-purple-300 animate-pulse shrink-0 sm:size-4" /> View Real Work
-            </Link>
-          </div>
-
-          {/* Luxury 4-Item Compact Centered Trust Data Cards (+10% Height & Text) */}
-          <div className="mt-4 sm:mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 w-full max-w-2xl sm:max-w-3xl">
-            {[
-              { count: "450+", label: "Projects Delivered", glow: "glow-btn-amber" },
-              { count: "5", label: "Cities Covered", glow: "glow-btn-teal" },
-              { count: "10 Yr", label: "Warranty Included", glow: "glow-btn-purple" },
-              { count: "8+ Yrs", label: "Years Experience", glow: "glow-btn-blue" }
-            ].map((item) => (
-              <div className={`rounded-lg ${item.glow} py-2.5 px-2 sm:py-3.5 sm:px-3 text-center backdrop-blur-md shadow-md border border-white/15 transition-all hover:scale-105 flex flex-col items-center justify-center min-w-0`} key={item.label}>
-                <p className="font-display text-base sm:text-lg lg:text-xl font-extrabold leading-tight text-white tracking-tight">{item.count}</p>
-                <p className="text-[10px] sm:text-xs font-semibold opacity-90 leading-tight mt-0.5 text-center">{item.label}</p>
-              </div>
-            ))}
+            {/* 4 Trust Data Cards in 1 Single Horizontal Row on Smartphone */}
+            <div className="grid grid-cols-4 gap-1 sm:gap-3 w-full max-w-full sm:max-w-3xl">
+              {[
+                { count: "450+", label: "Projects Delivered", glow: "glow-btn-amber" },
+                { count: "5", label: "Cities Covered", glow: "glow-btn-teal" },
+                { count: "10 Yr", label: "Warranty Included", glow: "glow-btn-purple" },
+                { count: "8+ Yrs", label: "Years Experience", glow: "glow-btn-blue" }
+              ].map((item) => (
+                <div className={`rounded-lg sm:rounded-xl ${item.glow} py-1.5 px-0.5 sm:py-3 sm:px-3 lg:py-3.5 lg:px-3 text-center backdrop-blur-md shadow-md border border-white/15 transition-all hover:scale-105 flex flex-col items-center justify-center min-w-0`} key={item.label}>
+                  <p className="font-display text-[10px] min-[380px]:text-xs sm:text-lg lg:text-xl font-extrabold leading-tight text-white tracking-tight">{item.count}</p>
+                  <p className="text-[7px] min-[380px]:text-[8px] sm:text-[11px] lg:text-xs font-semibold opacity-90 leading-tight mt-0.5 sm:mt-1 text-center">{item.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -145,27 +246,7 @@ export default function HomePage() {
       {/* Curved Loop Wave Banner (Exact animation & effect from newdesigninternitystudio) */}
       <CurvedLoop marqueeText="ATS Interior Solutions        ATS Interior Solutions        ATS Interior Solutions        ATS Interior Solutions        " />
 
-      {/* Trust Metrics Strip */}
-      <section className="bg-white py-10 border-b border-navy-950/10">
-        <div className="section-shell grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {trustMetrics.map((metric, idx) => {
-            const Icon = metric.icon;
-            const glows = ["glow-btn-amber", "glow-btn-teal", "glow-btn-purple", "glow-btn-blue"];
-            const currentGlow = glows[idx % glows.length];
-            return (
-              <div className="flex items-center gap-4 rounded-xl border border-navy-950/10 bg-porcelain p-4 sm:p-5 shadow-sm transition hover:border-amber-500/40 hover:-translate-y-1" key={metric.label}>
-                <div className={`grid size-12 place-items-center rounded-xl ${currentGlow} font-bold shadow-md shrink-0`}>
-                  <Icon size={22} />
-                </div>
-                <div>
-                  <p className="font-display text-3xl font-bold text-navy-950">{metric.value}</p>
-                  <p className="text-xs font-semibold text-slate-600">{metric.label}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+
 
       {/* True Focus Animated Process Banner (Exact component & blur effect from reference site) */}
       <TrueFocusProcess />

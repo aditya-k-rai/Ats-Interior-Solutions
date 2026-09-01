@@ -229,7 +229,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link className="group flex items-center gap-3" href="/">
               <div className="relative h-[66px] w-[216px] sm:w-[264px] flex items-center justify-start transition group-hover:scale-105">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/LOGO_OF_ATS.png"
                   alt="ATS Interior Solutions Logo"
                   width={270}
                   height={76}
@@ -296,7 +296,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="flex items-center gap-2 mb-3">
                   <div className="relative h-12 w-40 flex items-center justify-start">
                     <Image
-                      src="/images/logo.png"
+                      src="/images/LOGO_OF_ATS.png"
                       alt="ATS Interior Solutions Logo"
                       width={160}
                       height={48}

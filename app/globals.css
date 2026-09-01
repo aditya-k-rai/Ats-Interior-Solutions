@@ -9,6 +9,10 @@
   --accent-obsidian: #121316;
 }
 
+.duration-3000 {
+  transition-duration: 3000ms !important;
+}
+
 * {
   box-sizing: border-box;
 }

@@ -198,7 +198,7 @@ export default function HomePage() {
             </div>
 
             <h1 className="font-display text-[39px] sm:text-[50px] md:text-[62px] lg:text-[75px] xl:text-[79px] font-bold leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] w-full max-w-full lg:max-w-6xl text-left">
-              Discover the Best Interior Designers in Greater Noida West for Your Noida Home
+              Discover the Best Interior Designers in Greater Noida for Your Noida Home
             </h1>
 
             <p className="mt-3.5 sm:mt-4 max-w-3xl lg:max-w-4xl text-[14px] sm:text-lg md:text-xl leading-relaxed text-slate-100 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-left">
@@ -257,7 +257,7 @@ export default function HomePage() {
           <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 bg-amber-100 px-3.5 py-1.5 rounded-full border border-amber-300 shadow-sm">
-                6 Core Categories • 36 Subcategories
+                4 Core Categories • 24 Subcategories
               </span>
               <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-navy-950">Built for every stage of your space</h2>
             </div>
@@ -265,50 +265,101 @@ export default function HomePage() {
               <span>View all services</span> <ArrowRight size={18} className="transition group-hover:translate-x-1" />
             </Link>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 xl:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((service, index) => {
               const Icon = service.icon;
+              const categoryImages: Record<string, string> = {
+                "modular-interior": "/images/work/modular-kitchen-1.jpg",
+                "interior-design": "/images/work/tv-unit-living-1.jpg",
+                "civil-construction": "/images/kitchen-1.jpg",
+                "office-interior": "/images/work/owner-engineer-cabin.jpg"
+              };
+              const cardImage = categoryImages[service.slug] || "/images/work/tv-unit-living-1.jpg";
               const cardThemes = [
-                { glow: "glow-btn-amber", iconBg: "bg-navy-950 text-amber-400 group-hover:bg-amber-400 group-hover:text-navy-950 group-hover:border-amber-300 group-hover:shadow-[0_0_22px_rgba(212,175,55,0.6)]" },
-                { glow: "glow-btn-emerald", iconBg: "bg-navy-950 text-emerald-400 group-hover:bg-emerald-400 group-hover:text-navy-950 group-hover:border-emerald-300 group-hover:shadow-[0_0_22px_rgba(16,185,129,0.6)]" },
-                { glow: "glow-btn-purple", iconBg: "bg-navy-950 text-purple-400 group-hover:bg-purple-400 group-hover:text-navy-950 group-hover:border-purple-300 group-hover:shadow-[0_0_22px_rgba(168,85,247,0.6)]" },
-                { glow: "glow-btn-rose", iconBg: "bg-navy-950 text-rose-400 group-hover:bg-rose-400 group-hover:text-navy-950 group-hover:border-rose-300 group-hover:shadow-[0_0_22px_rgba(244,63,94,0.6)]" },
-                { glow: "glow-btn-blue", iconBg: "bg-navy-950 text-blue-400 group-hover:bg-blue-400 group-hover:text-navy-950 group-hover:border-blue-300 group-hover:shadow-[0_0_22px_rgba(59,130,246,0.6)]" },
-                { glow: "glow-btn-teal", iconBg: "bg-navy-950 text-cyan-400 group-hover:bg-cyan-400 group-hover:text-navy-950 group-hover:border-cyan-300 group-hover:shadow-[0_0_22px_rgba(45,212,191,0.6)]" }
+                { gradient: "from-amber-400 via-amber-500 to-amber-600", tagBg: "bg-amber-100 text-amber-800 border-amber-300" },
+                { gradient: "from-emerald-400 via-teal-500 to-emerald-600", tagBg: "bg-emerald-100 text-emerald-800 border-emerald-300" },
+                { gradient: "from-purple-400 via-indigo-500 to-purple-600", tagBg: "bg-purple-100 text-purple-800 border-purple-300" },
+                { gradient: "from-blue-400 via-cyan-500 to-blue-600", tagBg: "bg-blue-100 text-blue-800 border-blue-300" }
               ];
               const theme = cardThemes[index % cardThemes.length];
-              return (
-                <article className="group rounded-2xl bg-white p-6 sm:p-7 shadow-soft border border-navy-950/10 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-amber-500/40 flex flex-col justify-between" key={service.slug}>
-                  <div>
-                    <div className="mb-5 flex items-start justify-between gap-3">
-                      <div className={`grid size-14 place-items-center rounded-2xl border border-amber-500/20 ${theme.iconBg} transition-all duration-300 shadow-md`}>
-                        <Icon size={26} className="transition duration-300 group-hover:scale-110" />
-                      </div>
-                      <Link className={`rounded-xl ${theme.glow} px-3 py-1.5 text-xs font-bold transition`} href={`/${service.slug}-noida`}>
-                        See Projects
-                      </Link>
-                    </div>
-                    <h3 className="font-display text-2xl font-bold text-navy-950 group-hover:text-amber-600 transition">{service.name}</h3>
-                    <p className="mt-2.5 text-sm leading-6 text-slate-600">{service.short}</p>
 
-                    {/* 6 Subcategories Grid */}
-                    <div className="mt-4 pt-3.5 border-t border-slate-100">
-                      <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-700 block mb-2">6 Subcategories Included:</span>
-                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1.5 text-xs text-slate-700">
-                        {service.subcategories.map((sub) => (
-                          <li key={sub} className="flex items-center gap-1.5 font-medium hover:text-navy-950 transition">
-                            <span className="size-1.5 rounded-full bg-amber-500 shrink-0" />
-                            <span className="truncate">{sub}</span>
-                          </li>
-                        ))}
-                      </ul>
+              return (
+                <article
+                  className="group rounded-3xl bg-white overflow-hidden shadow-soft border border-slate-200/90 transition-all duration-500 hover:-translate-y-2.5 hover:shadow-[0_22px_50px_rgba(15,23,42,0.18)] hover:border-amber-400/90 flex flex-col justify-between relative"
+                  key={service.slug}
+                >
+                  {/* Top Glowing Color Accent Stripe */}
+                  <div className={`h-1.5 w-full bg-gradient-to-r ${theme.gradient}`} />
+
+                  <div>
+                    {/* 1. High-Resolution Image Banner with Animated Zoom */}
+                    <div className="relative h-48 sm:h-52 lg:h-44 xl:h-48 w-full overflow-hidden bg-navy-950">
+                      <Image
+                        src={cardImage}
+                        alt={service.name}
+                        fill
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-transparent" />
+
+                      {/* Floating Glassmorphic Top Badges */}
+                      <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+                        <span className="rounded-xl px-2.5 py-1 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider shadow-md backdrop-blur-md bg-navy-950/80 text-amber-300 border border-amber-400/30">
+                          {service.budget}
+                        </span>
+                        <div className="grid size-10 place-items-center rounded-xl bg-navy-950/85 text-amber-400 border border-amber-400/40 shadow-xl backdrop-blur-md transition-all duration-500 group-hover:rotate-12 group-hover:scale-110">
+                          <Icon size={19} />
+                        </div>
+                      </div>
+
+                      {/* Image Bottom Title Overlay */}
+                      <div className="absolute bottom-3 left-3 right-3 z-10 text-white">
+                        <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-white drop-shadow-md group-hover:text-amber-300 transition duration-300">
+                          {service.name}
+                        </h3>
+                        <p className="text-[11px] text-white/80 font-medium line-clamp-1 mt-0.5">{service.short}</p>
+                      </div>
+                    </div>
+
+                    {/* 2. Subcategories Checklist & Micro-Graphics */}
+                    <div className="p-4 sm:p-5">
+                      <div className="pt-1 border-t border-slate-100">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-[10.5px] font-extrabold uppercase tracking-wider text-amber-700 block">Scope & Deliverables:</span>
+                          <span className={`text-[9px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border ${theme.tagBg}`}>
+                            {service.timeline}
+                          </span>
+                        </div>
+                        <ul className="grid grid-cols-1 gap-y-1.5 text-[11.5px] text-slate-700">
+                          {service.subcategories.map((sub) => (
+                            <li key={sub} className="flex items-center gap-1.5 font-semibold text-slate-700">
+                              <CheckCircle2 size={13} className="text-emerald-600 shrink-0" />
+                              <span className="truncate">{sub}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="mt-6 flex flex-wrap items-center justify-between gap-2 border-t border-slate-100 pt-4">
-                    <span className="rounded-md bg-porcelain px-3 py-1.5 text-xs font-semibold text-slate-700 border border-navy-950/5">{service.budget}</span>
-                    <a className="rounded-lg gradient-btn-gold px-4 py-2 text-xs font-extrabold text-navy-950 shadow-sm transition hover:scale-105" href={whatsappHref(`I need a quote for ${service.name}.`)}>
-                      Get Quote
+                  {/* 3. TWO MAIN BUTTONS: LEFT & RIGHT (SIDE-BY-SIDE IN 1 ROW) */}
+                  <div className="px-3.5 pb-4 pt-2 border-t border-slate-100/80 flex flex-row items-center gap-1.5 w-full">
+                    <button
+                      onClick={() => setIsQuoteModalOpen(true)}
+                      type="button"
+                      className="flex-1 inline-flex items-center justify-center gap-1 rounded-xl gradient-btn-gold animate-shimmer-sweep px-2 py-2.5 text-[10.5px] min-[400px]:text-xs font-extrabold text-navy-950 shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer whitespace-nowrap"
+                    >
+                      <Sparkles size={12} className="text-navy-950 shrink-0" />
+                      <span>Consultation</span>
+                    </button>
+                    <a
+                      href={whatsappHref(`I need a quote for ${service.name}.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 inline-flex items-center justify-center gap-1 rounded-xl glow-btn-purple px-2 py-2.5 text-[10.5px] min-[400px]:text-xs font-bold text-white shadow-md transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap"
+                    >
+                      <MessageCircle size={12} className="text-purple-300 shrink-0" />
+                      <span>Get Quote</span>
                     </a>
                   </div>
                 </article>

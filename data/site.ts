@@ -117,9 +117,25 @@ export const businessTypes = [
 
 export const services = [
   {
+    slug: "modular-interior",
+    name: "Modular Interior",
+    short: "German tandem island kitchens, Action Tesa HDHMR, sliding wardrobes, Dekton stone countertops & Blum hardware.",
+    icon: ChefHat,
+    budget: "Rs. 3L to Rs. 30L+",
+    timeline: "3 to 8 weeks",
+    subcategories: [
+      "L-Shaped Kitchen",
+      "U-Shaped Kitchen",
+      "Parallel Kitchen",
+      "Island Kitchen",
+      "Italian Modular Kitchen",
+      "Cabinets & Woodwork"
+    ]
+  },
+  {
     slug: "interior-design",
-    name: "Turnkey Home Interior",
-    short: "Full 3BHK/4BHK home interiors, 3D architectural planning, PU lacquer joinery & site execution.",
+    name: "Full Home Interior",
+    short: "Turnkey 3BHK/4BHK home interiors, 3D architectural planning, PU lacquer joinery & end-to-end execution.",
     icon: Home,
     budget: "Rs. 10L to Rs. 1.5Cr+",
     timeline: "6 to 16 weeks",
@@ -133,73 +149,25 @@ export const services = [
     ]
   },
   {
-    slug: "modular-kitchen",
-    name: "Modular Kitchen",
-    short: "German tandem island kitchens, Action Tesa HDHMR, Dekton stone countertops & Blum/Häfele hardware.",
-    icon: ChefHat,
-    budget: "Rs. 5L to Rs. 50L+",
-    timeline: "3 to 8 weeks",
-    subcategories: [
-      "German Tandem Island Kitchens",
-      "U-Shape & Parallel Kitchens",
-      "Acrylic & PU Shaker Shutters",
-      "Action Tesa HDHMR Cabinets",
-      "Blum Soft-Close Drawers",
-      "Dekton Sintered Countertops"
-    ]
-  },
-  {
-    slug: "wardrobe",
-    name: "Custom Wardrobe",
-    short: "Floor-to-ceiling sliding, walk-in closets, tinted glass & lacquered acrylic storage.",
-    icon: Building2,
-    budget: "Rs. 1.5L to Rs. 12L+",
-    timeline: "2 to 5 weeks",
-    subcategories: [
-      "Floor-to-Ceiling Sliding Units",
-      "Walk-in Closets & Dressers",
-      "Acrylic & Glass Shutters",
-      "Lacquered Mirror Wardrobes",
-      "Integrated Sensor LED Strips",
-      "Hettich Hydraulic Organizers"
-    ]
-  },
-  {
-    slug: "false-ceiling",
-    name: "False Ceiling & Lighting",
-    short: "Gypsum cove ceilings, wooden baffle paneling, magnetic tracks & smart architectural lights.",
-    icon: Layers3,
-    budget: "Rs. 1L to Rs. 5L+",
-    timeline: "1 to 3 weeks",
-    subcategories: [
-      "Gypsum Perimeter Cove Ceiling",
-      "Wooden Louver & Baffle Panels",
-      "Magnetic Track Spotlighting",
-      "CNC Jali & Stretch Ceilings",
-      "Acoustic Theater Ceiling",
-      "Smart Dimming Strip Lighting"
-    ]
-  },
-  {
     slug: "civil-construction",
-    name: "Civil Renovation & Structural",
-    short: "Masonry, CPVC 10-bar pressure plumbing, FRLS wiring, marble flooring & luxury bathrooms.",
+    name: "Renovation",
+    short: "Smart renovation, masonry, CPVC 10-bar pressure plumbing, FRLS wiring, marble flooring & luxury bathrooms.",
     icon: Wrench,
-    budget: "Rs. 10L to Rs. 1.5Cr+",
-    timeline: "8 to 24 weeks",
+    budget: "Rs. 5L to Rs. 50L+",
+    timeline: "4 to 16 weeks",
     subcategories: [
-      "Structural Wall Alterations",
+      "Full Home & Structural Renovation",
       "CPVC 10-Bar Pressure Plumbing",
       "FRLS Heavy Duty Rewiring",
       "Italian Marble & Slab Tiling",
       "Terrace & Wet Area Waterproofing",
-      "Luxury Vanity & Bathroom Fit-Outs"
+      "Luxury Bathroom Fit-Outs"
     ]
   },
   {
     slug: "office-interior",
-    name: "Office & Commercial Interior",
-    short: "Executive cabins, ergonomic workstations, acoustic conference rooms & fast handover.",
+    name: "Office Interior",
+    short: "Executive cabins, ergonomic workstations, acoustic conference rooms & fast commercial handover.",
     icon: BriefcaseBusiness,
     budget: "Rs. 10L to Rs. 80L+",
     timeline: "4 to 12 weeks",

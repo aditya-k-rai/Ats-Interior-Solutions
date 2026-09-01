@@ -225,14 +225,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Global Main Header - Transparent Overlay Luxury Navbar */}
         <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-navy-950/20 backdrop-blur-md text-white transition-all duration-300 shadow-sm">
-          <nav className="section-shell flex min-h-[64px] sm:min-h-[72px] items-center justify-between gap-3 py-2">
+          <nav className="section-shell flex min-h-[72px] sm:min-h-[80px] items-center justify-between gap-3 py-2">
             <Link className="group flex items-center gap-3" href="/">
-              <div className="relative h-[55px] w-[180px] sm:w-[220px] flex items-center justify-start transition group-hover:scale-105">
+              <div className="relative h-[66px] w-[216px] sm:w-[264px] flex items-center justify-start transition group-hover:scale-105">
                 <Image
                   src="/images/logo.png"
                   alt="ATS Interior Solutions Logo"
-                  width={225}
-                  height={63}
+                  width={270}
+                  height={76}
                   priority
                   className="h-full w-auto object-contain"
                 />

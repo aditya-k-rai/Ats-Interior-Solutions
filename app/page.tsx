@@ -125,18 +125,17 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* Luxury 5-Item Trust Data Cards (Stretches Gracefully Across Layout Width) */}
-          <div className="mt-10 sm:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 w-full max-w-6xl">
+          {/* Luxury 4-Item Compact Centered Trust Data Cards (-30% Size) */}
+          <div className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 w-full max-w-3xl">
             {[
               { count: "450+", label: "Projects Delivered", glow: "glow-btn-amber" },
               { count: "5", label: "Cities Covered", glow: "glow-btn-teal" },
               { count: "10 Yr", label: "Warranty Included", glow: "glow-btn-purple" },
-              { count: "100%", label: "German Precision", glow: "glow-btn-emerald" },
-              { count: "8+ Yrs", label: "Experience", glow: "glow-btn-blue" }
+              { count: "8+ Yrs", label: "Years Experience", glow: "glow-btn-blue" }
             ].map((item) => (
-              <div className={`rounded-xl ${item.glow} p-3 sm:p-3.5 text-left backdrop-blur-md shadow-lg border border-white/15 transition-all hover:scale-105 flex flex-col justify-center min-w-0`} key={item.label}>
-                <p className="font-display text-lg sm:text-xl font-extrabold leading-tight text-white">{item.count}</p>
-                <p className="text-[10px] sm:text-xs font-semibold opacity-90 leading-tight mt-1 truncate">{item.label}</p>
+              <div className={`rounded-lg ${item.glow} py-2.5 px-2 sm:py-3 sm:px-3 text-center backdrop-blur-md shadow-md border border-white/15 transition-all hover:scale-105 flex flex-col items-center justify-center min-w-0`} key={item.label}>
+                <p className="font-display text-base sm:text-lg lg:text-xl font-extrabold leading-tight text-white tracking-tight">{item.count}</p>
+                <p className="text-[10px] sm:text-xs font-semibold opacity-90 leading-tight mt-0.5 text-center">{item.label}</p>
               </div>
             ))}
           </div>

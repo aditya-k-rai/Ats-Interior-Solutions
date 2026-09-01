@@ -16,13 +16,11 @@ export function MobileStickyBar() {
         </a>
 
         <a
-          href={whatsappHref("Hi ATS Interior, I want an instant quote for my property.")}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center rounded-xl glow-btn-emerald py-2 px-1 text-[11px] font-extrabold shadow-md transition active:scale-95"
+          href="/services"
+          className="flex flex-col items-center justify-center rounded-xl glow-btn-emerald py-2 px-1 text-[11px] font-extrabold shadow-md transition active:scale-95 text-emerald-100"
         >
-          <MessageCircle size={16} className="mb-0.5 animate-pulse text-emerald-300" />
-          <span>WhatsApp</span>
+          <Sparkles size={16} className="mb-0.5 animate-pulse text-emerald-300" />
+          <span>Know More</span>
         </a>
 
         <a

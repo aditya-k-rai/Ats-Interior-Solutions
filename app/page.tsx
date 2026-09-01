@@ -89,8 +89,8 @@ export default function HomePage() {
       <JsonLd data={howToSchema} />
       <JsonLd data={videoSchema} />
 
-      {/* Hero Section - True Transparent Navbar Overlay & Device Responsive Area Coverage */}
-      <section className="hero-image min-h-screen text-white relative flex items-center pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 overflow-hidden">
+      {/* Hero Section - True Transparent Navbar Overlay & Pixel-Perfect Header Spacing */}
+      <section className="hero-image min-h-[60vh] sm:min-h-[65vh] text-white relative flex items-center pt-[100px] sm:pt-[104px] lg:pt-[108px] pb-6 sm:pb-8 overflow-hidden">
         {/* Luxury Background Glow Overlays */}
         <div className="absolute top-1/4 left-10 size-[500px] rounded-full bg-amber-500/15 blur-[140px] pointer-events-none" />
         <div className="absolute bottom-10 right-10 size-[500px] rounded-full bg-navy-800/45 blur-[160px] pointer-events-none" />
@@ -101,39 +101,39 @@ export default function HomePage() {
             <span>Greater Noida • Noida • Ghaziabad • Delhi NCR</span>
           </div>
 
-          <h1 className="text-balance font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-bold leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] w-full max-w-5xl text-left">
+          <h1 className="text-balance font-display text-[44px] sm:text-[55px] md:text-[69px] lg:text-[83px] xl:text-[88px] font-bold leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] w-full max-w-5xl text-left">
             Discover the Best Interior Designers in Greater Noida West for Your Noida Home
           </h1>
 
-          <p className="mt-5 max-w-3xl text-base sm:text-xl md:text-2xl leading-relaxed text-slate-100 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-left">
+          <p className="mt-4 sm:mt-5 max-w-3xl text-lg sm:text-xl md:text-2xl leading-relaxed text-slate-100 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-left">
             Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — led by Founder Manoj Pal & site team.
           </p>
 
-          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3.5 w-full sm:w-auto">
+          <div className="mt-5 sm:mt-8 flex flex-row items-center justify-start gap-2.5 w-full sm:w-auto">
             <button
               onClick={() => setIsQuoteModalOpen(true)}
               type="button"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold animate-shimmer-sweep px-7 py-3.5 text-xs sm:text-sm font-extrabold text-navy-950 shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl gradient-btn-gold animate-shimmer-sweep px-4.5 py-3.5 sm:px-7 sm:py-4 text-xs sm:text-sm md:text-base font-extrabold text-navy-950 shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             >
-              <span>Get Free Consultation</span> <ArrowRight size={16} />
+              <span>Get Free Consultation</span> <ArrowRight size={17} className="shrink-0 sm:size-4" />
             </button>
             <Link
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl glow-btn-purple px-6 py-3.5 text-xs sm:text-sm font-bold transition active:scale-95"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl glow-btn-purple px-4.5 py-3.5 sm:px-6 sm:py-4 text-xs sm:text-sm md:text-base font-bold transition active:scale-95"
               href="/portfolio"
             >
-              <Play size={15} className="text-purple-300 animate-pulse" /> View Real Work
+              <Play size={16} className="text-purple-300 animate-pulse shrink-0 sm:size-4" /> View Real Work
             </Link>
           </div>
 
-          {/* Luxury 4-Item Compact Centered Trust Data Cards (-30% Size) */}
-          <div className="mt-6 sm:mt-8 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 w-full max-w-3xl">
+          {/* Luxury 4-Item Compact Centered Trust Data Cards (+10% Height & Text) */}
+          <div className="mt-4 sm:mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 w-full max-w-2xl sm:max-w-3xl">
             {[
               { count: "450+", label: "Projects Delivered", glow: "glow-btn-amber" },
               { count: "5", label: "Cities Covered", glow: "glow-btn-teal" },
               { count: "10 Yr", label: "Warranty Included", glow: "glow-btn-purple" },
               { count: "8+ Yrs", label: "Years Experience", glow: "glow-btn-blue" }
             ].map((item) => (
-              <div className={`rounded-lg ${item.glow} py-2.5 px-2 sm:py-3 sm:px-3 text-center backdrop-blur-md shadow-md border border-white/15 transition-all hover:scale-105 flex flex-col items-center justify-center min-w-0`} key={item.label}>
+              <div className={`rounded-lg ${item.glow} py-2.5 px-2 sm:py-3.5 sm:px-3 text-center backdrop-blur-md shadow-md border border-white/15 transition-all hover:scale-105 flex flex-col items-center justify-center min-w-0`} key={item.label}>
                 <p className="font-display text-base sm:text-lg lg:text-xl font-extrabold leading-tight text-white tracking-tight">{item.count}</p>
                 <p className="text-[10px] sm:text-xs font-semibold opacity-90 leading-tight mt-0.5 text-center">{item.label}</p>
               </div>

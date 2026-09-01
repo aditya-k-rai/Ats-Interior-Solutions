@@ -89,49 +89,54 @@ export default function HomePage() {
       <JsonLd data={howToSchema} />
       <JsonLd data={videoSchema} />
 
-      {/* Hero Section */}
-      <section className="hero-image min-h-[75vh] sm:min-h-[80vh] text-white relative flex items-center justify-center">
-        <div className="section-shell flex flex-col items-center justify-center text-center py-12 sm:py-16 lg:py-20 relative z-10 max-w-6xl mx-auto">
-          <div className="mb-4 inline-flex max-w-full items-center gap-2.5 rounded-full bg-navy-950/85 sm:bg-navy-950/80 px-5 py-2 text-xs sm:text-sm font-extrabold uppercase tracking-wider sm:tracking-[0.2em] backdrop-blur-md border border-amber-400/80 text-amber-300 shadow-[0_2px_12px_rgba(0,0,0,0.4),0_0_12px_rgba(245,158,11,0.25)]">
+      {/* Hero Section - True Transparent Navbar Overlay & Device Responsive Area Coverage */}
+      <section className="hero-image min-h-screen text-white relative flex items-center pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 overflow-hidden">
+        {/* Luxury Background Glow Overlays */}
+        <div className="absolute top-1/4 left-10 size-[500px] rounded-full bg-amber-500/15 blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 size-[500px] rounded-full bg-navy-800/45 blur-[160px] pointer-events-none" />
+
+        <div className="section-shell w-full max-w-6xl mx-auto flex flex-col items-start justify-center text-left relative z-10">
+          <div className="mb-4 sm:mb-5 inline-flex max-w-full items-center gap-2.5 rounded-full bg-navy-950/85 sm:bg-navy-950/80 px-4 sm:px-5 py-2 text-xs sm:text-sm font-extrabold uppercase tracking-wider sm:tracking-[0.18em] backdrop-blur-md border border-amber-400/80 text-amber-300 shadow-[0_2px_12px_rgba(0,0,0,0.4),0_0_12px_rgba(245,158,11,0.25)]">
             <Sparkles size={16} className="text-amber-400 shrink-0 animate-spin" />
             <span>Greater Noida • Noida • Ghaziabad • Delhi NCR</span>
           </div>
 
-          <h1 className="text-balance font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] max-w-5xl">
-            Discover the Best Interior Designers in Greater Noida & Noida Home
+          <h1 className="text-balance font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[76px] font-bold leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] w-full max-w-5xl text-left">
+            Discover the Best Interior Designers in Greater Noida West for Your Noida Home
           </h1>
 
-          <p className="mt-5 max-w-3xl text-base sm:text-xl md:text-2xl leading-relaxed text-white font-medium drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]">
+          <p className="mt-5 max-w-3xl text-base sm:text-xl md:text-2xl leading-relaxed text-slate-100 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-left">
             Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — led by Founder Manoj Pal & site team.
           </p>
 
-          <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3.5 w-full sm:w-auto">
             <button
               onClick={() => setIsQuoteModalOpen(true)}
               type="button"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold animate-shimmer-sweep px-6 py-3 text-xs sm:text-sm font-extrabold text-navy-950 shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold animate-shimmer-sweep px-7 py-3.5 text-xs sm:text-sm font-extrabold text-navy-950 shadow-gold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span>Get Free Consultation</span> <ArrowRight size={16} />
             </button>
             <Link
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl glow-btn-purple px-5 py-3 text-xs sm:text-sm font-bold transition active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl glow-btn-purple px-6 py-3.5 text-xs sm:text-sm font-bold transition active:scale-95"
               href="/portfolio"
             >
               <Play size={15} className="text-purple-300 animate-pulse" /> View Real Work
             </Link>
           </div>
 
-          {/* 50% Smaller Compact Trust Cards */}
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2 max-w-lg w-full">
+          {/* Luxury 5-Item Trust Data Cards (Stretches Gracefully Across Layout Width) */}
+          <div className="mt-10 sm:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 w-full max-w-6xl">
             {[
-              { count: "50+", label: "Projects Delivered", glow: "glow-btn-amber" },
-              { count: "4", label: "Cities Covered", glow: "glow-btn-teal" },
-              { count: "1 Yr", label: "Warranty Included", glow: "glow-btn-purple" },
-              { count: "100%", label: "German Precision", glow: "glow-btn-emerald" }
+              { count: "450+", label: "Projects Delivered", glow: "glow-btn-amber" },
+              { count: "5", label: "Cities Covered", glow: "glow-btn-teal" },
+              { count: "10 Yr", label: "Warranty Included", glow: "glow-btn-purple" },
+              { count: "100%", label: "German Precision", glow: "glow-btn-emerald" },
+              { count: "8+ Yrs", label: "Experience", glow: "glow-btn-blue" }
             ].map((item) => (
-              <div className={`rounded-lg ${item.glow} p-1.5 sm:p-2 text-center backdrop-blur shadow-sm`} key={item.label}>
-                <p className="font-display text-sm sm:text-base font-bold leading-tight">{item.count}</p>
-                <p className="text-[9px] sm:text-[10px] font-medium opacity-85 leading-tight">{item.label}</p>
+              <div className={`rounded-xl ${item.glow} p-3 sm:p-3.5 text-left backdrop-blur-md shadow-lg border border-white/15 transition-all hover:scale-105 flex flex-col justify-center min-w-0`} key={item.label}>
+                <p className="font-display text-lg sm:text-xl font-extrabold leading-tight text-white">{item.count}</p>
+                <p className="text-[10px] sm:text-xs font-semibold opacity-90 leading-tight mt-1 truncate">{item.label}</p>
               </div>
             ))}
           </div>

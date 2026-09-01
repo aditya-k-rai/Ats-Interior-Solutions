@@ -223,16 +223,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <JsonLd data={localBusiness} />
         <JsonLd data={speakableSchema} />
 
-        {/* Global Main Header - High Trust Midnight Sapphire Navy */}
-        <header className="sticky top-0 z-50 border-b border-amber-500/20 bg-navy-950/95 text-white shadow-xl backdrop-blur-md">
-          <nav className="section-shell flex min-h-[60px] sm:min-h-[64px] items-center justify-between gap-3 py-2">
+        {/* Global Main Header - Transparent Overlay Luxury Navbar */}
+        <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-navy-950/20 backdrop-blur-md text-white transition-all duration-300 shadow-sm">
+          <nav className="section-shell flex min-h-[64px] sm:min-h-[72px] items-center justify-between gap-3 py-2">
             <Link className="group flex items-center gap-3" href="/">
-              <div className="relative h-11 w-36 sm:w-44 flex items-center justify-start transition group-hover:scale-105">
+              <div className="relative h-[55px] w-[180px] sm:w-[220px] flex items-center justify-start transition group-hover:scale-105">
                 <Image
                   src="/images/logo.png"
                   alt="ATS Interior Solutions Logo"
-                  width={180}
-                  height={50}
+                  width={225}
+                  height={63}
                   priority
                   className="h-full w-auto object-contain"
                 />

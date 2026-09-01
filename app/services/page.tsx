@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CompleteSolutions } from "@/components/CompleteSolutions";
 import { JsonLd } from "@/components/JsonLd";
 import { services, site } from "@/data/site";
 
@@ -83,6 +84,9 @@ export default function ServicesPage() {
           })}
         </div>
       </section>
+
+      {/* Complete Solutions Section */}
+      <CompleteSolutions />
     </main>
   );
 }

@@ -21,21 +21,26 @@ import {
 export const site = {
   name: "ATS Interior Solutions",
   url: "https://atsinteriorsolution.com",
-  phone: "+91 98737 57487",
-  phoneRaw: "09873757487",
-  email: "atsinteriorsolution@gmail.com",
-  whatsapp: "919873757487",
-  address: "1st Floor, Site-4, Ecotech 1, Plot-49, Sector 31, Nilkamal Nara, Greater Noida, Uttar Pradesh 201308",
-  streetAddress: "1st Floor, Site-4, Ecotech 1, Plot-49, Sector 31, Nilkamal Nara",
+  slogan: "Elegance in Every Corner",
+  phone: "+91 8448774055",
+  phoneAlt: "+91 98737 57487",
+  phoneRaw: "08448774055",
+  email: "info@atsinteriorsolution.com",
+  emailAlt: "atsinteriorsolution@gmail.com",
+  whatsapp: "918448774055",
+  address: "Plot No. 49, 1st Floor, Sector-31, Site IV, Greater Noida, Uttar Pradesh 201308",
+  streetAddress: "Plot No. 49, 1st Floor, Sector-31, Site IV",
   city: "Greater Noida",
   state: "Uttar Pradesh",
   pincode: "201308",
   gstin: "09AXHPK0269P1ZV",
   established: "2018",
+  experienceYears: "8+",
+  satisfiedClients: "4500+",
   founder: "Manoj Pal (Founder & Managing Director)",
   founderName: "Manoj Pal",
   memberships: ["CREDAI NCR Partner", "ASSOCHAM Member", "Indian Institute of Interior Designers (IIID)"],
-  tagline: "Premium interior design, custom modular kitchens, wardrobes and house construction across Greater Noida, Noida, Ghaziabad and Delhi NCR.",
+  tagline: "Elegance in Every Corner — Minimal, interior-inspired design, custom modular kitchens, wardrobes, civil construction and Vastu-compliant spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR.",
   geo: {
     latitude: 28.4549694,
     longitude: 77.5365544
@@ -65,6 +70,44 @@ export const site = {
     "https://magicpin.in/Greater-Noida/Ithums-Galleria/Lifestyle/Ats-Interior-Solution/store/1a49a09"
   ]
 };
+
+export const expertTeam = [
+  {
+    name: "Mr. Manoj Pal",
+    role: "Founder & Managing Director",
+    credentials: "Visionary Leader",
+    experience: "8+ Years",
+    bio: "Pioneered ATS Interior Solutions with a focus on precision, transparency, and high-quality infrastructure and interior execution across Delhi NCR."
+  },
+  {
+    name: "Mr. Krishan Pal",
+    role: "Head of Operations",
+    credentials: "MBA in Operations & Marketing",
+    experience: "16+ Years",
+    bio: "Extensive background in project planning, supply chain, and seamless site execution across residential and commercial developments."
+  },
+  {
+    name: "Ar. Nishchay Channana",
+    role: "Lead Architect",
+    credentials: "Qualified Architect",
+    experience: "5 Years",
+    bio: "Specializes in 3D spatial planning, modern architectural aesthetics, structural layouts, and Vastu-compliant residential designs."
+  },
+  {
+    name: "Mr. Mohit Kumar",
+    role: "Interior Designer",
+    credentials: "Senior Interior Designer",
+    experience: "5+ Years",
+    bio: "Focuses on modern trend integration, custom modular joinery, PU lacquer finishes, and ergonomic space optimization."
+  },
+  {
+    name: "On-Site Execution Force",
+    role: "Construction & Carpentry Team",
+    credentials: "15 Skilled Carpenters & 3 Site Supervisors",
+    experience: "Dedicated Field Staff",
+    bio: "Equipped with advanced German technology at our state-of-the-art manufacturing facility to deliver millimetre precision."
+  }
+];
 
 export const businessTypes = [
   "Interior Designer",
@@ -374,6 +417,27 @@ export const realWorkGallery = [
 
 export const testimonials = [
   {
+    name: "Rahul Sharma",
+    city: "Greater Noida",
+    project: "SDS NRI City — Full Interior & Modular Kitchen",
+    rating: 5,
+    quote: "ATS turned our vision into reality. Their professionalism and quality exceeded our expectations."
+  },
+  {
+    name: "Neha & Arjun Mehta",
+    city: "Greater Noida",
+    project: "Purvanchal Heights — Modern Kitchen & Interiors",
+    rating: 5,
+    quote: "The interiors are stunning and practical. ATS combined creativity with functionality perfectly."
+  },
+  {
+    name: "Sanjay Gupta",
+    city: "Delhi NCR",
+    project: "Individual Villa — Luxury Vastu-Compliant Home",
+    rating: 5,
+    quote: "Attention to detail, timely delivery, and Vastu compliance made the entire experience outstanding."
+  },
+  {
     name: "Ritika Sharma",
     city: "Noida",
     project: "3 BHK Interior (Sector 137)",
@@ -386,37 +450,59 @@ export const testimonials = [
     project: "Modular Kitchen (Gaur City)",
     rating: 5,
     quote: "The ATS team fixed our storage and counter-space issues. The modular kitchen is easy to maintain, and the finish quality is top notch."
-  },
-  {
-    name: "Neha & Vikram Arora",
-    city: "Ghaziabad",
-    project: "Wardrobe & Bedroom (Indirapuram)",
-    rating: 5,
-    quote: "They gave practical suggestions instead of pushing expensive add-ons. The sliding wardrobes were completed neatly and right on schedule."
-  },
-  {
-    name: "Sanjay Gupta",
-    city: "Delhi NCR",
-    project: "POP Ceiling & Lighting (Dwarka)",
-    rating: 5,
-    quote: "Flawless execution on the false ceiling. The cove lighting gives a five-star hotel vibe to our living room."
   }
 ];
 
 export const trustMetrics = [
-  { label: "Projects Completed", value: "130+", icon: BadgeCheck },
-  { label: "Active Live Sites", value: "6 Live", icon: Sparkles },
-  { label: "Happy Families", value: "200+", icon: Star },
-  { label: "After-service Warranty", value: "1 yr", icon: ShieldCheck }
+  { label: "Satisfied Clients", value: "4500+", icon: BadgeCheck },
+  { label: "Years Experience", value: "8+ Yrs", icon: Clock3 },
+  { label: "Active Skilled Carpenters", value: "15 Force", icon: Sparkles },
+  { label: "German Tech Factory", value: "100% In-House", icon: ShieldCheck }
 ];
 
-export const process = [
-  { title: "Free Consultation", copy: "Understand scope, property layout, budget band and timeline expectations with Manoj Pal & design team." },
-  { title: "Design Brief & 3D Concept", copy: "Finalize room layouts, 3D visual renders and detailed material selections." },
-  { title: "Transparent Quotation", copy: "Detailed itemized breakdown with board grades, hardware and finish clarity." },
-  { title: "Factory & Site Execution", copy: "Precision factory modular production paired with supervised site execution by Site Engineers." },
-  { title: "Handover & Warranty", copy: "Final snag list closure, thorough cleaning, formal handover and 1-year warranty tag." }
+export const processStepsData = [
+  {
+    id: 1,
+    number: "01",
+    title: "Consultation",
+    subtitle: "Understanding Requirements & Vision",
+    description: "In-depth consultation to understand requirements, lifestyle, budget, and vision. We conduct precise on-site measurements and analyze space potential.",
+    highlights: ["Free On-Site Measurement", "Lifestyle & Budget Mapping", "Vastu Preference Evaluation"],
+    deliverables: "Initial Requirement Scope & Budget Estimation"
+  },
+  {
+    id: 2,
+    number: "02",
+    title: "Concept & Design",
+    subtitle: "Creative Layouts & 3D Visualizations",
+    description: "Creative concepts with detailed layouts incorporating functionality and aesthetics. Includes high-definition 3D renders, material mood boards, and finish samples.",
+    highlights: ["Photo-realistic 3D Renders", "IS 710 & HDMR Material Samples", "Space & Lighting Layouts"],
+    deliverables: "Approved 3D Renders & Itemized Cost Sheet"
+  },
+  {
+    id: 3,
+    number: "03",
+    title: "Execution",
+    subtitle: "German Tech Factory & On-Site Precision",
+    description: "Skilled workforce brings plans to life with quality checks and timeline management. Modular joinery is crafted in our German-tech factory with site engineer supervision.",
+    highlights: ["15 Skilled Carpenters & 3 Supervisors", "German Technology Manufacturing", "Milestone WhatsApp Photo Updates"],
+    deliverables: "Precision Factory Production & Civil Assembly"
+  },
+  {
+    id: 4,
+    number: "04",
+    title: "Handover",
+    subtitle: "Thorough Inspections & Warranty Tag",
+    description: "Thorough inspections ensure quality standards before complete project delivery. Final snag list resolution, deep cleaning, and formal 1-year warranty card handover.",
+    highlights: ["100-Point Quality Inspection", "Deep Site Cleaning & Polishing", "1-Year Warranty Card Issued"],
+    deliverables: "Ready-to-Move Home & Formal Snag Closing"
+  }
 ];
+
+export const process = processStepsData.map((step) => ({
+  title: step.title,
+  copy: step.description
+}));
 
 export const faqs = [
   {

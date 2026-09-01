@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { BadgeCheck, CheckCircle2, ShieldCheck, Sparkles, UserCheck } from "lucide-react";
+import { UserCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { CoreValues } from "@/components/CoreValues";
+import { ExpertTeam } from "@/components/ExpertTeam";
+import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { site, trustMetrics } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "About ATS Interior Solutions | Founder Manoj Pal & Team",
-  description: "Learn about ATS Interior Solutions founded by Mr. Manoj Pal in 2018 in Noida & Greater Noida. Contact: +91 98737 57487."
+  description: "Learn about ATS Interior Solutions founded by Mr. Manoj Pal in 2018 in Noida & Greater Noida. Contact: +91 8448774055."
 };
 
 export default function AboutPage() {
@@ -15,10 +18,10 @@ export default function AboutPage() {
       <section className="bg-navy-950 text-white py-16 relative overflow-hidden">
         <div className="absolute top-0 right-0 size-80 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
         <div className="section-shell relative z-10">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400">E-E-A-T Leadership & Verification</p>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-400">Leadership & Team Excellence</p>
           <h1 className="mt-2 font-display text-4xl sm:text-6xl">About ATS Interior Solutions</h1>
           <p className="mt-4 max-w-2xl text-sm leading-6 text-white/80">
-            Founded in 2018 by Mr. Manoj Pal, ATS Interior Solutions is a leading local interior design, custom modular kitchen, and house execution company operating across Greater Noida, Noida, Ghaziabad and Delhi NCR.
+            Founded in 2018 by Mr. Manoj Pal, ATS Interior Solutions brings over 8 years of expertise in infrastructure development, turnkey residential interior design, custom modular joinery, and civil construction across Greater Noida, Noida, Ghaziabad and Delhi NCR.
           </p>
         </div>
       </section>
@@ -49,10 +52,10 @@ export default function AboutPage() {
             </div>
             <h2 className="font-display text-3xl text-navy-950">Our Founding Story & Execution Promise</h2>
             <p className="mt-4 text-sm leading-7 text-slate-600">
-              ATS Interior Solutions was established by Mr. Manoj Pal with a clear mission: to eliminate delays, cost escalations, and material compromises in home interior execution.
+              ATS Interior Solutions was established by Mr. Manoj Pal with a clear mission: to deliver minimal, interior-inspired design defined by clean lines, soft neutrals, and balanced spaces without delays, cost escalations, or material compromises.
             </p>
             <p className="mt-4 text-sm leading-7 text-slate-600">
-              By combining in-house 3D design planning, factory modular production, and dedicated site engineer supervision (led by Site Engineer Utkarsh), we deliver projects that match approved 3D renders with exact material specifications.
+              Beyond aesthetics, our expertise extends to full infrastructure development, civil construction, architectural services, and consulting — all integrated with optional Vastu-compliant planning for positive spatial energy.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -69,12 +72,21 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Why Choose Us Section */}
+      <WhyChooseUs />
+
+      {/* Core Values Section */}
+      <CoreValues />
+
+      {/* Expert Team Showcase */}
+      <ExpertTeam />
+
       {/* Team & Cabin Visual Showcase */}
-      <section className="py-12 bg-white border-y border-navy-900/10">
+      <section className="py-12 bg-porcelain">
         <div className="section-shell">
           <div className="mb-8 max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-amber-600">On-Site Real Proof</p>
-            <h2 className="mt-2 font-display text-3xl sm:text-4xl text-navy-950">Design Discussions & Execution Team</h2>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl text-navy-950">Design Discussions & Execution Studio</h2>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               Mr. Manoj Pal personally oversees architectural discussions and site progress across Noida, Greater Noida, and Delhi NCR.
             </p>
@@ -90,7 +102,7 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent p-5 flex flex-col justify-end text-white">
                 <p className="font-display text-xl font-bold">Design & Architecture Discussion</p>
-                <p className="text-xs text-white/80 mt-1">Reviewing 3D floor plans with Senior Architect</p>
+                <p className="text-xs text-white/80 mt-1">Reviewing 3D floor plans with Senior Architect Ar. Nishchay Channana</p>
               </div>
             </div>
 
@@ -111,17 +123,17 @@ export default function AboutPage() {
       </section>
 
       {/* Trust Metrics */}
-      <section className="py-12">
+      <section className="py-12 bg-white border-t border-navy-900/10">
         <div className="section-shell grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {trustMetrics.map((metric) => {
             const Icon = metric.icon;
             return (
-              <div className="flex items-center gap-4 rounded-xl border border-navy-900/10 bg-white p-5 shadow-sm" key={metric.label}>
+              <div className="flex items-center gap-4 rounded-xl border border-navy-900/10 bg-porcelain p-5 shadow-sm" key={metric.label}>
                 <div className="grid size-12 place-items-center rounded-lg gradient-btn-gold font-bold text-navy-950 shadow-md">
                   <Icon size={22} />
                 </div>
                 <div>
-                  <p className="font-display text-3xl text-navy-950">{metric.value}</p>
+                  <p className="font-display text-3xl text-navy-950 font-bold">{metric.value}</p>
                   <p className="text-xs font-semibold text-slate-600">{metric.label}</p>
                 </div>
               </div>

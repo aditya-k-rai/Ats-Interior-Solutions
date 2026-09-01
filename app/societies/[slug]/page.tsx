@@ -113,8 +113,8 @@ export default async function SocietyDetailPage({ params }: Props) {
       <section className="hero-image min-h-[75vh] text-white relative flex items-center">
         <div className="section-shell grid min-h-[75vh] items-end gap-8 pb-12 pt-28 lg:grid-cols-[1.1fr_420px] relative z-10">
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-amber-500/30 text-amber-300 shadow-sm">
-              <Sparkles size={14} className="text-amber-400 animate-pulse" />
+            <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full bg-navy-950/85 sm:bg-navy-950/80 px-3.5 sm:px-4 py-1.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider sm:tracking-[0.15em] backdrop-blur-md border border-amber-400/80 text-amber-300 shadow-[0_2px_12px_rgba(0,0,0,0.4),0_0_12px_rgba(245,158,11,0.25)]">
+              <Sparkles size={14} className="text-amber-400 shrink-0 animate-spin" />
               <span>{society.sector} • {society.city}</span>
             </div>
 

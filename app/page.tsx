@@ -3,8 +3,14 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, MapPin, MessageCircle, Phone, Play, ShieldCheck, Sparkles, Star, UserCheck } from "lucide-react";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { BudgetEstimator } from "@/components/BudgetEstimator";
+import { ClientTestimonials } from "@/components/ClientTestimonials";
+import { CompleteSolutions } from "@/components/CompleteSolutions";
+import { CoreValues } from "@/components/CoreValues";
+import { ExpertTeam } from "@/components/ExpertTeam";
 import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
+import { WhyChooseUs } from "@/components/WhyChooseUs";
+import { WorkProcess } from "@/components/WorkProcess";
 import { blogPosts, cities, faqs, materialComparisons, process, projects, realWorkGallery, services, site, trustMetrics, usp, whatsappHref } from "@/data/site";
 
 export default function HomePage() {
@@ -80,8 +86,8 @@ export default function HomePage() {
       <section className="hero-image min-h-[85vh] sm:min-h-[88vh] text-white relative flex items-center">
         <div className="section-shell grid min-h-[85vh] sm:min-h-[88vh] items-center gap-8 py-16 lg:py-20 lg:grid-cols-[1.1fr_0.9fr] relative z-10">
           <div className="max-w-3xl">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] backdrop-blur border border-amber-500/30 text-amber-300 shadow-sm animate-pulse">
-              <Sparkles size={14} className="text-amber-400 animate-spin" />
+            <div className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full bg-navy-950/85 sm:bg-navy-950/80 px-3.5 sm:px-4 py-1.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider sm:tracking-[0.15em] backdrop-blur-md border border-amber-400/80 text-amber-300 shadow-[0_2px_12px_rgba(0,0,0,0.4),0_0_12px_rgba(245,158,11,0.25)]">
+              <Sparkles size={14} className="text-amber-400 shrink-0 animate-spin" />
               <span>Greater Noida • Noida • Ghaziabad • Delhi NCR</span>
             </div>
             <h1 className="text-balance font-display text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
@@ -207,6 +213,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Complete Solutions Section */}
+      <CompleteSolutions id="solutions" />
 
       {/* Real Completed Work Projects */}
       <section className="bg-slate-100/70 py-16 sm:py-20 border-y border-navy-950/10" id="work">
@@ -340,75 +349,7 @@ export default function HomePage() {
       </section>
 
       {/* Process Section */}
-      <section className="bg-slate-100/70 py-16 sm:py-20 border-t border-navy-950/10">
-        <div className="section-shell">
-          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] items-start">
-            <div className="flex flex-col justify-between h-full">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 bg-white px-3 py-1 rounded-full border border-amber-200">
-                  5-Step Process
-                </span>
-                <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-navy-950">A clear path from brief to handover</h2>
-                <p className="mt-4 text-sm leading-7 text-slate-600">
-                  Transparent execution schedule ensures zero surprises, on-time delivery, and clean site closure under site engineer supervision.
-                </p>
-              </div>
-
-              {/* High-Trust Site Supervision Card to Fill Blank Space */}
-              <div className="mt-6 rounded-2xl bg-white p-5 sm:p-6 shadow-soft border border-amber-500/30 relative overflow-hidden group">
-                <div className="relative h-48 w-full overflow-hidden rounded-xl bg-navy-950 mb-4">
-                  <Image
-                    src="/images/team-discussion.jpg"
-                    alt="ATS Site Engineer Supervision & Planning"
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/20 to-transparent" />
-                  <span className="absolute bottom-3 left-3 rounded-lg gradient-btn-gold px-3 py-1 text-[11px] font-extrabold text-navy-950 shadow">
-                    Direct Site Engineer Supervision
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-3 gap-2 text-center">
-                  <div className="rounded-xl bg-porcelain p-2.5 border border-navy-950/5">
-                    <p className="text-[10px] font-extrabold text-amber-700 uppercase tracking-wider">Timeline</p>
-                    <p className="text-xs font-bold text-navy-950 mt-0.5">Zero Delay</p>
-                  </div>
-                  <div className="rounded-xl bg-porcelain p-2.5 border border-navy-950/5">
-                    <p className="text-[10px] font-extrabold text-amber-700 uppercase tracking-wider">Precision</p>
-                    <p className="text-xs font-bold text-navy-950 mt-0.5">German CNC</p>
-                  </div>
-                  <div className="rounded-xl bg-porcelain p-2.5 border border-navy-950/5">
-                    <p className="text-[10px] font-extrabold text-amber-700 uppercase tracking-wider">Coverage</p>
-                    <p className="text-xs font-bold text-navy-950 mt-0.5">1-Yr Warranty</p>
-                  </div>
-                </div>
-
-                <a
-                  className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-xl gradient-btn-gold py-3 text-xs font-extrabold text-navy-950 shadow-gold transition hover:scale-[1.02] active:scale-95 cursor-pointer"
-                  href={whatsappHref("I want to schedule a professional consultation with the ATS Design Team.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Phone size={15} /> Schedule Professional Consultation
-                </a>
-              </div>
-            </div>
-
-            <div className="grid gap-3.5">
-              {process.map((step, index) => (
-                <div className="grid grid-cols-[48px_1fr] sm:grid-cols-[56px_1fr] gap-4 rounded-2xl bg-white p-5 shadow-soft border border-navy-950/5 items-center" key={step.title}>
-                  <div className="grid size-12 sm:size-14 place-items-center rounded-xl gradient-btn-gold font-extrabold text-navy-950 font-display text-xl shadow-md">{index + 1}</div>
-                  <div>
-                    <h3 className="font-display text-xl sm:text-2xl font-bold text-navy-950">{step.title}</h3>
-                    <p className="mt-1 text-xs sm:text-sm leading-6 text-slate-600">{step.copy}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <WorkProcess id="process" />
 
       {/* Cost Estimator */}
       <section className="py-16 sm:py-20" id="cost">
@@ -416,6 +357,18 @@ export default function HomePage() {
           <BudgetEstimator />
         </div>
       </section>
+
+      {/* Core Values Section */}
+      <CoreValues id="core-values" />
+
+      {/* Why Choose Us Section */}
+      <WhyChooseUs id="why-choose-us" />
+
+      {/* Our Expert Team Section */}
+      <ExpertTeam id="team" />
+
+      {/* Customer Testimonials Section */}
+      <ClientTestimonials id="testimonials" />
 
       {/* Cities We Serve */}
       <section className="bg-white py-16 sm:py-20 border-t border-navy-950/10">

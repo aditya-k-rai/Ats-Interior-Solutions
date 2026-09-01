@@ -96,17 +96,17 @@ export default function HomePage() {
         <div className="absolute bottom-10 right-10 size-[500px] rounded-full bg-navy-800/45 blur-[160px] pointer-events-none" />
 
         <div className="section-shell w-full max-w-6xl mx-auto flex flex-col items-start justify-center text-left relative z-10">
-          <div className="mb-4 sm:mb-5 inline-flex max-w-full items-center gap-2.5 rounded-full bg-navy-950/85 sm:bg-navy-950/80 px-4 sm:px-5 py-2 text-xs sm:text-sm font-extrabold uppercase tracking-wider sm:tracking-[0.18em] backdrop-blur-md border border-amber-400/80 text-amber-300 shadow-[0_2px_12px_rgba(0,0,0,0.4),0_0_12px_rgba(245,158,11,0.25)]">
-            <Sparkles size={16} className="text-amber-400 shrink-0 animate-spin" />
+          <div className="mb-3 sm:mb-4 inline-flex max-w-full items-center gap-1.5 rounded-full bg-navy-950/85 sm:bg-navy-950/80 px-2.5 sm:px-3 py-1 text-[9px] sm:text-[11px] font-bold uppercase tracking-wider backdrop-blur-md border border-amber-400/80 text-amber-300 shadow-sm">
+            <Sparkles size={12} className="text-amber-400 shrink-0 animate-spin" />
             <span>Greater Noida • Noida • Ghaziabad • Delhi NCR</span>
           </div>
 
-          <h1 className="text-balance font-display text-[44px] sm:text-[55px] md:text-[69px] lg:text-[83px] xl:text-[88px] font-bold leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] w-full max-w-5xl text-left">
+          <h1 className="text-balance font-display text-[33px] sm:text-[41px] md:text-[52px] lg:text-[62px] xl:text-[66px] font-bold leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] w-full max-w-5xl text-left">
             Discover the Best Interior Designers in Greater Noida West for Your Noida Home
           </h1>
 
-          <p className="mt-4 sm:mt-5 max-w-3xl text-lg sm:text-xl md:text-2xl leading-relaxed text-slate-100 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-left">
-            Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — led by Founder Manoj Pal & site team.
+          <p className="mt-3.5 sm:mt-4 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed text-slate-100 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-left">
+            Premium home interiors, modular kitchens, wardrobes, false ceilings and office spaces across Greater Noida, Noida, Ghaziabad and Delhi NCR — led by Founder Manoj Pal & team.
           </p>
 
           <div className="mt-5 sm:mt-8 flex flex-row items-center justify-start gap-2.5 w-full sm:w-auto">

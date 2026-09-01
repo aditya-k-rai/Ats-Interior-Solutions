@@ -6,7 +6,10 @@ import { processStepsData } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "4-Step Interior Design & Execution Process | ATS Interior Solutions",
-  description: "Learn about ATS Interior Solutions' transparent 4-step process from Consultation, Concept & Design, Factory Execution to Final Handover with 1-year warranty."
+  description: "Learn about ATS Interior Solutions' transparent 4-step process from Consultation, Concept & Design, Factory Execution to Final Handover with 1-year warranty.",
+  alternates: {
+    canonical: "/process"
+  }
 };
 
 export default function ProcessPage() {

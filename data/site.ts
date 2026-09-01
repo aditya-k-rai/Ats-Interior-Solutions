@@ -507,37 +507,61 @@ export const process = processStepsData.map((step) => ({
 export const faqs = [
   {
     q: "How much does a 3 BHK interior cost in Noida or Greater Noida?",
-    a: "A 3 BHK interior in Noida or Greater Noida typically costs Rs. 8 Lakhs to Rs. 14 Lakhs for standard essentials (modular kitchen, wardrobes, false ceiling, basic decor). Premium projects range between Rs. 15 Lakhs and Rs. 25 Lakhs+."
+    a: "A 3 BHK interior in Noida or Greater Noida typically costs Rs. 8 Lakhs to Rs. 14 Lakhs for standard essentials (modular kitchen, wardrobes, false ceiling, basic decor). Premium architectural projects range between Rs. 15 Lakhs and Rs. 25 Lakhs+."
   },
   {
-    q: "What is the contact number and email for ATS Interior Solutions?",
-    a: "You can reach ATS Interior Solutions directly at +91 98737 57487 or via email at atsinteriorsolution@gmail.com for instant consultation and site measurement."
+    q: "What is the contact number and official email for ATS Interior Solutions?",
+    a: "You can reach ATS Interior Solutions directly at +91 8448774055 (or +91 98737 57487) and via email at info@atsinteriorsolution.com for instant on-site consultation and measurement."
   },
   {
-    q: "Who is the founder of ATS Interior Solutions?",
-    a: "ATS Interior Solutions is founded and led by Mr. Manoj Pal (Founder & Managing Director), supported by Senior Architect & Site Engineer Utkarsh."
+    q: "Who leads the team at ATS Interior Solutions?",
+    a: "ATS Interior Solutions is led by Founder & Managing Director Mr. Manoj Pal, Head of Operations Mr. Krishan Pal (MBA, 16+ yrs exp), Lead Architect Ar. Nishchay Channana (Qualified B.Arch), Senior Designer Mr. Mohit Kumar, and 15 skilled carpenters supported by 3 site supervisors."
   },
   {
-    q: "What is the cost of a modular kitchen in Noida?",
-    a: "A modular kitchen in Noida costs between Rs. 1.5 Lakhs and Rs. 4.5 Lakhs for standard L-shape or U-shape layouts using HDMR or BWP Plywood with Laminate/Acrylic shutters."
+    q: "Does ATS Interior Solutions offer Vastu-compliant interior design and construction?",
+    a: "Yes! We offer complete Vastu-compliant spatial planning and construction based on client preferences, optimizing main entrance orientation, Pooja room placement, kitchen water/fire element alignment, and master bedroom positioning."
   },
   {
-    q: "Which areas in NCR does ATS Interior Solutions cover?",
-    a: "We serve Greater Noida (Pari Chowk, Gaur City, Jaypee Greens), Noida (Sector 18, 50, 62, 77, 137, Expressway), Ghaziabad (Indirapuram, Vaishali, Raj Nagar Ext), and Delhi NCR (Dwarka, Saket, Hauz Khas)."
+    q: "What materials are used for modular kitchens and wardrobes?",
+    a: "We use 100% IS 710 Boiling Water Proof (BWP) Marine Plywood for wet kitchen sink zones, Action Tesa HDHMR (850 kg/m³) for bedroom storage, Blum/Häfele/Hettich soft-close hardware, 2.0mm high-gloss Acrylic, and Dekton sintered porcelain countertops."
+  },
+  {
+    q: "Does ATS Interior Solutions have an in-house manufacturing factory?",
+    a: "Yes! We operate a state-of-the-art manufacturing facility equipped with advanced German technology, ensuring millimetre CNC precision, zero vendor delays, and 100% in-house quality control."
+  },
+  {
+    q: "How long does home interior execution take?",
+    a: "Standard modular kitchen and wardrobe projects take 3 to 5 weeks. Turnkey 3BHK/4BHK home interiors take 6 to 12 weeks, managed under strict milestone schedules with weekly WhatsApp photo updates."
+  },
+  {
+    q: "What warranty and after-sales service is provided?",
+    a: "Every project comes with a formal 1-year warranty card covering joinery, hardware alignment, and manufacturing defects, backed by a dedicated after-sales support team."
+  },
+  {
+    q: "Can I view photo-realistic 3D renders before starting site work?",
+    a: "Yes! Stage 2 of our working process includes detailed 3D floor plan renders, material mood boards, and finish samples so you approve exact visual aesthetics before site execution."
+  },
+  {
+    q: "What are the 4 stages of the ATS Working Process?",
+    a: "Our process follows 4 clear phases: 1. Consultation (requirements & measurement), 2. Concept & Design (3D renders & quote), 3. Execution (German factory build & site assembly), and 4. Handover (100-point inspection & warranty card)."
+  },
+  {
+    q: "Which areas in Delhi NCR does ATS Interior Solutions cover?",
+    a: "We provide hyperlocal services across Greater Noida (Pari Chowk, Gaur City, Jaypee Greens, Omega), Noida (Sector 18, 50, 62, 77, 137, Expressway), Ghaziabad (Indirapuram, Vaishali, Raj Nagar Ext), and Delhi NCR (Dwarka, Saket, Vasant Kunj)."
   },
 
-  // --- HINDI VOICE SEARCH FAQS ---
+  // --- HINDI VOICE SEARCH & AEO FAQS ---
   {
     q: "[Hindi] ATS Interior Solutions ka phone number aur email id kya hai?",
-    a: "ATS Interior Solutions ka official contact number +91 98737 57487 aur email id atsinteriorsolution@gmail.com hai. Aap direct WhatsApp par bhi baat kar sakte hain."
+    a: "ATS Interior Solutions ka official contact number +91 8448774055 (ya +91 98737 57487) aur email id info@atsinteriorsolution.com hai. Aap direct WhatsApp par bhi baat kar sakte hain."
   },
   {
     q: "[Hindi] Noida mein 3 BHK interior ka kharcha kitna hota hai?",
-    a: "Noida mein 3 BHK flat ke interior ka kharcha lagbhag Rs. 8 Lakh se Rs. 14 Lakh tak aata hai basic modular kitchen, wardrobes, aur false ceiling ke saath."
+    a: "Noida aur Greater Noida mein 3 BHK flat ke interior ka kharcha lagbhag Rs. 8 Lakh se Rs. 14 Lakh tak aata hai basic modular kitchen, wardrobes, aur false ceiling ke saath."
   },
   {
     q: "[Hindi] Greater Noida mein sabse accha interior designer kaun hai?",
-    a: "ATS Interior Solutions (Founder Mr. Manoj Pal) Greater Noida aur Noida mein high-quality modular kitchen aur full home interior design ke liye ek bharosemand naam hai."
+    a: "ATS Interior Solutions (Founder Mr. Manoj Pal) Greater Noida, Noida, aur Ghaziabad mein high-quality modular kitchen, Vastu planning, aur full home interior design ke liye sabse bharosemand company hai."
   }
 ];
 
@@ -701,6 +725,8 @@ export function whatsappHref(message?: string) {
 
 export const nav = [
   { href: "/services", label: "Services" },
+  { href: "/process", label: "Process" },
+  { href: "/team", label: "Team" },
   { href: "/locations", label: "Locations" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/cost-calculator", label: "Cost" },

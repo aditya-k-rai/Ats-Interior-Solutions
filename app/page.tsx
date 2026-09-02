@@ -15,6 +15,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { LeadForm } from "@/components/LeadForm";
 import { QuoteModal } from "@/components/QuoteModal";
 import { TrueFocusProcess } from "@/components/TrueFocusProcess";
+import { VastuSection } from "@/components/VastuSection";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { WorkProcess } from "@/components/WorkProcess";
 import { blogPosts, cities, faqs, materialComparisons, process, projects, realWorkGallery, services, site, trustMetrics, usp, whatsappHref } from "@/data/site";
@@ -256,10 +257,7 @@ export default function HomePage() {
         <div className="section-shell">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-amber-700 bg-amber-100 px-3.5 py-1.5 rounded-full border border-amber-300 shadow-sm">
-                4 Core Categories • 24 Subcategories
-              </span>
-              <h2 className="mt-3 font-display text-3xl sm:text-5xl font-bold text-navy-950">Built for every stage of your space</h2>
+              <h2 className="font-display text-3xl sm:text-5xl font-bold text-navy-950">Built for every stage of your space</h2>
             </div>
             <Link className="inline-flex items-center gap-2 font-bold text-navy-800 hover:text-amber-600 transition text-sm group" href="/services">
               <span>View all services</span> <ArrowRight size={18} className="transition group-hover:translate-x-1" />
@@ -358,7 +356,6 @@ export default function HomePage() {
                       rel="noopener noreferrer"
                       className="flex-1 inline-flex items-center justify-center gap-1 rounded-xl glow-btn-purple px-2 py-2.5 text-[10.5px] min-[400px]:text-xs font-bold text-white shadow-md transition-all duration-300 hover:scale-105 active:scale-95 whitespace-nowrap"
                     >
-                      <MessageCircle size={12} className="text-purple-300 shrink-0" />
                       <span>Get Quote</span>
                     </a>
                   </div>
@@ -518,6 +515,9 @@ export default function HomePage() {
 
       {/* Why Choose Us Section */}
       <WhyChooseUs id="why-choose-us" />
+
+      {/* Vastu Shastra Compliance Section */}
+      <VastuSection id="vastu" />
 
       {/* Our Expert Team Section */}
       <ExpertTeam id="team" />

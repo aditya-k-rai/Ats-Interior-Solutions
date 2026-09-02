@@ -36,7 +36,7 @@ export const site = {
   gstin: "09AXHPK0269P1ZV",
   established: "2018",
   experienceYears: "8+",
-  satisfiedClients: "4500+",
+  satisfiedClients: "450+",
   founder: "Manoj Pal (Founder & Managing Director)",
   founderName: "Manoj Pal",
   memberships: ["CREDAI NCR Partner", "ASSOCHAM Member", "Indian Institute of Interior Designers (IIID)"],

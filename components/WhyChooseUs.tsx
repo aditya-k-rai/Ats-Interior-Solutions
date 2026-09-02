@@ -137,7 +137,7 @@ export function WhyChooseUs({ id = "why-choose-us", className = "", showTitle = 
               <BadgeCheck size={24} />
             </div>
             <div>
-              <p className="font-display text-2xl font-bold text-white">4500+</p>
+              <p className="font-display text-2xl font-bold text-white">450+</p>
               <p className="text-xs text-white/80 font-medium">Satisfied NCR Clients</p>
             </div>
           </div>

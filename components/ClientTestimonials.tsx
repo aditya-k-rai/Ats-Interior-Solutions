@@ -53,7 +53,7 @@ export function ClientTestimonials({ id = "testimonials", className = "", showTi
                   : "bg-white text-slate-700 border-slate-200 hover:border-amber-300 hover:bg-amber-50/50"
               }`}
             >
-              {city === "All" ? "All Locations (4500+ Happy Clients)" : city}
+              {city === "All" ? "All Locations (450+ Happy Clients)" : city}
             </button>
           ))}
         </div>

@@ -21,7 +21,7 @@ export default function TestimonialsPage() {
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: "4.9",
-            reviewCount: "4500"
+            reviewCount: "450"
           },
           review: testimonials.map((item) => ({
             "@type": "Review",

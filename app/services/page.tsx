@@ -53,9 +53,6 @@ export default function ServicesPage() {
                     <div className="grid size-12 place-items-center rounded-xl bg-navy-950 text-amber-400 font-bold shadow-md">
                       <Icon size={24} />
                     </div>
-                    <span className="rounded-full bg-amber-100 px-3 py-1 text-[11px] font-extrabold text-amber-800 border border-amber-300">
-                      6 Subcategories
-                    </span>
                   </div>
                   <h2 className="font-display text-2xl font-bold text-navy-950">{service.name}</h2>
                   <p className="mt-2 text-sm leading-6 text-slate-600">{service.short}</p>
@@ -85,8 +82,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Complete Solutions Section */}
-      <CompleteSolutions />
     </main>
   );
 }
